@@ -1,0 +1,260 @@
+{
+    "powerSHOT": [
+        {
+            "name": "HoloHair",
+            "slug": "holohair",
+            "short_description": "Turn every entrance into a main-character moment. HoloHair gives your hair shifting holographic colors and hypnotic reflections for up to 8 unforgettable hours.",
+            "marketing_description": "Some people wear a look. Others become one. HoloHair transforms your hair into a living hologram, constantly shifting colors and reflections depending on the light and angle. Perfect for festivals, parties, concerts, conventions, and nights that deserve more than ordinary style. Cameras love it. Friends will ask about it. Strangers will stare. Lasting up to 8 hours, HoloHair is your shortcut to instant visual impact. No commitment. No regrets. Just pure aesthetic chaos.",
+            "price_full": 29.99,
+            "ingredients": ["Keratin Spectral Modifier", "Light-Refractive Melanin Complex", "Cuticle Prismatic Enhancer", "Rainbow Dust Extract", "Holo-Strand Serum"],
+            "power": {
+                "name": "Holographic Hair",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/holohair/main.png",
+            "image_lifestyle": "/images/products/holohair/lifestyle.png",
+            "image_ksp": "/images/products/holohair/ksp.png",
+            "categories": ["physical", "appearance", "style", "powershot", "Friday Night Bundle"]
+        },
+        {
+            "name": "Starlight",
+            "slug": "starlight",
+            "short_description": "Become your own ambient lighting. Starlight surrounds your body with a soft luminous glow for up to 6 hours, perfect for unforgettable nights.",
+            "marketing_description": "Why disappear into the crowd when you can softly light it up? Starlight causes your body to emit a gentle celestial glow visible in darkness without being blinding. Perfect for festivals, late-night adventures, camping trips, underground venues, and questionable life decisions. Whether you're finding your friends in a crowd or becoming the vibe yourself, Starlight adds a touch of magic to any evening. Subtle enough to be stylish. Bright enough to be noticed.",
+            "price_full": 24.99,
+            "ingredients": ["Bioluminescent Protein Activator", "Dermal Photon Emitter", "Melatonin Light Converter", "Stardust Crystal Extract", "Glow Root Essence", "Chaos Shot Box"],
+            "power": {
+                "name": "Night Glow",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/starlight/main.png",
+            "image_lifestyle": "/images/products/starlight/lifestyle.png",
+            "image_ksp": "/images/products/starlight/ksp.png",
+            "categories": ["physical", "appearance", "night", "powershot"]
+        },
+        {
+            "name": "BlueFlame",
+            "slug": "blueflame",
+            "short_description": "Cold hands are canceled. BlueFlame lets you generate a small blue flame from your palms to warm yourself, your drinks, your friends, or your dessert.",
+            "marketing_description": "Winter is officially optional. BlueFlame grants temporary control over a harmless blue flame that can be emitted directly from your hands. Warm cold fingers, heat drinks, toast marshmallows, rescue frozen dates, or become the most interesting person at the bonfire. It's practical, surprisingly useful, and undeniably cool. Lasting several hours, BlueFlame turns ordinary evenings into stories people won't believe the next morning.",
+            "price_full": 34.99,
+            "ingredients": ["Thermogenic Enzyme Activator", "Palmar Circulation Booster", "ATP Combustion Catalyst", "Salamander Root Extract", "Pyrokinetic Palm Serum"],
+            "power": {
+                "name": "Fire from Your Hands",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/blueflame/main.png",
+            "image_lifestyle": "/images/products/blueflame/lifestyle.png",
+            "image_ksp": "/images/products/blueflame/ksp.png",
+            "categories": ["physical", "fire", "temperature", "powershot"]
+        },
+        {
+            "name": "FrostPop",
+            "slug": "frostpop",
+            "short_description": "Bring instant chill wherever you go. FrostPop lets you generate cooling ice from your hands, turning summer survival into an extreme sport.",
+            "marketing_description": "Heatwave? Not your problem. FrostPop allows you to generate refreshing ice directly from your hands for hours of cool comfort. Turn warm drinks into slushies, survive festivals under the summer sun, impress strangers, and become everyone's favorite person at the beach. Whether you're cooling yourself down or upgrading every beverage in sight, FrostPop transforms hot days into opportunities for fun. Stay cool. Literally.",
+            "price_full": 34.99,
+            "ingredients": ["Cryogenic Enzyme Complex", "Endothermic Reaction Catalyst", "Palmar Cooling Factor", "Arctic Crystal Concentrate", "Frost Elemental Serum"],
+            "power": {
+                "name": "Ice from Your Hands",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/frostpop/main.png",
+            "image_lifestyle": "/images/products/frostpop/lifestyle.png",
+            "image_ksp": "/images/products/frostpop/ksp.png",
+            "categories": ["physical", "ice", "temperature", "powershot"]
+        },
+        {
+            "name": "CharmRush",
+            "slug": "charmrush",
+            "short_description": "Say the right thing without even trying. CharmRush helps you instantly match the communication style of almost anyone you meet.",
+            "marketing_description": "Some people just seem naturally easy to talk to. With CharmRush, that's you. For several hours, your brain automatically adapts to the communication style, energy, and social rhythm of the people around you. Conversations flow more naturally. Awkward moments disappear faster. First impressions become easier. Perfect for parties, dates, networking events, social gatherings, and any situation where you'd rather connect than overthink. More chemistry. Less effort.",
+            "price_full": 39.99,
+            "ingredients": ["Oxytocin Secretion Amplifier", "Serotonin Upregulator", "Social Cognition Booster", "Charm Root Concentrate", "Charisma Wave Emitter"],
+            "power": {
+                "name": "Super Likability",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/charmrush/main.png",
+            "image_lifestyle": "/images/products/charmrush/lifestyle.png",
+            "image_ksp": "/images/products/charmrush/ksp.png",
+            "categories": ["psychic", "social", "charisma", "powershot", "Chaos Shot Box"]
+        },
+        {
+            "name": "CritterMode",
+            "slug": "crittermode",
+            "short_description": "Need a different perspective? CritterMode lets you temporarily transform into a tiny animal, including a mouse, pigeon, duckling, or nutria.",
+            "marketing_description": "Have you ever looked at a pigeon and thought, 'that guy knows something'? CritterMode gives you the chance to find out. For a limited time, you can transform into one of several small animals and experience the world from a completely different point of view. Explore places humans can't reach, confuse your friends, avoid responsibilities, or simply embrace chaos. Is it practical? Not really. Is it unforgettable? Absolutely. CritterMode isn't about power. It's about stories.",
+            "price_full": 44.99,
+            "ingredients": ["Cellular Morphology Modifier", "Structural Protein Recombinator", "Body Mass Reduction Complex", "Critter Soul Extract", "Animal Form Catalyst"],
+            "power": {
+                "name": "Small Animal Transformation",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/crittermode/main.png",
+            "image_lifestyle": "/images/products/crittermode/lifestyle.png",
+            "image_ksp": "/images/products/crittermode/ksp.png",
+            "categories": ["physical", "transformation", "fun", "powershot"]
+        },
+        {
+            "name": "LeafMeAlone",
+            "slug": "leafmealone",
+            "short_description": "Plants can hear you. They just don't answer. LeafMeAlone lets you communicate with vegetation for several surprisingly peaceful hours.",
+            "marketing_description": "Ever wanted to share your thoughts with a houseplant? LeafMeAlone makes it possible. For several hours, you'll gain the ability to communicate directly with trees, flowers, shrubs, and every other form of plant life. Unfortunately, they still don't talk back. What they do provide is a strangely calming presence and the comforting feeling that someone is listening. Perfect for nature lovers, overthinkers, and people who need a judgment-free audience. Sometimes the best conversations are one-sided.",
+            "price_full": 19.99,
+            "ingredients": ["Phytochemical Signal Receptor", "Chlorophyll Frequency Enhancer", "Botanical Synapse Opener", "Ancient Root Whisper Extract", "Flora Language Serum"],
+            "power": {
+                "name": "Talk to Plants",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/leafmealone/main.png",
+            "image_lifestyle": "/images/products/leafmealone/lifestyle.png",
+            "image_ksp": "/images/products/leafmealone/ksp.png",
+            "categories": ["psychic", "nature", "communication", "powershot"]
+        },
+        {
+            "name": "ButterMode",
+            "slug": "buttermode",
+            "short_description": "Nothing sticks. Nothing grips. ButterMode makes your skin incredibly slippery, creating hours of ridiculous escapes and questionable life choices.",
+            "marketing_description": "Ever wanted to move through life like a human water slide? Slipstream dramatically reduces friction across your skin, making you absurdly difficult to grab, hold, or restrain. Perfect for obstacle courses, harmless pranks, party tricks, and situations nobody could have reasonably predicted. While not recommended for professional handshakes, ButterMode delivers exactly what PowerSHOT promises: a completely unnecessary power that's way more fun than it should be.",
+            "price_full": 24.99,
+            "ingredients": ["Sebum Hyperproduction Compound", "Dermal Friction Reducer", "Lipid Layer Amplifier", "Eel Skin Extract", "Zero-Grip Molecular Coating"],
+            "power": {
+                "name": "Super Slippery Skin",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/buttermode/main.png",
+            "image_lifestyle": "/images/products/buttermode/lifestyle.png",
+            "image_ksp": "/images/products/buttermode/ksp.png",
+            "categories": ["physical", "skin", "fun", "powershot"]
+        },
+        {
+            "name": "StickySituation",
+            "slug": "stickysituation",
+            "short_description": "Everything becomes slightly more attachable. StickySituation gives your skin temporary adhesive properties perfect for tricks, games, and harmless mischief.",
+            "marketing_description": "Why hold things when things can hold themselves? StickySituation grants temporary adhesive skin, allowing objects to cling to your hands, arms, and body with surprising reliability. No, you can't climb skyscrapers. You're not becoming a superhero. But you can pull off impressive tricks, win weird bets, and spend several hours discovering increasingly creative uses for your newfound stickiness. Strange? Definitely. Fun? Absolutely.",
+            "price_full": 24.99,
+            "ingredients": ["Mucociliary Adhesion Enhancer", "Grip Protein Stimulator", "Dermal Polymer Activator", "Spider Silk Root Extract", "Bio-Adhesive Compound"],
+            "power": {
+                "name": "Super Stickiness",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/stickysituation/main.png",
+            "image_lifestyle": "/images/products/stickysituation/lifestyle.png",
+            "image_ksp": "/images/products/stickysituation/ksp.png",
+            "categories": ["physical", "skin", "fun", "powershot"]
+        },
+        {
+            "name": "GhostWalk",
+            "slug": "ghostwalk",
+            "short_description": "Walk through walls. Lose your dignity. GhostWalk lets your body phase through solid matter—though your clothes may not share your adventure.",
+            "marketing_description": "GhostWalk grants temporary body phasing, allowing you to pass through walls, doors, furniture, and other solid objects as if they weren't there. Sounds incredible, right? It is. Unfortunately, the effect only applies to your body, not your clothing or possessions. As a result, every use becomes a strategic decision involving confidence, timing, and occasionally embarrassment. Equal parts useful and hilarious, GhostWalk is exactly the kind of power that turns an ordinary night into a legendary story.",
+            "price_full": 49.99,
+            "ingredients": ["Molecular Density Reducer", "Atomic Cohesion Modifier", "Quantum Permeability Enhancer", "Phase Root Extract", "Matter Bypass Serum"],
+            "power": {
+                "name": "Body Phasing",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/ghostwalk/main.png",
+            "image_lifestyle": "/images/products/ghostwalk/lifestyle.png",
+            "image_ksp": "/images/products/ghostwalk/ksp.png",
+            "categories": ["physical", "phasing", "fun", "powershot", "Chaos Shot Box"]
+        },
+        {
+            "name": "BeautyFilter",
+            "slug": "beautyfilter",
+            "short_description": "Ten seconds. Maximum impact. BeautyFilter gives you an irresistible boost of attractiveness just long enough to take the perfect selfie.",
+            "marketing_description": "Why spend an hour editing a photo when you can become the filter? BeautyFilter delivers an overwhelming burst of attractiveness, confidence, symmetry, and camera-ready perfection for exactly ten glorious seconds. Just enough time to snap a selfie, record a video, update your profile picture, or create evidence that you peaked briefly and magnificently. Fast, ridiculous, and dangerously addictive, BeautyFilter was engineered for the social media generation. Ten seconds. Infinite likes.",
+            "price_full": 29.99,
+            "ingredients": ["Facial Symmetry Activator", "Pheromone Surge Compound", "Confidence Neurotransmitter Booster", "Golden Ratio Extract", "Charisma Crystal Concentrate"],
+            "power": {
+                "name": "Instant Charisma Boost",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/beautyfilter/main.png",
+            "image_lifestyle": "/images/products/beautyfilter/lifestyle.png",
+            "image_ksp": "/images/products/beautyfilter/ksp.png",
+            "categories": ["psychic", "appearance", "social", "powershot", "Friday Night Bundle"]
+        },
+        {
+            "name": "The fun guy",
+            "slug": "thefunguy",
+            "short_description": "Any drink. Instant upgrade. The Fun Guy turns any beverage into its alcoholic equivalent for 30 uninhibited minutes, making you the most useful person at any party.",
+            "marketing_description": "Why bring a flask when you can become one? The Fun Guy grants you temporary alchemical control over any liquid you touch, instantly transforming non-alcoholic beverages into their fully loaded counterparts for exactly 30 minutes. Sparkling water becomes prosecco. Orange juice becomes a screwdriver. Energy drinks become something your doctor would rather not discuss. Whether you're stuck at a dry wedding, a corporate event that ran long, or just forgot to bring drinks, The Fun Guy delivers. No bottles. No backpack. Just biological bartending on demand.",
+            "price_full": "24.99",
+            "ingredients": ["Fermentation Burst Complex", "Ethanol Synthesis Catalyst", "Yeast Neural Activator", "Grape Root Concentrate", "Social Lubricant Serum"],
+            "power" : {
+                "name" : "Instant Alchoholic Beverage",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/thefunguy/main.png",
+            "image_lifestyle": "/images/products/thefunguy/lifestyle.png",
+            "image_ksp": "/images/products/thefunguy/ksp.png",
+            "categories": ["psysical", "fun", "social", "powershot", "Friday Night Bundle"]
+        },
+        {
+            "name": "EagleEyes",
+            "slug": "eagleeyes",
+            "short_description": "See five times further than humanly possible. EagleEyes sharpens your vision to 5x zoom for hours of precision detail you were never supposed to witness.",
+            "marketing_description": "Not everyone can afford front-row seats. EagleEyes grants temporary 5x optical zoom to your natural vision, letting you read text, identify faces, and observe details from distances that would normally require binoculars or a questionable level of curiosity. Perfect for concerts, sports events, wildlife spotting, and reading the menu before you reach the counter. It won't make you smarter. But it will make you significantly more informed about everything happening around you. The world is full of details. You've just been too far away to notice.",
+            "price_full": "33.99",
+            "ingredients": ["Retinal Zoom Amplifier", "Ocular Focal Point Enhancer", "Corneal Magnification Complex", "Eagle Feather Extract", "Precision Vision Serum"],
+            "power" : {
+                "name" : "Zoom Vision",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/eagleeyes/main.png",
+            "image_lifestyle": "/images/products/eagleeyes/lifestyle.png",
+            "image_ksp": "/images/products/eagleeyes/ksp.png",
+            "categories": ["psysical", "eyes", "powershot", "Friday Night Bundle"]
+        },
+        {
+            "name": "TrueBeethoven",
+            "slug": "truebeethoven",
+            "short_description": "Ten minutes of pure creative genius. TrueBeethoven temporarily rewires your brain into an elite creative frequency where ideas flow freely and everything you produce is inexplicably brilliant.",
+            "marketing_description": "There are ideas you've never had because your brain wasn't ready for them. TrueBeethoven changes that, briefly. For exactly ten minutes, your creative cognition shifts into an elevated state where pattern recognition, lateral thinking, and artistic output operate at a level you simply cannot reach on your own. The window is short. The results are not. Whether you paint, write, compose, design, or just need a breakthrough that's been stuck for months, TrueBeethoven delivers in a single concentrated burst. Ten minutes of genius is more than most people get in a lifetime.",
+            "price_full": "49.99",
+            "ingredients": ["Dopamine Ideation Amplifier", "Neural Creativity Catalyst", "Prefrontal Cortex Enhancer", "Muse Root Extract", "Genius Wave Compound"],
+            "power" : {
+                "name" : "Super Creative Vision",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/truebeethoven/main.png",
+            "image_lifestyle": "/images/products/truebeethoven/lifestyle.png",
+            "image_ksp": "/images/products/truebeethoven/ksp.png",
+            "categories": ["psychic", "art", "creative", "powershot"]
+        },
+        {
+            "name": "VoiceTune",
+            "slug": "voicetune",
+            "short_description": "Fifteen minutes of vocal perfection. VoiceTune transforms your singing voice into something people will actually want to hear—flawless pitch, tone, and control on demand.",
+            "marketing_description": "You've been singing along to songs your whole life, usually alone, usually privately, and usually for good reason. VoiceTune fixes that. For 15 uninterrupted minutes, your vocal cords are temporarily recalibrated to produce pitch-perfect, tonally rich, effortlessly controlled sound. Karaoke becomes dangerous. Showers become concerts. First dates involving music become dangerously impressive. VoiceTune won't make you famous, but it will absolutely make you the most memorable singer in the room tonight. Choose your moment. Hit every note.",
+            "price_full": "29.99",
+            "ingredients": ["Laryngeal Vibration Modulator", "Vocal Cord Tension Optimizer", "Pitch Calibration Serum", "Nightingale Root Extract", "Harmonic Resonance Complex"],
+            "power" : {
+                "name" : "Perfect Singer",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/voicetune/main.png",
+            "image_lifestyle": "/images/products/voicetune/lifestyle.png",
+            "image_ksp": "/images/products/voicetune/ksp.png",
+            "categories": ["psysical", "singing", "voice", "creative", "powershot"]
+        },
+        {
+            "name": "ChargeBack",
+            "slug": "chargeback",
+            "short_description": "Become a human power bank. ChargeBack lets you emit controlled electrical currents from your fingertips to charge any device—phone cable adapter included, dignity sold separately.",
+            "marketing_description": "Dead phone at 1% while your friends are filming. Nightmare scenario. ChargeBack grants your fingertips temporary bioelectric output strong enough to charge modern devices through contact, turning your body into a portable power source. The included cable adapter ensures compatibility across USB-C, Lightning, and micro-USB. Concerts, festivals, long trips, and emergency situations all become slightly less catastrophic when you are the charger. Does it look strange? Absolutely. Does it work? Completely. Is it worth the stares? You tell us.",
+            "price_full": "45.99",
+            "ingredients": ["Bioelectric Current Amplifier", "Dermal Voltage Conductor", "ATP Discharge Catalyst", "Electric Eel Extract", "Neural Charge Regulator"],
+            "power" : {
+                "name" : "Electricity from Your Hands",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/voicetune/main.png",
+            "image_lifestyle": "/images/products/voicetune/lifestyle.png",
+            "image_ksp": "/images/products/voicetune/ksp.png",
+            "categories": ["psysical", "singing", "voice", "creative", "powershot"]
+        }
+    ]
+}

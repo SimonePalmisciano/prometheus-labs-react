@@ -1,0 +1,29 @@
+{
+    "bundles": [
+        {
+            "productName": "OVERDRIVE",
+            "category": "DailySUPer",
+            "shortDescription": "A physical performance bundle designed to unlock peak strength, endurance, agility, and resilience for total body acceleration.",
+            "marketingDescription": "OVERDRIVE is a high-performance physical enhancement system designed for individuals who operate beyond standard physical limits. It is built on the combined activation of Titan, Skybound, Endura, and Rebound, four core physical enhancement profiles that redefine strength, mobility, endurance, and impact resilience. Together they create a unified performance state where the body operates as a continuously adaptive system optimized for power output and motion efficiency. Designed for training, sport, labor, and extreme physical environments, OVERDRIVE enhances output capacity, reduces fatigue perception, and improves recovery efficiency under sustained stress. As part of the experience, users receive the Anti-Gravity Technical Kit, a high-performance apparel layer engineered to support compression, breathability, and unrestricted movement during intense physical activity. OVERDRIVE is not a supplement. It is a physical upgrade mode."
+        },
+        {
+            "productName": "SHARPEDGE",
+            "category": "DailySUPer",
+            "shortDescription": "A cognitive performance bundle designed to enhance focus, perception, time control, and mental clarity under pressure.",
+            "marketingDescription": "SHARPEDGE is a cognitive enhancement system built for high-performance mental environments such as studying, competitive gaming, creative work, and night operations. It is powered by the synchronized interaction of Moonwake, Orbit, Zenith, and Chrona, four advanced cognitive states that govern sustained awareness, environmental interaction, hyper-focus, and time perception modulation. Together they generate a deep cognitive flow state where attention becomes stable, perception becomes sharper, and time feels more flexible under pressure. SHARPEDGE enables extended focus cycles, improved decision accuracy, and heightened mental clarity in high-intensity scenarios. As part of the bundle experience, users receive the Overclock Desk System, a minimalist productivity setup designed to support long-duration focus, study, and gaming sessions by optimizing environmental comfort and cognitive flow conditions. SHARPEDGE transforms attention into structured advantage."
+        },
+        {
+            "productName": "Chaos Shot Box",
+            "category": "PowerSHOT",
+            "shortDescription": "A limited PowerSHOT drop featuring Starlight, CharmRush, and GhostWalk plus a secret Mystery Shot containing an unreleased experimental power.",
+            "marketingDescription": "Chaos Shot Box is a high-energy PowerSHOT set designed for nights that escalate beyond control. It includes three distinct enhancement shots: Starlight, which generates a soft luminous glow that makes every environment feel like a personal stage; CharmRush, which enhances social presence and conversational alignment, making interactions smoother, sharper, and more magnetic; and GhostWalk, which allows temporary phase-like movement through solid structures, creating unpredictable and legendary real-world moments. Each shot delivers a short-duration burst of amplified perception and interaction designed for festivals, parties, gaming nights, and spontaneous adventures. Every Chaos Shot Box also contains a Mystery Shot—an undisclosed experimental PowerSHOT containing a preview of a future ability not yet released to the public. Its effects are unknown, unclassified, and intentionally unrevealed. Chaos Shot Box is not about optimization. It is about escalation, unpredictability, and turning ordinary nights into irreversible stories. Drink. Dope. Repeat."
+        },
+        {
+            "productName": "Friday Night Bundle",
+            "category": "PowerSHOT",
+            "shortDescription": "Contains HoloHair, BeautyFilter and The Fun Guy.",
+            "marketingDescription": "Friday Night Bundle is a curated PowerSHOT set designed for exactly one purpose: making tonight unforgettable. It combines HoloHair, which transforms your hair into a shifting holographic spectacle that commands attention in any light; BeautyFilter, which delivers a precise ten-second burst of peak attractiveness perfectly timed for photos, videos, and first impressions; and The Fun Guy, which turns any drink in your hand into its fully alcoholic counterpart for a solid thirty minutes. Together they cover the full arc of a perfect night out: look incredible, photograph impossibly well, and keep the drinks interesting. No planning required. No regrets guaranteed. Friday Night Bundle is how the night starts."
+        }
+        
+    ]
+}

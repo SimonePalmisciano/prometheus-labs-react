@@ -1,0 +1,244 @@
+{
+    "dailySUPer": [
+        {
+            "name": "XVision",
+            "slug": "xvisioin",
+            "short_description": "See beyond the surface. XVision enhances your perception with controlled X-ray vision, helping you inspect, analyze, and understand the world from entirely new angles.",
+            "marketing_description": "Great performance starts with better information. XVision unlocks practical X-ray vision, allowing you to see through objects and structures when precision matters most. Whether you're troubleshooting equipment, finding hidden components, improving your craftsmanship, or simply satisfying your curiosity, XVision gives you an advantage ordinary sight cannot provide. Built for problem-solvers, makers, technicians, and ambitious minds, it transforms observation into insight. Because the people who see more are the people who achieve more.",
+            "price_full": 79.99,
+            "ingredients": ["Lutein 20mg", "Zeaxanthin Complex", "Vitamin A Palmitate", "Spectral Lens Protein", "Photon Penetration Enzyme"],
+            "power": {
+                "name": "X-Ray Vision",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/xvisioin/main.png",
+            "image_lifestyle": "/images/products/xvisioin/lifestyle.png",
+            "image_ksp": "/images/products/xvisioin/ksp.png",
+            "categories": ["physical", "vision", "perception", "dailysuper"]
+        },
+        {
+            "name": "GhostMode",
+            "slug": "ghostmode",
+            "short_description": "Disappear whenever you choose. GhostMode grants controlled invisibility, giving you the freedom to move unnoticed while remaining completely aware of your surroundings.",
+            "marketing_description": "Not every opportunity requires attention. Sometimes, it requires absence. GhostMode allows you to become intentionally invisible whenever discretion, privacy, or focus are needed. Move through crowded spaces unnoticed, eliminate distractions, and reclaim moments of uninterrupted concentration. Perfect for creators, professionals, and individuals who value freedom from constant observation. GhostMode isn't about escaping the world—it's about choosing when the world gets access to you. Control your visibility. Control your environment.",
+            "price_full": 119.99,
+            "ingredients": ["Melanin Suppression Compound", "Refraction Index Modifier", "Dermal Opacity Factor", "Shadow Weave Root Extract", "Light Bending Peptide"],
+            "power": {
+                "name": "Intentional Invisibility",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/ghostmode/main.png",
+            "image_lifestyle": "/images/products/ghostmode/lifestyle.png",
+            "image_ksp": "/images/products/ghostmode/ksp.png",
+            "categories": ["physical", "stealth", "dailysuper"]
+        },
+        {
+            "name": "Titan",
+            "slug": "titan",
+            "short_description": "Unlock extraordinary physical power. Titan dramatically enhances strength, helping you lift, push, carry, and perform at levels previously thought impossible.",
+            "marketing_description": "Every challenge becomes lighter when you're stronger. Titan amplifies your physical capabilities, delivering extraordinary strength while maintaining precision and control. Whether you're training harder, handling demanding physical work, moving heavy loads, or pushing beyond personal records, Titan helps transform effort into achievement. Designed for athletes, workers, and performance-driven individuals, it turns everyday obstacles into manageable tasks. Strength is more than power—it's confidence, resilience, and the ability to take on whatever stands in your way.",
+            "price_full": 89.99,
+            "ingredients": ["Creatine Monohydrate 5g", "Beta-Alanine 3.2g", "Magnesium Bisglycinate", "Hercules Root Extract", "Titanium Muscle Matrix"],
+            "power": {
+                "name": "Super Strength",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/titan/main.png",
+            "image_lifestyle": "/images/products/titan/lifestyle.png",
+            "image_ksp": "/images/products/titan/ksp.png",
+            "categories": ["physical", "strength", "performance", "dailysuper"]
+        },
+        {
+            "name": "Skybound",
+            "slug": "skybound",
+            "short_description": "Rise above limitations. Skybound grants controlled personal flight, allowing you to move freely through the air with comfort, stability, and confidence.",
+            "marketing_description": "Some people dream of freedom. Others choose to experience it. Skybound unlocks the ability to fly, transforming daily movement into an entirely new dimension of possibility. Skip traffic, explore breathtaking perspectives, and reach destinations with unmatched efficiency. Whether you're commuting, adventuring, training, or simply enjoying the thrill of unrestricted movement, Skybound delivers a sense of freedom unlike anything else. The ground has always been optional. Now, you finally have the power to leave it behind.",
+            "price_full": 139.99,
+            "ingredients": ["Bone Density Optimizer Complex", "Vestibular Balance Compound", "Gravitational Resistance Factor", "Feathercore Peptide Blend", "Antigravity Mineral Extract"],
+            "power": {
+                "name": "Flight",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/skybound/main.png",
+            "image_lifestyle": "/images/products/skybound/lifestyle.png",
+            "image_ksp": "/images/products/skybound/ksp.png",
+            "categories": ["physical", "mobility", "flight", "dailysuper"]
+        },
+        {
+            "name": "Moonwake",
+            "slug": "moonwake",
+            "short_description": "Rest your body without pausing your mind. Moonwake allows conscious thinking, studying, planning, and reflection while your body remains asleep and fully recovered.",
+            "marketing_description": "Time is the most valuable resource you'll ever have. Moonwake helps you make the most of it. While your body sleeps and recovers normally, your mind remains conscious and capable of thinking, reviewing information, solving problems, and organizing ideas. Students can revise concepts, professionals can plan projects, and ambitious individuals can continue developing skills without sacrificing recovery. Moonwake creates productive hours where none existed before, helping you gain an advantage without compromising your health. Sleep for your body. Progress for your mind.",
+            "price_full": 69.99,
+            "ingredients": ["Melatonin Regulation Complex", "GABA Synapse Optimizer", "Phosphatidylcholine 500mg", "Dream Awareness Crystal Extract", "Conscious Sleep Factor"],
+            "power": {
+                "name": "Night Consciousness",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/moonwake/main.png",
+            "image_lifestyle": "/images/products/moonwake/lifestyle.png",
+            "image_ksp": "/images/products/moonwake/ksp.png",
+            "categories": ["psychic", "sleep", "cognitive", "dailysuper"]
+        },
+        {
+            "name": "Endura",
+            "slug": "endura",
+            "short_description": "Keep going long after others stop. Endura delivers extraordinary stamina, allowing you to sustain demanding physical activity without fatigue, joint strain, or performance decline.",
+            "marketing_description": "Performance shouldn't be limited by exhaustion. Endura enhances your body's ability to sustain intense physical effort for extended periods while reducing wear, strain, and fatigue. Whether you're working long shifts, training for ambitious goals, tackling demanding projects, or simply refusing to slow down, Endura helps you maintain peak output hour after hour. Built for athletes, laborers, and high-performers alike, it transforms endurance from a limitation into a competitive advantage. Because consistency is often the real superpower.",
+            "price_full": 74.99,
+            "ingredients": ["L-Citrulline Malate 6g", "Coenzyme Q10 200mg", "Iron Bisglycinate 18mg", "Marathon Root Compound", "Vitality Core Extract"],
+            "power": {
+                "name": "Super Endurance",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/endura/main.png",
+            "image_lifestyle": "/images/products/endura/lifestyle.png",
+            "image_ksp": "/images/products/endura/ksp.png",
+            "categories": ["physical", "endurance", "performance", "dailysuper"]
+        },
+        {
+            "name": "Flexion",
+            "slug": "flexion",
+            "short_description": "Bounce back from life's impacts. Flexion gives your body extraordinary elasticity and shock absorption, helping protect you from falls, impacts, and everyday accidents.",
+            "marketing_description": "The world can be unpredictable. Flexion helps your body adapt. By granting enhanced elasticity and impact resistance, it dramatically reduces the consequences of falls, collisions, and physical accidents. Whether you're working at height, practicing demanding sports, or simply living an active lifestyle, Flexion provides an added layer of resilience that helps keep you moving forward. Flexible, durable, and surprisingly practical, it's designed for people who push boundaries without wanting every mistake to come with a cost.",
+            "price_full": 64.99,
+            "ingredients": ["Collagen Peptide Complex 10g", "Hyaluronic Acid 200mg", "Glucosamine Sulfate", "Elastin Surge Compound", "Polymer Tissue Matrix"],
+            "power": {
+                "name": "Rubber Body",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/flexion/main.png",
+            "image_lifestyle": "/images/products/flexion/lifestyle.png",
+            "image_ksp": "/images/products/flexion/ksp.png",
+            "categories": ["physical", "flexibility", "resilience", "dailysuper"]
+        },
+        {
+            "name": "Orbit",
+            "slug": "orbit",
+            "short_description": "Work smarter, not harder. Orbit allows you to move and manipulate objects within five meters using nothing but focused thought and intention.",
+            "marketing_description": "Imagine controlling your environment as effortlessly as moving your own hand. Orbit unlocks practical telekinesis within a five-meter radius, allowing you to move tools, ingredients, equipment, and everyday objects with pure mental focus. Perfect for chefs, creators, multitaskers, and professionals who thrive on efficiency, it transforms complex workflows into seamless experiences. Save time, reduce effort, and discover new ways to perform at your best. When your mind can reach farther, so can your potential.",
+            "price_full": 99.99,
+            "ingredients": ["Acetylcholine Booster Complex", "Prefrontal Cortex Activator", "Norepinephrine Stabilizer", "Kinetic Mind Serum", "Teleforce Particle Extract"],
+            "power": {
+                "name": "Short-Range Telekinesis",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/orbit/main.png",
+            "image_lifestyle": "/images/products/orbit/lifestyle.png",
+            "image_ksp": "/images/products/orbit/ksp.png",
+            "categories": ["psychic", "telekinesis", "cognitive", "dailysuper"]
+        },
+        {
+            "name": "Aura",
+            "slug": "aura",
+            "short_description": "Small changes. Remarkable confidence. Aura allows gentle adjustments to physical features, helping you enhance your appearance naturally and effortlessly.",
+            "marketing_description": "Sometimes the smallest details make the biggest difference. Aura grants subtle control over your physical appearance, allowing you to smooth imperfections, adjust minor facial features, and modify aesthetic traits with precision. Whether it's improving skin texture, refining facial balance, or experimenting with different looks, Aura empowers you to become the best version of yourself while remaining unmistakably you. Designed for confidence, self-expression, and personal wellbeing, it places everyday enhancement directly in your hands.",
+            "price_full": 84.99,
+            "ingredients": ["Retinol 0.5% Microencapsulated", "Niacinamide 10%", "Epidermal Growth Factor Complex", "Mirror Essence Crystal", "Morphic Field Activator"],
+            "power": {
+                "name": "Subtle Body Manipulation",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/aura/main.png",
+            "image_lifestyle": "/images/products/aura/lifestyle.png",
+            "image_ksp": "/images/products/aura/ksp.png",
+            "categories": ["psychic", "appearance", "beauty", "dailysuper"]
+        },
+        {
+            "name": "WildTalk",
+            "slug": "wildtalk",
+            "short_description": "Build understanding where words often fail. WildTalk enables intuitive communication with animals and individuals who struggle with conventional language.",
+            "marketing_description": "Communication is more than vocabulary. WildTalk enhances your ability to understand and be understood by animals and individuals with limited communication skills. By bridging gaps in perception and intent, it creates stronger connections, reduces misunderstandings, and unlocks entirely new forms of interaction. Whether you're a pet owner, caregiver, trainer, educator, or simply someone who values deeper relationships, WildTalk helps transform confusion into clarity. Because meaningful connection should never be limited by language.",
+            "price_full": 59.99,
+            "ingredients": ["Oxytocin Receptor Sensitizer", "Mirror Neuron Activator", "Limbic System Enhancer", "Animal Tongue Root Extract", "Primal Signal Compound"],
+            "power": {
+                "name": "Enhanced Communication with Animals and Low-Intelligence Individuals",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/wildtalk/main.png",
+            "image_lifestyle": "/images/products/wildtalk/lifestyle.png",
+            "image_ksp": "/images/products/wildtalk/ksp.png",
+            "categories": ["psychic", "communication", "animals", "dailysuper"]
+        },
+        {
+            "name": "Kamo",
+            "slug": "kamo",
+            "short_description": "Blend naturally into your surroundings. Kamo adapts your appearance to nearby environments, helping you stay unnoticed without completely disappearing from view.",
+            "marketing_description": "Sometimes standing out is powerful. Sometimes blending in is smarter. Kamo grants adaptive camouflage, allowing your appearance to harmonize with the colors, textures, and visual patterns around you. Perfect for outdoor enthusiasts, photographers, adventurers, security professionals, and anyone who values discretion, Kamo transforms your environment into your greatest ally. Stay present without becoming the center of attention. Whether navigating nature or crowded urban spaces, Kamo helps you move through the world with confidence, subtlety, and control.",
+            "price_full": 109.99,
+            "ingredients": ["Chromatophore Stimulation Complex", "Keratin Pigment Modifier", "Dermal Pigment Regulator", "Chameleon Scale Extract", "Environmental Blend Enzyme"],
+            "power": {
+                "name": "Camouflage",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/kamo/main.png",
+            "image_lifestyle": "/images/products/kamo/lifestyle.png",
+            "image_ksp": "/images/products/kamo/ksp.png",
+            "categories": ["physical", "stealth", "camouflage", "dailysuper"]
+        },
+        {
+            "name": "Lingua",
+            "slug": "lingua",
+            "short_description": "Speak with anyone, anywhere. Lingua grants instant fluency in every human language, making communication effortless across cultures, countries, and communities.",
+            "marketing_description": "Every language unlocks a new opportunity. Lingua removes communication barriers entirely, granting complete understanding and fluency across all spoken and written languages. Travel further, build stronger relationships, expand your career opportunities, and connect with people on a truly global scale. Whether negotiating international deals, exploring unfamiliar cultures, or simply making meaningful connections wherever you go, Lingua transforms language from an obstacle into an advantage. The world becomes significantly larger when every conversation is open to you.",
+            "price_full": 89.99,
+            "ingredients": ["Broca's Area Stimulant", "Auditory Cortex Enhancer", "Linguistic Memory Compound", "Babel Root Extract", "Universal Tongue Serum"],
+            "power": {
+                "name": "Universal Polyglot",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/lingua/main.png",
+            "image_lifestyle": "/images/products/lingua/lifestyle.png",
+            "image_ksp": "/images/products/lingua/ksp.png",
+            "categories": ["psychic", "language", "communication", "cognitive", "dailysuper"]
+        },
+        {
+            "name": "Zenith",
+            "slug": "zenith",
+            "short_description": "Eliminate distractions and enter peak concentration on demand. Zenith helps you maintain deep focus for studying, gaming, creative work, and high-performance tasks.",
+            "marketing_description": "Success often depends on your ability to focus on what matters most. Zenith enhances concentration, mental clarity, and sustained attention, allowing you to enter a state of deep focus whenever needed. Perfect for students preparing for exams, gamers seeking peak performance, creators tackling complex projects, and professionals managing demanding workloads. Distractions fade away. Productivity increases. Results improve. Zenith helps transform attention into achievement, empowering you to perform at your highest level when every second counts.",
+            "price_full": 69.99,
+            "ingredients": ["L-Theanine 200mg", "Bacopa Monnieri Extract 300mg", "Alpha-GPC 300mg", "Laser Mind Crystal Dust", "Distraction Nullifier Compound"],
+            "power": {
+                "name": "Super Focus",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/zenith/main.png",
+            "image_lifestyle": "/images/products/zenith/lifestyle.png",
+            "image_ksp": "/images/products/zenith/ksp.png",
+            "categories": ["psychic", "focus", "cognitive", "performance", "dailysuper"]
+        },
+        {
+            "name": "SlowBurn",
+            "slug": "slowburn",
+            "short_description": "Create more time for what matters. SlowBurn allows you to experience two minutes as if they were an entire hour, dramatically expanding your usable day.",
+            "marketing_description": "Everyone wishes they had more time. SlowBurn makes it possible. By slowing your subjective perception of time, it allows you to experience extraordinary amounts of focus, reflection, practice, and learning within ordinary moments. Exercise longer without extending your schedule. Journal more deeply. Develop hobbies. Master skills. Enjoy meaningful experiences without sacrificing other priorities. Designed for ambitious individuals balancing busy lives, SlowBurn helps transform scarcity into abundance. Because your potential should never be limited by the clock.",
+            "price_full": 129.99,
+            "ingredients": ["Chronotropic Neural Modulator", "Dopamine Flow Regulator", "Cerebral Time Perception Enzyme", "Temporal Crystal Dust", "Slow-Clock Resin Extract"],
+            "power": {
+                "name": "Time Dilation",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/slowburn/main.png",
+            "image_lifestyle": "/images/products/slowburn/lifestyle.png",
+            "image_ksp": "/images/products/slowburn/ksp.png",
+            "categories": ["psychic", "time", "cognitive", "dailysuper"]
+        },
+        {
+            "name": "Noctis",
+            "slug": "noctis",
+            "short_description": "See clearly when others cannot. Noctis delivers crisp, detailed vision in darkness, helping you navigate and perform confidently in low-light environments.",
+            "marketing_description": "The day doesn't end when the sun goes down. Noctis grants enhanced vision in darkness, providing sharp clarity and reliable perception in environments where ordinary sight struggles. Ideal for outdoor adventures, nighttime work, travel, sports, and exploration, it helps you maintain confidence and awareness long after sunset. Whether navigating remote trails, working late shifts, or simply embracing life after dark, Noctis ensures that darkness becomes an advantage rather than a limitation. See more. Do more. Anytime.",
+            "price_full": 79.99,
+            "ingredients": ["Rhodopsin Regenerator Complex", "Vitamin A Acetate 3000IU", "Zinc Bisglycinate 15mg", "Owl Eye Extract", "Dark Matter Optic Serum"],
+            "power": {
+                "name": "Night Vision",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/noctis/main.png",
+            "image_lifestyle": "/images/products/noctis/lifestyle.png",
+            "image_ksp": "/images/products/noctis/ksp.png",
+            "categories": ["physical", "vision", "night", "dailysuper"]
+        }
+    ]
+}

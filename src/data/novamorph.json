@@ -1,0 +1,84 @@
+{
+    "novamorph": [
+        {
+            "name": "Omnigate",
+            "slug": "omnigate",
+            "short_description": "Distance becomes irrelevant. Voidstep grants unrestricted teleportation, allowing you to move instantly between any two locations on Earth with perfect precision and complete control.",
+            "marketing_description": "Why travel when you can simply arrive? Voidstep unlocks absolute freedom of movement, granting the ability to instantly relocate anywhere on the planet. No delays, no borders, no limitations. Business meetings across continents, spontaneous adventures, precious moments with loved ones—every destination becomes equally accessible. Designed for individuals who refuse to let geography dictate opportunity, Voidstep transforms the world into a place where every door is always within reach. The future of mobility is no longer transportation. It is presence.",
+            "price_full": 799.99,
+            "ingredients": ["Quantum Entanglement Peptide Complex", "Spatial Membrane Lipid Matrix", "ATP Kinase Accelerator", "Voidstep Root Extract", "Dimensional Fold Serum"],
+            "power": {
+                "name": "Unlimited Teleportation",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/omnigate/main.png",
+            "image_lifestyle": "/images/products/omnigate/lifestyle.png",
+            "image_ksp": "/images/products/omnigate/ksp.png",
+            "categories": ["physical", "mobility", "premium", "novamorph"]
+        },
+        {
+            "name": "Oracle",
+            "slug": "oracle",
+            "short_description": "Experience communication beyond words. Mindlink grants direct access to the thoughts of others, revealing intentions, emotions, and insights with unprecedented clarity.",
+            "marketing_description": "The most valuable information has never been spoken aloud. Mindlink unlocks the power of telepathy, enabling direct mental communication and unparalleled understanding of the people around you. Discover hidden motivations, eliminate misunderstandings, and build connections beyond conventional language. Whether navigating complex negotiations, strengthening personal relationships, or exploring the depths of human consciousness, Mindlink opens a new dimension of awareness. In a world shaped by information, the ultimate advantage is understanding what others think before they choose to speak.",
+            "price_full": 599.99,
+            "ingredients": ["Phosphatidylserine 300mg", "L-Theanine", "Neurotrophin-3 Amplifier", "Mindweave Crystal Dust", "Synaptic Echo Compound"],
+            "power": {
+                "name": "Telepathy",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/oracle/main.png",
+            "image_lifestyle": "/images/products/oracle/lifestyle.png",
+            "image_ksp": "/images/products/oracle/ksp.png",
+            "categories": ["psychic", "cognitive", "communication", "premium", "novamorph"]
+        },
+        {
+            "name": "Machina",
+            "slug": "machina",
+            "short_description": "Command technology as an extension of your own mind. OmniCore enables direct mental control over connected devices, systems, machines, and digital infrastructures.",
+            "marketing_description": "Technology surrounds modern life. OmniCore places it under your command. Through advanced technokinetic capabilities, you gain the ability to mentally interact with and control digital systems, machines, networks, and intelligent devices. Complex operations become effortless. Interfaces become obsolete. The boundary between human intention and technological execution disappears entirely. Built for visionaries who understand that the future belongs to those who master it, OmniCore transforms every connected system into a natural extension of your will. Think. Command. Achieve.",
+            "price_full": 699.99,
+            "ingredients": ["Acetyl-L-Carnitine 500mg", "Magnesium L-Threonate", "Bioelectric Signal Enhancer", "Neural Interface Matrix", "Digital Synapsis Extract"],
+            "power": {
+                "name": "Technokinesis",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/machina/main.png",
+            "image_lifestyle": "/images/products/machina/lifestyle.png",
+            "image_ksp": "/images/products/machina/ksp.png",
+            "categories": ["psychic", "technology", "cognitive", "premium", "novamorph"]
+        },
+        {
+            "name": "Astral Drop",
+            "slug": "astral-drop",
+            "short_description": "Multiply your presence. Astral Drop creates a fully conscious clone that shares your memories, personality, and abilities while acting independently in the world.",
+            "marketing_description": "One life is rarely enough for extraordinary ambitions. Astral Drop grants the ability to create a fully sentient duplicate of yourself, capable of independent thought, action, and decision-making. Your clone carries your memories, skills, and personality, allowing you to pursue multiple goals simultaneously without compromise. Expand your influence, accelerate your projects, and experience existence from entirely new perspectives. More than replication, Astral Drop represents a radical evolution of identity itself. For the first time, being in two places at once becomes reality.",
+            "price_full": 999.99,
+            "ingredients": ["DNA Replication Catalyst", "Mitochondrial Biogenesis Complex", "Stem Cell Proliferation Factor", "Soul Fracture Essence", "Consciousness Duplication Serum"],
+            "power": {
+                "name": "Creates a Sentient Clone",
+                "power_type": "psychic"
+            },
+            "image_main_url": "/images/products/astral-drop/main.png",
+            "image_lifestyle": "/images/products/astral-drop/lifestyle.png",
+            "image_ksp": "/images/products/astral-drop/ksp.png",
+            "categories": ["psychic", "identity", "premium", "novamorph"]
+        },
+        {
+            "name": "Aeternis",
+            "slug": "aeternis",
+            "short_description": "Preserve your physical prime indefinitely. Aeternis halts biological aging, maintaining vitality, appearance, and performance at their optimal state for decades to come.",
+            "marketing_description": "Time has always been humanity's greatest limitation. Aeternis changes the equation. By permanently preserving your biological prime, it allows you to maintain youthful vitality, physical performance, and appearance indefinitely. Continue pursuing ambitions, relationships, discoveries, and experiences without the constraints of aging. Every year becomes an opportunity rather than a reminder of decline. Crafted for those who see life not as a countdown but as an ongoing journey of growth, Aeternis offers something beyond longevity: the freedom to evolve without surrendering to time.",
+            "price_full": 899.99,
+            "ingredients": ["Telomerase Activator Complex", "Resveratrol 99% Pure", "NAD+ Precursor Blend", "Fountain of Youth Mineral Extract", "Temporal Stasis Enzyme"],
+            "power": {
+                "name": "Eternal Youth",
+                "power_type": "physical"
+            },
+            "image_main_url": "/images/products/aeternis/main.png",
+            "image_lifestyle": "/images/products/aeternis/lifestyle.png",
+            "image_ksp": "/images/products/aeternis/ksp.png",
+            "categories": ["physical", "anti-aging", "longevity", "premium", "novamorph"]
+        }
+    ]
+}
