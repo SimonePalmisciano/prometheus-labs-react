@@ -1,0 +1,40 @@
+{
+    "bundles": [
+        {
+            "productName": "OVERDRIVE",
+            "category": "DailySUPer",
+            "shortDescription": "A physical performance bundle designed to unlock peak strength, endurance, agility, and resilience for total body acceleration.",
+            "marketingDescription": "OVERDRIVE is a high-performance physical enhancement system designed for individuals who operate beyond standard physical limits. It is built on the combined activation of Titan, Skybound, Endura, and Rebound, four core physical enhancement profiles that redefine strength, mobility, endurance, and impact resilience. Together they create a unified performance state where the body operates as a continuously adaptive system optimized for power output and motion efficiency. Designed for training, sport, labor, and extreme physical environments, OVERDRIVE enhances output capacity, reduces fatigue perception, and improves recovery efficiency under sustained stress. As part of the experience, users receive the Anti-Gravity Technical Kit, a high-performance apparel layer engineered to support compression, breathability, and unrestricted movement during intense physical activity. OVERDRIVE is not a supplement. It is a physical upgrade mode."
+        },
+        {
+            "productName": "SHARPEDGE",
+            "category": "DailySUPer",
+            "shortDescription": "A cognitive performance bundle designed to enhance focus, perception, time control, and mental clarity under pressure.",
+            "marketingDescription": "SHARPEDGE is a cognitive enhancement system built for high-performance mental environments such as studying, competitive gaming, creative work, and night operations. It is powered by the synchronized interaction of Moonwake, Orbit, Zenith, and Chrona, four advanced cognitive states that govern sustained awareness, environmental interaction, hyper-focus, and time perception modulation. Together they generate a deep cognitive flow state where attention becomes stable, perception becomes sharper, and time feels more flexible under pressure. SHARPEDGE enables extended focus cycles, improved decision accuracy, and heightened mental clarity in high-intensity scenarios. As part of the bundle experience, users receive the Overclock Desk System, a minimalist productivity setup designed to support long-duration focus, study, and gaming sessions by optimizing environmental comfort and cognitive flow conditions. SHARPEDGE transforms attention into structured advantage."
+        },
+        {
+            "productName": "CHAOS SHOT BOX",
+            "category": "PowerSHOT",
+            "shortDescription": "A limited PowerSHOT drop featuring Starlight, CharmRush, and GhostWalk plus a secret Mystery Shot containing an unreleased experimental power.",
+            "marketingDescription": "CHAOS SHOT BOX is a high-energy PowerSHOT set designed for nights that escalate beyond control. It includes three distinct enhancement shots: Starlight, which generates a soft luminous glow that makes every environment feel like a personal stage; CharmRush, which enhances social presence and conversational alignment, making interactions smoother, sharper, and more magnetic; and GhostWalk, which allows temporary phase-like movement through solid structures, creating unpredictable and legendary real-world moments. Each shot delivers a short-duration burst of amplified perception and interaction designed for festivals, parties, gaming nights, and spontaneous adventures. Every CHAOS SHOT BOX also contains a Mystery Shot—an undisclosed experimental PowerSHOT containing a preview of a future ability not yet released to the public. Its effects are unknown, unclassified, and intentionally unrevealed. CHAOS SHOT BOX is not about optimization. It is about escalation, unpredictability, and turning ordinary nights into irreversible stories. Drink. Dope. Repeat."
+        },
+        {
+            "productName": "FRIDAY NIGHT BUNDLE",
+            "category": "PowerSHOT",
+            "shortDescription": "Contains HoloHair, BeautyFilter and The Fun Guy.",
+            "marketingDescription": "FRIDAY NIGHT BUNDLE is a curated PowerSHOT set designed for exactly one purpose: making tonight unforgettable. It combines HoloHair, which transforms your hair into a shifting holographic spectacle that commands attention in any light; BeautyFilter, which delivers a precise ten-second burst of peak attractiveness perfectly timed for photos, videos, and first impressions; and The Fun Guy, which turns any drink in your hand into its fully alcoholic counterpart for a solid thirty minutes. Together they cover the full arc of a perfect night out: look incredible, photograph impossibly well, and keep the drinks interesting. No planning required. No regrets guaranteed. FRIDAY NIGHT BUNDLE is how the night starts."
+        },
+        {
+            "productName": "LIVE WIRE",
+            "category": "PowerSHOT",
+            "shortDescription": "Three elemental hand powers in one box. BlueFlame, FrostPop, and ChargeBack—fire, ice, and electricity at your fingertips, whenever you need them.",
+            "marketingDescription": "LIVE WIRE is a PowerSHOT set for people who think hands are underrated. It combines three distinct elemental abilities that all originate from exactly the same place: your palms. BlueFlame lets you produce a controlled blue flame for warming drinks, toasting things, and becoming the most interesting person at any outdoor gathering. FrostPop flips the script entirely, generating refreshing ice on demand for slushies, beach survival, and upgrading every beverage within reach. ChargeBack closes the circuit by turning your fingertips into a functional power source capable of charging any device on contact, cable adapter included. Together they cover fire, ice, and electricity in a single box that fits in your bag and makes your hands genuinely useful in ways nobody could have predicted. LIVE WIRE is not subtle. It is not responsible. It is, however, extremely practical in the right situations. Pack accordingly."
+        },
+        {
+            "productName": "APEX",
+            "category": "Novamorph",
+            "shortDescription": "The ultimate Novamorph trio. Omnigate, Oracle, and Machina together remove every barrier between where you are, what others think, and the systems that run the world around you.",
+            "marketingDescription": "APEX is the most complete expression of human potential available through the Novamorph line. It brings together three permanent enhancements that individually redefine what a person can do—and together create something categorically different from ordinary human capability. Omnigate removes geography as a constraint entirely, granting unrestricted teleportation to any location on Earth with complete precision and zero transition time. Oracle opens direct access to the thoughts of others, revealing intentions, emotions, and information that no conversation or negotiation could ever fully disclose. Machina extends mental control to every connected device, system, and digital infrastructure within range, replacing the gap between intention and execution with nothing at all. Separately, each of these represents a permanent shift in what is possible. Together, they eliminate the three most persistent limitations human beings have ever faced: distance, opacity, and friction. APEX is not a bundle designed for a specific use case. It is a permanent upgrade to how you exist in the world. The full Novamorph APEX experience includes a private onboarding session, a personalized activation protocol, and lifetime access to the Prometheus Priority Network. For individuals who have decided that ordinary is no longer acceptable."
+        }
+    ]
+}
