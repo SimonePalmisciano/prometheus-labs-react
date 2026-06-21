@@ -14,7 +14,7 @@
             "image_main_url": "/images/products/holohair/main.png",
             "image_lifestyle": "/images/products/holohair/lifestyle.png",
             "image_ksp": "/images/products/holohair/ksp.png",
-            "categories": ["powershot"]
+            "categories": ["powershot", "bestseller"]
         },
         {
             "name": "Starlight",
@@ -78,7 +78,7 @@
             "image_main_url": "/images/products/charmrush/main.png",
             "image_lifestyle": "/images/products/charmrush/lifestyle.png",
             "image_ksp": "/images/products/charmrush/ksp.png",
-            "categories": ["powershot"]
+            "categories": ["powershot", "bestseller"]
         },
         {
             "name": "CritterMode",
@@ -158,7 +158,7 @@
             "image_main_url": "/images/products/ghostwalk/main.png",
             "image_lifestyle": "/images/products/ghostwalk/lifestyle.png",
             "image_ksp": "/images/products/ghostwalk/ksp.png",
-            "categories": ["powershot"]
+            "categories": ["powershot", "bestseller"]
         },
         {
             "name": "BeautyFilter",
@@ -174,7 +174,7 @@
             "image_main_url": "/images/products/beautyfilter/main.png",
             "image_lifestyle": "/images/products/beautyfilter/lifestyle.png",
             "image_ksp": "/images/products/beautyfilter/ksp.png",
-            "categories": ["powershot"]
+            "categories": ["powershot", "bestseller"]
         },
         {
             "name": "The fun guy",
@@ -270,7 +270,7 @@
             "image_main_url": "/images/products/wallcrawl/main.png",
             "image_lifestyle": "/images/products/wallcrawl/lifestyle.png",
             "image_ksp": "/images/products/wallcrawl/ksp.png",
-            "categories": ["powershot"]
+            "categories": ["powershot", "bestseller"]
         },
         {
             "name": "BrainBlip",
@@ -286,7 +286,7 @@
             "image_main_url": "/images/products/brainblip/main.png",
             "image_lifestyle": "/images/products/brainblip/lifestyle.png",
             "image_ksp": "/images/products/brainblip/ksp.png",
-            "categories": ["powershot"]
+            "categories": ["powershot", "bestseller"]
         },
         {
             "name": "VoxBox",

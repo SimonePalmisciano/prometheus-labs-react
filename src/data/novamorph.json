@@ -78,7 +78,7 @@
             "image_main_url": "/images/products/aeternis/main.png",
             "image_lifestyle": "/images/products/aeternis/lifestyle.png",
             "image_ksp": "/images/products/aeternis/ksp.png",
-            "categories": ["novamorph"]
+            "categories": ["novamorph", "bestseller"]
         }
     ]
 }

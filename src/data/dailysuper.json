@@ -30,7 +30,7 @@
             "image_main_url": "/images/products/ghostmode/main.png",
             "image_lifestyle": "/images/products/ghostmode/lifestyle.png",
             "image_ksp": "/images/products/ghostmode/ksp.png",
-            "categories": ["dailysuper"]
+            "categories": ["dailysuper", "bestseller"]
         },
         {
             "name": "Titan",
@@ -62,7 +62,7 @@
             "image_main_url": "/images/products/skybound/main.png",
             "image_lifestyle": "/images/products/skybound/lifestyle.png",
             "image_ksp": "/images/products/skybound/ksp.png",
-            "categories": ["dailysuper"]
+            "categories": ["dailysuper", "bestseller"]
         },
         {
             "name": "Moonwake",
@@ -206,7 +206,7 @@
             "image_main_url": "/images/products/zenith/main.png",
             "image_lifestyle": "/images/products/zenith/lifestyle.png",
             "image_ksp": "/images/products/zenith/ksp.png",
-            "categories": ["dailysuper"]
+            "categories": ["dailysuper", "bestseller"]
         },
         {
             "name": "SlowBurn",
@@ -222,7 +222,7 @@
             "image_main_url": "/images/products/slowburn/main.png",
             "image_lifestyle": "/images/products/slowburn/lifestyle.png",
             "image_ksp": "/images/products/slowburn/ksp.png",
-            "categories": ["dailysuper"]
+            "categories": ["dailysuper", "bestseller"]
         },
         {
             "name": "Noctis",
