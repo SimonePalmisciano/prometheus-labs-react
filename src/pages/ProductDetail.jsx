@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, Navigate, Link } from "react-router";
-import api from "../services/api";
+import api from "../services/api.js";
+import utilsVariables from "../utils/utils.js";
 
 function ProductDetail() {
     const { slug } = useParams(); // prende lo slug
     const [product, setProduct] = useState({});
     const [error, setError] = useState(null);
-
 
     useEffect(() => {
         async function fetchMyData() {
@@ -14,14 +14,14 @@ function ProductDetail() {
                 const response = await api.getProductBySlug(slug);
                 setProduct(response[0]);
                 console.log(response[0]);
-                
+
             } catch (error) {
                 console.error(error);
                 setError(error);
             }
         }
         fetchMyData();
-        
+
 
     }, [slug]);
 
@@ -36,7 +36,7 @@ function ProductDetail() {
                 <div className="col-md-6">
                     <div className="card text-light border-primary">
                         <img
-                            src={product.imgMain}
+                            src={`${API_BASE_URL}${product.imgMain}`}
                             className="card-img-top rounded-1"
                             alt={product.name}
                             style={{ objectFit: 'cover', height: '400px' }}
