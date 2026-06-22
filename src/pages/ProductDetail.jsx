@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, Navigate, Link } from "react-router";
 import api from "../services/api.js";
-import utilsVariables from "../utils/utils.js";
+const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || '3000';
+const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'localhost';
+const API_BASE_URL = `http://${SERVER_URL}:${SERVER_PORT}`;
 
 function ProductDetail() {
     const { slug } = useParams(); // prende lo slug
@@ -36,7 +38,7 @@ function ProductDetail() {
                 <div className="col-md-6">
                     <div className="card text-light border-primary">
                         <img
-                            src={`${API_BASE_URL}${product.imgMain}`}
+                            src={product.imgMain ? `${API_BASE_URL}${product.imgMain}` : ""}
                             className="card-img-top rounded-1"
                             alt={product.name}
                             style={{ objectFit: 'cover', height: '400px' }}
