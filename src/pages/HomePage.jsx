@@ -14,10 +14,10 @@ useEffect(() => {
     async function fetchMyData() {
         try {
             const results = await api.getProducts();
-            setProducts(results)
+            setProducts(results);
         } catch (error) {
             console.error(error);
-            setError(error)
+            setError(error);
         }
     }
 
