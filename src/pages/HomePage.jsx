@@ -27,10 +27,6 @@ useEffect(() => {
 
     return <>
             <Herosection />
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            { products.length > 0 ?
-            (<p>{JSON.stringify(products)}</p>) : (<p>caricamento in corso...</p>)
-            }
             <ProductCollection />
         </>
     }
