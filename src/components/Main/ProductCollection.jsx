@@ -1,19 +1,29 @@
+import { useState, useEffect } from "react"
 import ProductCard from "./ProductCard"
-
-// dati finti in attesa del backend
-const ultimiArrivi = [
-    { id: 1, nome: "Pozione Super Forza", prezzo: 29.99, descrizione: "Forza di 10 uomini per 24 ore", immagine: "https://placehold.co/300x200" },
-    { id: 2, nome: "Siero Invisibilità", prezzo: 49.99, descrizione: "Diventa invisibile per 1 ora", immagine: "https://placehold.co/300x200" },
-    { id: 3, nome: "Pillola Telepatia", prezzo: 39.99, descrizione: "Leggi la mente delle persone vicine", immagine: "https://placehold.co/300x200" },
-]
-
-const piuVenduti = [
-    { id: 4, nome: "Elisir Velocità", prezzo: 34.99, descrizione: "Corri come un fulmine per 2 ore", immagine: "https://placehold.co/300x200" },
-    { id: 5, nome: "Crema Volo", prezzo: 59.99, descrizione: "Vola fino a 100 metri di altezza", immagine: "https://placehold.co/300x200" },
-    { id: 6, nome: "Gocce Preveggenza", prezzo: 44.99, descrizione: "Vedi il futuro per 30 minuti", immagine: "https://placehold.co/300x200" },
-]
+import api from "../../services/api"
 
 function ProductCollection() {
+
+  // stato per i prodotti
+  const [ultimiArrivi, setUltimiArrivi] = useState([])
+  const [piuVenduti, setPiuVenduti] = useState([])
+
+  useEffect(() => {
+    // chiamata API per tutti i prodotti
+    api.getProducts()
+      .then(prodotti => {
+        console.log('prodotti:', prodotti)
+        // primi 3 prodotti come "ultimi arrivi"
+        const ultimi = prodotti.slice(0, 3)
+
+        // prodotti dal 4 al 6 come "più venduti"
+        const venduti = prodotti.slice(3, 6)
+
+        setUltimiArrivi(ultimi)
+        setPiuVenduti(venduti)
+      })
+  }, [])
+
   return (
     <div className="container my-5">
 
