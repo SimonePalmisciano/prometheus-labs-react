@@ -38,7 +38,7 @@ function ProductDetail() {
                 <div className="col-md-6">
                     <div className="card text-light border-primary">
                         <img
-                            src={`${API_BASE_URL}${product.imgMain}`}
+                            src={product.imgMain ? `${API_BASE_URL}${product.imgMain}` : ""}
                             className="card-img-top rounded-1"
                             alt={product.name}
                             style={{ objectFit: 'cover', height: '400px' }}
