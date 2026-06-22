@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -19,17 +21,9 @@ function Navbar() {
                     {/* Links navigazione */}
                     <ul className="navbar-nav me-auto">
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Products</a>
+                            <Link to="/products" className="nav-link" href="#">Products</Link>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">About Us</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Contact</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Login/Register</a>
-                        </li>
+
                     </ul>
 
                     {/* Barra di ricerca */}
