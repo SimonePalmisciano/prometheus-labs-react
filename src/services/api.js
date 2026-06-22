@@ -7,7 +7,17 @@ const api = {
         const response = await fetch(`${API_BASE_URL}/products`);
         if (!response.ok) throw new Error("Errore nel caricamento dei dati");
         const data = await response.json();
-        if (data.error) throw new Error(data.error);
+        if (data.error) { 
+            throw new Error(data.error);
+        }
+        return data.results;
+    },
+    async getProductBySlug(slug) {
+        const response = await fetch(`${API_BASE_URL}/products/${slug}`);
+        const data = await response.json();
+        if (data.error) {
+            throw new Error(data.error)
+        }
         return data.results;
     }
 }
