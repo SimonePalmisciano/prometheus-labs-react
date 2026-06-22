@@ -2,8 +2,6 @@
     const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'localhost';
     const API_BASE_URL = `http://${SERVER_URL}:${SERVER_PORT}`;
 
-const API_BASE_URL = `http://${SERVER_URL}:${SERVER_PORT}`;
-
 const api = {
     async getProducts() {
         const response = await fetch(`${API_BASE_URL}/products`);
