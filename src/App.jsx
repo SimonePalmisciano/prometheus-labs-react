@@ -1,15 +1,20 @@
-import Header from "./components/Header/Header"
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/Footer";
+import React from "react";
+import { BrowserRouter, Routes, Route, Outlet, Navigate } from "react-router";
+import Layout from "./layouts/Layout.jsx";
+import Homepage from "./pages/HomePage.jsx";
+
 
 
 function App() {
-  return (
-    <>
-    <Header />
-    <Main />
-    <Footer />
-    </>
-  )
+  return <>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+        <Route index element={<Navigate to='/HomePage' replace />}/>
+        <Route path='HomePage' element={<Homepage/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </>
 }
 export default App;
