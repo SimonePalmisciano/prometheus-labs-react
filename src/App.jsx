@@ -1,15 +1,14 @@
-import Header from "./components/Header/Header"
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/Footer";
+import React from "react";
+import Layout from "./layouts/Layout.jsx";
 
 
 function App() {
-  return (
-    <>
-    <Header />
-    <Main />
-    <Footer />
-    </>
-  )
+  return <>
+    <Layout>
+      <div>
+        <h1>test</h1>
+      </div>
+    </Layout>
+  </>
 }
 export default App;
