@@ -9,7 +9,7 @@ export default function HeroBanner() {
                 <h1 className="hero-title">Enlight Your Will</h1>
 
                 <p className="hero-subtitle">
-                    Choose the plane you need <br />
+                    Choose the Power you need <br />
                     When you need it
                 </p>
 
