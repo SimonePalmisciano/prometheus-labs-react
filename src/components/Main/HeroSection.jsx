@@ -6,7 +6,7 @@ export default function HeroBanner() {
             
 
             <div className="hero-content">
-                <h1 className="hero-title">Enlight Your Will</h1>
+                <h1 className="hero-title">Enlight Your <span className="hero-t-span">Will</span></h1>
 
                 <p className="hero-subtitle">
                     Choose the Power you need <br />
