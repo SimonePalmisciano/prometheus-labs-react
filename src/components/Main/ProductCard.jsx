@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 // Componente card singolo prodotto
 function ProductCard({ prodotto }) {
   return (
@@ -14,7 +15,9 @@ function ProductCard({ prodotto }) {
         </div>
         <div className="card-footer d-flex justify-content-between align-items-center">
           <span className="fw-bold">€ {prodotto.price}</span>
-          <button className="btn btn-primary">Aggiungi al carrello</button>
+          <Link to={`/ProductDetail/${prodotto.slug}`}>
+          <i className="bi bi-arrow-right-circle-fill fs-2"></i>
+          </Link>
         </div>
       </div>
     </div>
