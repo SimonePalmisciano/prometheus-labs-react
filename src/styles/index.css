@@ -1,3 +1,76 @@
+:root {
+    /* ==========================================
+        BREAKPOINTS
+     ========================================== */
+    --screen-sm: 440px;
+    --screen-md: 834px;
+    --screen-lg: 1200px;
+    
+    /* ==========================================
+        COLOR TOKENS
+     ========================================== */
+
+    /* Primary Scale (Brand Identity / Main Actions) */
+    --color-primary-50: #f0f5ff;
+    --color-primary-100: #d9e4ff;
+    --color-primary-200: #bacdff;
+    --color-primary-300: #91b0ff;
+    --color-primary-400: #698eff;
+    --color-primary-500: #3b66ff;
+    --color-primary-600: #1f44e0;
+    --color-primary-700: #132bb8;
+    --color-primary-800: #0a198f;
+    --color-primary-900: #040d66;
+
+    /* Secondary Scale (Subtle accents / Complementary UI elements) */
+    --color-secondary-50: #f4f3ff;
+    --color-secondary-100: #e6e4ff;
+    --color-secondary-200: #d1cdff;
+    --color-secondary-300: #b2a8ff;
+    --color-secondary-400: #917fff;
+    --color-secondary-500: #6e56cf;
+    --color-secondary-600: #573eb6;
+    --color-secondary-700: #422d96;
+    --color-secondary-800: #2e1f73;
+    --color-secondary-900: #1c124d;
+
+    /* Accent Scale (Highlights / Interactive States) */
+    --color-accent-50: #fff7ed;
+    --color-accent-100: #ffedd5;
+    --color-accent-200: #fed7aa;
+    --color-accent-300: #fdba74;
+    --color-accent-400: #fb923c;
+    --color-accent-500: #f97316;
+    --color-accent-600: #ea580c;
+    --color-accent-700: #c2410c;
+    --color-accent-800: #9a3412;
+    --color-accent-900: #7c2d12;
+
+    /* Neutral / Gray Scale (Backgrounds, Borders, Text) */
+    --color-gray-50: #f8fafc;
+    --color-gray-100: #f1f5f9;
+    --color-gray-200: #e2e8f0;
+    --color-gray-300: #cbd5e1;
+    --color-gray-400: #94a3b8;
+    --color-gray-500: #64748b;
+    --color-gray-600: #475569;
+    --color-gray-700: #334155;
+    --color-gray-800: #1e293b;
+    --color-gray-900: #0f172a;
+
+    /* Semantic Feedback States */
+    --color-success-50: #f0fdf4;
+    --color-success-500: #22c55e;
+    --color-success-700: #15803d;
+
+    --color-warning-50: #fffbeb;
+    --color-warning-500: #f59e0b;
+    --color-warning-700: #b45309;
+
+    --color-error-50: #fef2f2;
+    --color-error-500: #ef4444;
+    --color-error-700: #b91c1c;
+}
 
 @font-face {
     font-family: "Ethnocentric-Regular";
@@ -12,4 +85,5 @@ h5,
 h6 {
     font-family: "Ethnocentric-Regular", sans-serif;
     font-weight: 900;
+    margin-bottom: 0;
 }
