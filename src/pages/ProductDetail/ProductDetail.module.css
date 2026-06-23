@@ -1,0 +1,6 @@
+.productCard {
+    background-color: var(--color-primary-400);
+    padding: 25px;
+    border-radius: 15px;
+    height: 862px;
+}

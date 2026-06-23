@@ -1,9 +1,11 @@
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
+import styles from "./Header.module.css";
+
 function Header() {
     return (
-        <header>
+        <header className={`${styles.header}`}>
             <Navbar />
         </header>
-    )
+    );
 }
-export default Header
+export default Header;
