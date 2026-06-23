@@ -8,11 +8,13 @@ function ProductCard({ prodotto }) {
   return (
     <div className="col">
       <div className="card h-100">
-        <img
-          src={`http://localhost:3000${prodotto.imgMain}`}
-          className="card-img-top"
-          alt={prodotto.name}
-        />
+        <Link to={`/products/${prodotto.slug}`}>
+          <img
+            src={`http://localhost:3000${prodotto.imgMain}`}
+            className="card-img-top"
+            alt={prodotto.name}
+          />
+        </Link>
         <div className="card-body">
           <h5 className="card-title">{prodotto.name}</h5>
           <p className="card-text">{prodotto.shortDescription}</p>
@@ -28,9 +30,8 @@ function ProductCard({ prodotto }) {
           >
             {favourite ? "❤️" : "🤍"}
           </button>
-          <Link to={`/ProductDetail/${prodotto.slug}`}>
-            <i className="bi bi-arrow-right-circle-fill fs-2"></i>
-          </Link>
+          <i className="bi bi-cart3"></i>
+
         </div>
       </div>
     </div>
