@@ -1,1 +1,15 @@
 
+@font-face {
+    font-family: "Ethnocentric-Regular";
+    src: url(../fonts/Ethnocentric-Regular.otf);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Ethnocentric-Regular", sans-serif;
+    font-weight: 900;
+}

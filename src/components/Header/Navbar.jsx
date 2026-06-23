@@ -22,7 +22,6 @@ const Navbar = () => {
                 <a>Products</a>
                 <a>About Us</a>
                 <a>Contact</a>
-                <a className="login">Login / Register</a>
             </nav>
 
             <div className="nav-right">
