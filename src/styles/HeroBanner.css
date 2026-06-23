@@ -72,7 +72,7 @@
     background-image: url("/images/hero-banner-mobile.png");
     background-position: bottom;
     background-size: cover;
-    padding-top: 10px;
+    padding-top: 90px;
     align-items: flex-start;
     justify-content: flex-end;
     padding-right: 20px;
@@ -94,4 +94,6 @@
     margin: 0;
     text-align: center;
   }
+ 
+
 }
