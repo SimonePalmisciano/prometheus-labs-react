@@ -34,7 +34,7 @@ function ProductDetail() {
     return <>
         <div className="container my-4">
             <div className="btn-link mb-4 d-flex">
-                <Link to="/HomePage" className="btn btn-primary">
+                <Link to="/" className="btn btn-primary">
                     ← Back to HomePage
                 </Link>
             </div>
