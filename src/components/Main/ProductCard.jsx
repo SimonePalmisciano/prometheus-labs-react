@@ -1,6 +1,10 @@
 import { Link } from "react-router"
+import useFavourites from "../../hooks/useFavourites";
 // Componente card singolo prodotto
 function ProductCard({ prodotto }) {
+  const { isFavourite, toggleFavourite } = useFavourites();
+  const favourite = isFavourite(prodotto.slug);
+
   return (
     <div className="col">
       <div className="card h-100">
@@ -15,8 +19,17 @@ function ProductCard({ prodotto }) {
         </div>
         <div className="card-footer d-flex justify-content-between align-items-center">
           <span className="fw-bold">€ {prodotto.price}</span>
+          <button className="btn btn-dark bg-jurassik-orange"
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              toggleFavourite(prodotto);
+            }}
+          >
+            {favourite ? "❤️" : "🤍"}
+          </button>
           <Link to={`/ProductDetail/${prodotto.slug}`}>
-          <i className="bi bi-arrow-right-circle-fill fs-2"></i>
+            <i className="bi bi-arrow-right-circle-fill fs-2"></i>
           </Link>
         </div>
       </div>
