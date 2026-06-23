@@ -41,7 +41,6 @@ function ProductDetail() {
                             src={product.imgMain ? `${API_BASE_URL}${product.imgMain}` : ""}
                             className="card-img-top rounded-1"
                             alt={product.name}
-                            style={{ objectFit: 'cover', height: '400px' }}
                         />
                     </div>
                 </div>
