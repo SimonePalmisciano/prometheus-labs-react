@@ -17,8 +17,7 @@ function ProductCard({ prodotto }) {
         </div>
         <div className="card-footer d-flex justify-content-between align-items-center">
           <span className="fw-bold">€ {prodotto.price}</span>
-
-
+          <i className="bi bi-cart3"></i>
         </div>
       </div>
     </div>
