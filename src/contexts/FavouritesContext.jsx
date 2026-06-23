@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 const FavouritesContext = createContext();
 
 function FavouritesProvider({ children }) {
-    const [favourites, setFavourites] = useState([]);
+    const [favourites, setFavourites] = useState([]); // serve per popolare la whislist
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
@@ -13,10 +13,11 @@ function FavouritesProvider({ children }) {
 
         if (storedFavourites) {
             try {
-                const parsedFavourites = JSON.parse(storedFavourites);
+                const parsedFavourites = JSON.parse(storedFavourites); // prende i vecchi preferiti salvati e li rimette 
+                // in memoria nella variabile favourites
                 setFavourites(parsedFavourites);
             } catch {
-                console.error("Errore nel parsing dei preferiti:", error);
+                console.error("Errore nel parsing dei preferiti:", error);// aggiungi staus
                 localStorage.removeItem("favourites");
             }
         }
@@ -24,8 +25,9 @@ function FavouritesProvider({ children }) {
     }, []);
 
     useEffect(() => {
-        if (!isLoaded) return;
-        localStorage.setItem("favourites", JSON.stringify(favourites)); // qui quando cambia favourites viene aggiornata la chiave
+        if (!isLoaded) return; // se non ho ancora finito di leggere localStorage non fare niente
+        localStorage.setItem("favourites", JSON.stringify(favourites)); 
+        // qui quando cambia favourites viene aggiornata la chiave
         // quindi serve per tenere sincronizzati favourites nello state e in localstorage
         // ogni volta che favourites cambia prende l'array e lo salva nel browser
 
