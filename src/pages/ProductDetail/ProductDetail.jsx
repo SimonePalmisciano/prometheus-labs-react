@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, Navigate, Link } from "react-router";
-import api from "../services/api.js";
+import api from "../../services/api.js";
+import styles from "./ProductDetail.module.css";
+
+
 const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || '3000';
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'localhost';
 const API_BASE_URL = `http://${SERVER_URL}:${SERVER_PORT}`;
@@ -9,6 +12,7 @@ function ProductDetail() {
     const { slug } = useParams(); // prende lo slug
     const [product, setProduct] = useState({});
     const [error, setError] = useState(null);
+    
 
     useEffect(() => {
         async function fetchMyData() {
@@ -34,7 +38,7 @@ function ProductDetail() {
                     ← Back to HomePage
                 </Link>
             </div>
-            <div className="row">
+            <div className={`row ${styles.productCard}`}>
                 <div className="col-md-6">
                     <div className="card text-light border-primary">
                         <img
