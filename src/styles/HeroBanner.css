@@ -1,3 +1,5 @@
+
+
 .hero-banner {
   width: 100%;
   height: 100vh;
@@ -6,7 +8,6 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -18,24 +19,25 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  color: #fff;
-  padding: 5px;
+  padding: 2px;
   margin-bottom: 20px;
+  bottom: -6px;
 }
 
 .hero-title {
   font-family: "Orbitron", sans-serif;
   font-size: 50px;
   font-weight: 600;
-  color: #bab9b7;
-  text-shadow: 0 0 25px rgb(0, 0, 0);
-  margin-bottom: 20px;
+  text-shadow: 0 0 25px rgb(87, 76, 76);
 }
 
 .hero-subtitle {
   font-family: "Orbitron", sans-serif;
   font-size: 22px;
   line-height: 1.6;
+  color: var(--color-gray-900);
+  text-shadow: 0 0 25px #6d4826;
+  text-dec
 }
 
 .hero-tagline {
@@ -53,11 +55,9 @@
   border: none;
   border-radius: 30px;
   background: linear-gradient(90deg, #ffb420, #ffc031);
-  color: #141021;
   font-family: "Orbitron", sans-serif;
   font-weight: bold;
   cursor: pointer;
-
   box-shadow: 0 0 25px rgba(255, 180, 32, 0.7);
   transition: 0.3s ease;
 }
@@ -73,9 +73,10 @@
     background-position: bottom;
     background-size: cover;
     padding-top: 90px;
-    align-items: flex-start;
-    justify-content: flex-end;
+    align-items: flex-end;
+    justify-content: flex-start;
     padding-right: 20px;
+    max-height: 420px;
   }
 
   .hero-title {
@@ -103,7 +104,11 @@
 }
 
 @media (max-width: 440px) {
-  .hero-t-span {color: #fb923c};
+  .hero-t-span {
+    color: #fb923c;
+    font-size: 55px;
+    line-height: 90%;
+  };
 
   .hero-banner {
     background-image: url("/images/hero-banner-mobile.png");
@@ -116,15 +121,20 @@
   }
 
   .hero-title {
-    font-size: 42px;
+    font-size: 38px;
+    text-align: start;
+    text-wrap: wrap;
+    max-width: 200px;
+    padding-right: 10px;
   }
 
   .hero-subtitle {
-    font-size: 12px;
+    font-size: 16px;
+    max-height: 120px;
   }
 
   .hero-tagline {
-    font-size: 10px;
+    display: none;
   }
 
   .hero-cta {
@@ -132,7 +142,16 @@
   }
 
   .hero-content {
-    margin: 20px 0 0 0;
-    text-align: end;
+    margin: 20px 0 0 12px;
+    text-align: start;
+    display: flex;
+    align-items: flex-end;
+    max-width: 300px;
+  }
+};
+
+@media (max-width: 390px) {
+  .hero-content {
+    transform: scale(120%) !important;
   }
 };
