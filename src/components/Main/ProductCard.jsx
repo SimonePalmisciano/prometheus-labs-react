@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import styles from "./ProductCard.module.css";
+import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
 
 // Componente card singolo product
 function ProductCard({ product }) {
@@ -30,9 +31,10 @@ function ProductCard({ product }) {
             {expanded ? "Show less ▲" : "Read more ▼"}
           </button>
         </div>
-        <div className="card-footer d-flex justify-content-between align-items-center">
-          <span className="fw-bold">€ {product.price}</span>
-          <i className="bi bi-cart3"></i>
+        <div className="card-footer d-flex gap-3">
+          <span className="fw-bold me-auto">€ {product.price}</span>
+          <FiHeart className="icon-btn" />
+          <FiShoppingCart className="icon-btn" />
         </div>
       </div>
     </div>
