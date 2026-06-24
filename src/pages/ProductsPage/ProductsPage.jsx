@@ -108,7 +108,7 @@ export default function ProductsPage() {
 
                         <div className="product-wrapper">
 
-                            <ProductCard prodotto={product} />
+                            <ProductCard product={product} />
 
                             <button
                                 className="btn fw-bold add-btn w-100 mt-2"
