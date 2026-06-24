@@ -159,10 +159,11 @@ function CartProvider({ children }) {
         cartTotal,
     };
     return (
-        <CartContext value={value}>
+        <CartContext.Provider value={value}>
             {children}
-        </CartContext>
-    )
+        </CartContext.Provider>
+    );
+
 }
 
 function useCart() {
