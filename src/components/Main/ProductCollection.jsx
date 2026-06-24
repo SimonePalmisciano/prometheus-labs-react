@@ -1,50 +1,49 @@
 import { useState, useEffect } from "react"
-import ProductCard from "./ProductCard"
-import api from "../../services/api"
+import ProductGrid from "./ProductGrid.jsx"
+import api from "../../services/api.js"
 
 function ProductCollection() {
 
   // stato per i prodotti
-  const [ultimiArrivi, setUltimiArrivi] = useState([])
-  const [piuVenduti, setPiuVenduti] = useState([])
+  const [latest, setLatest] = useState([]);
+  const [bestsellers, setBestsellers] = useState([]);
 
   useEffect(() => {
-    // chiamata API per tutti i prodotti
-    api.getProducts()
-      .then(prodotti => {
-        console.log('prodotti:', prodotti)
-        // primi 3 prodotti come "ultimi arrivi"
-        const ultimi = prodotti.slice(0, 3)
+    
+    const fetchData = async () => {
+      try {
+        const [latestProducts, bestsellerProducts] = await Promise.all([
+          api.getLatestProducts(),
+          api.getBestsellerProducts()
+        ]);
 
-        // prodotti dal 4 al 6 come "più venduti"
-        const venduti = prodotti.slice(8, 11)
+        // mi creo le mie rotte da 5 prodotti
+        const slicedLatest = latestProducts.slice(0, 5);
+        setLatest(slicedLatest);
 
-        setUltimiArrivi(ultimi)
-        setPiuVenduti(venduti)
-      })
+        const slicedBestsellers = bestsellerProducts.slice(0, 5);
+        setBestsellers(slicedBestsellers);
+        
+
+      } catch (error) {
+        console.error('Error when loading data')
+      }
+
+    }
+
+      fetchData();
+  
   }, [])
 
-  return (
+
+
+  return <>
     <div className="container my-5">
 
-      {/* Ultimi Arrivi */}
-      <h2 className="mb-4">New In</h2>
-      <div className="row row-cols-1 row-cols-md-3 g-4 mb-5">
-        {ultimiArrivi.map(prodotto => (
-          <ProductCard key={prodotto.id} prodotto={prodotto} />
-        ))}
-      </div>
-
-      {/* Più Venduti */}
-      <h2 className="mb-4">Clients' Favorites</h2>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
-        {piuVenduti.map(prodotto => (
-          <ProductCard key={prodotto.id} prodotto={prodotto} />
-        ))}
-      </div>
-
+      <ProductGrid title="New In" products={latest} />
+      <ProductGrid title="Clients'Favorites" products={bestsellers} />
     </div>
-  )
+  </>
 }
 
 export default ProductCollection;
