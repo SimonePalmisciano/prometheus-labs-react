@@ -5,8 +5,7 @@ import Homepage from "./pages/HomePage.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import { FavouritesProvider } from "./contexts/FavouritesContext.jsx";
 import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
-
-
+import FavouritesPage from "./pages/FavouritesPage.jsx"
 
 function App() {
   return <>
@@ -16,6 +15,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Homepage />} />
           <Route path='products/:slug' element={<ProductDetail />} />
+          <Route path="favourites" element={<FavouritesPage />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
