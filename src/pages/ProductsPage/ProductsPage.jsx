@@ -66,7 +66,7 @@ export default function ProductsPage() {
             <h1 className="text-center mb-4">Products</h1>
 
             {/* FILTERS */}
-            <section className="d-flex justify-content-center gap-3 mb-5 products-filters">
+            <section className="d-flex justify-content-center gap-3 mb-2 products-filters">
 
                 {/* CATEGORY SELECT  */}
                 <select
@@ -96,6 +96,9 @@ export default function ProductsPage() {
                     <option value="min">Prezzo MIN</option>
                     <option value="max">Prezzo MAX</option>
                 </select>
+            </section>
+            <section>
+                <button className='btn  mb-2 fw-bold fs-3 text-primary-emphasis'><Link to="/home">Home</Link></button>
             </section>
 
             {/* PRODUCT LIST */}
