@@ -87,3 +87,12 @@ h6 {
     font-weight: 900;
     margin-bottom: 0;
 }
+
+.readBtn {
+    color: #210d5b;
+    border: none;
+    border-bottom: 0.2px solid #210d5b;
+    border-right: 0.1px solid #210d5b;
+    border-radius: 10%;
+    padding: 0 0 2.5px 4px;
+}

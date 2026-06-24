@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import "../../styles/ProductsPage.css";
 import ProductCard from "../../components/Main/ProductCard.jsx";
+import { useCart } from "../../contexts/CartContext.jsx";
 
 
 export default function ProductsPage() {
@@ -9,6 +10,7 @@ export default function ProductsPage() {
     const [filtered, setFiltered] = useState([]);
     const [category, setCategory] = useState("");
     const [sort, setSort] = useState("");
+    const { addToCart } = useCart();
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -61,6 +63,18 @@ export default function ProductsPage() {
         setFiltered(sorted);
     };
 
+    function handleAddToCart(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        addToCart({
+            slug: product.slug,
+            name: product.name,
+            price: product.price,
+            image: product.imgMain,
+        });
+    }
+
     return (
         <main className="container products-page">
             <h1 className="text-center mb-4">Products</h1>
@@ -109,17 +123,6 @@ export default function ProductsPage() {
                         <div className="product-wrapper">
 
                             <ProductCard product={product} />
-
-                            <button
-                                className="btn fw-bold add-btn w-100 mt-2"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    console.log("Added to cart:", product);
-                                }}
-                            >
-                                Add To Cart
-                            </button>
 
                         </div>
 
