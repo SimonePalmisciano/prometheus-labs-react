@@ -40,10 +40,14 @@ function ProductCard({ product, className = "" }) {
         <div className="card-body">
           <div className="card-title-container">
             <h5 className="card-title mb-0">{product.name}</h5>
-            <span className={`${styles.powerTitle}`}>{product.power}</span>
+            <div className="px-3">
+              <span className={`${styles.powerTitle}`}>{product.power}</span>
+              <span className="badge bg-dark my-auto p-2 m-3">{product.power_type}</span>
+            </div>
             <div className="mt-0 pt-0">{product.categories.map((category) => {
-              if (category === "bestseller") { return <span key={category} className="badge bg-primary">{category}</span> 
-            } else { return <span key={category} className="badge bg-secondary">{category}</span> }
+              if (category === "bestseller") {
+                return <span key={category} className="badge bg-primary">{category}</span>
+              } else { return <span key={category} className="badge bg-secondary">{category}</span> }
 
               return
             })}</div></div>
@@ -82,8 +86,7 @@ function ProductCard({ product, className = "" }) {
 
           {/* Badge power */}
           <div className="d-flex flex-wrap gap-1 mt-1">
-            
-            <span className="badge bg-info">{product.power_type}</span>
+
           </div>
         </div>
       </div>
