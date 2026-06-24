@@ -7,7 +7,7 @@ import { FaHeart } from "react-icons/fa";
 import { useCart } from "../../contexts/CartContext.jsx";
 
 // Componente card singolo product
-function ProductCard({ product }) {
+function ProductCard({ product, className = "" }) {
   const [expanded, setExpanded] = useState(false);
   const { isFavourite, toggleFavourite } = useFavourites();
   const favourite = isFavourite(product.slug);
@@ -28,21 +28,34 @@ function ProductCard({ product }) {
   }
 
   return (
-    <div className="col-12 col-md-12 col-lg">
-      <div className={`card h-100 ${styles.prodCard}`}>
+    <div className={`col-12 col-md-12 col-lg `}>
+      <div className={`card h-100 ${className}`}>
         <Link to={`/products/${product.slug}`}>
           <img
             src={`http://localhost:3000${product.imgMain}`}
-            className="card-img-top"
+            className="card-img-top img-fluid"
             alt={product.name}
           />
         </Link>
         <div className="card-body">
-          <h5 className="card-title">{product.name}</h5>
+          <div className="card-title-container">
+            <h5 className="card-title mb-0">{product.name}</h5>
+            <div className="px-3">
+              <span className={`${styles.powerTitle}`}>{product.power}</span>
+              <span className="badge bg-dark my-auto p-2 m-3">{product.power_type}</span>
+            </div>
+            <div className="mt-0 pt-0">{product.categories.map((category) => {
+              if (category === "bestseller") {
+                return <span key={category} className="badge bg-primary">{category}</span>
+              } else { return <span key={category} className="badge bg-secondary">{category}</span> }
+
+              return
+            })}</div></div>
+
           <p className="card-text">
             {expanded
               ? product.shortDescription
-              : product.shortDescription.slice(0, 45) + "..."
+              : product.shortDescription.slice(0, 0) + ""
             }
           </p>
           <button
@@ -71,6 +84,10 @@ function ProductCard({ product }) {
             <FiShoppingCart className="icon-btn" />
           </button>
 
+          {/* Badge power */}
+          <div className="d-flex flex-wrap gap-1 mt-1">
+
+          </div>
         </div>
       </div>
     </div>
