@@ -18,10 +18,10 @@ function ProductCollection() {
         ]);
 
         // mi creo le mie rotte da 5 prodotti
-        const slicedLatest = latestProducts.slice(0, 5);
+        const slicedLatest = latestProducts.slice(0, 4);
         setLatest(slicedLatest);
 
-        const slicedBestsellers = bestsellerProducts.slice(0, 5);
+        const slicedBestsellers = bestsellerProducts.slice(0, 4);
         setBestsellers(slicedBestsellers);
         
 
@@ -38,9 +38,9 @@ function ProductCollection() {
 
   return <>
     <div className="container my-5">
-
-      <ProductGrid title="New In" products={latest} />
       <ProductGrid title="Clients'Favorites" products={bestsellers} />
+      <ProductGrid title="New In" products={latest} />
+      
     </div>
   </>
 }
