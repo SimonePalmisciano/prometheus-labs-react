@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router";
+import { useParams, Link, Navigate } from "react-router";
 import api from "../../services/api.js";
 import "../../styles/ProductDetail.css";
 import { FiHeart } from "react-icons/fi";
@@ -54,7 +54,7 @@ function ProductDetail() {
             const res = await api.getProductsByCategory(category);
             setRelated(res);
         } catch (err) {
-            console.error("Errore correlati:", err);
+            console.error("Related errors:", err);
         }
     }
 
@@ -79,8 +79,7 @@ function ProductDetail() {
     }
 
     if (loading) return <p className="text-center mt-5">Caricamento...</p>;
-    if (error) return <p className="text-danger text-center mt-5">{error}</p>;
-    if (!product) return null;
+    if (error || !product) return <Navigate to="/404" replace />;
 
     const galleryImages = [product.imgMain, product.imgLifestyle, product.imgKsp].filter(Boolean);
 
