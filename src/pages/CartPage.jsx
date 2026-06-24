@@ -4,10 +4,20 @@ import { Link } from "react-router";
 import CartItemCard from "../components/Main/CartItemCard";
 
 function CartPage() {
-    const { cartItems } = useCart();
+    const { cartItems, cartCount, clearCart, cartTotal } = useCart();
 
     return (
         <div className="container py-4">
+            <div className="my-3">
+                <h1>CART</h1>
+            </div>
+            <h4 className="my-2">ITEMS IN THE CART ({cartCount})</h4>
+
+            <div className="text-end my-2">
+                <button className="btn btn-primary" onClick={clearCart}>
+                    CLEAR CART
+                </button>
+            </div>
             {cartItems.length === 0 && <div className="container text-center">
                 <div className="alert alert-warning w-100 text-center">non sono presenti prodotti...</div>
                 <Link to="/">
@@ -20,6 +30,9 @@ function CartPage() {
                         <CartItemCard item={item} />
                     </div>
                 ))}
+            </div>
+            <div className="text-start">
+                <h5>TOTAL PRICE: € {cartTotal}</h5>
             </div>
         </div>
     )
