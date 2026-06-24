@@ -3,12 +3,28 @@ import useFavourites from "../../hooks/useFavourites.js";
 import { useState } from "react";
 import styles from "./ProductCard.module.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
+import { useCart } from "../../contexts/CartContext.jsx";
 
 // Componente card singolo product
 function ProductCard({ product }) {
   const [expanded, setExpanded] = useState(false);
   const { isFavourite, toggleFavourite } = useFavourites();
   const favourite = isFavourite(product.slug);
+  const { addToCart } = useCart();
+
+
+
+  function handleAddToCart(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    addToCart({
+      slug: product.slug,
+      name: product.name,
+      price: product.price,
+      image: product.imgMain,
+    });
+  }
 
   return (
     <div className="col-12 col-md-12 col-lg">
@@ -47,7 +63,12 @@ function ProductCard({ product }) {
           >
             {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" />}
           </button>
-          <FiShoppingCart className="icon-btn" />
+          <button
+            className="btn btn-dark bg-jurassik-orange"
+            onClick={handleAddToCart}
+          >
+            <FiShoppingCart className="icon-btn" />
+          </button>
 
         </div>
       </div>

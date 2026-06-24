@@ -48,11 +48,12 @@ function CartProvider({ children }) {
                 return item;
             });
         } else {
+            console.log("PRODUCT IN ADDTOCART:", product);
             const newItem = {
                 slug: product.slug,
                 name: product.name,
-                price: Number(product.price_full) || 0,
-                image: product.image_main_url || "",
+                price: Number(product.price),
+                image: product.image,
                 quantity: 1,
             };
             updatedCart = [...cartItems, newItem];

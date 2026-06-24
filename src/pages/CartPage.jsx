@@ -1,11 +1,10 @@
 import { useCart } from "../contexts/CartContext";
 import ProductCard from "../components/Main/ProductCard";
 import { Link } from "react-router";
+import CartItemCard from "../components/Main/CartItemCard";
 
 function CartPage() {
     const { cartItems } = useCart();
-    console.log(cartItems);
-    
 
     return (
         <div className="container py-4">
@@ -16,9 +15,9 @@ function CartPage() {
                 </Link>
             </div>}
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                {cartItems.map((product) => (
-                    <div className="col" key={product.slug}>
-                        {/* inserire componente cartItemCard.jsx (ancora da creare) */}
+                {cartItems.map((item) => (
+                    <div className="col" key={item.slug}>
+                        <CartItemCard item={item} />
                     </div>
                 ))}
             </div>
