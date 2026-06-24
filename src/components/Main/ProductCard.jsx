@@ -4,11 +4,11 @@ import { useState } from "react";
 import styles from "./ProductCard.module.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
 
-// Componente card singolo prodotto
+// Componente card singolo product
 function ProductCard({ product }) {
   const [expanded, setExpanded] = useState(false);
   const { isFavourite, toggleFavourite } = useFavourites();
-  const favourite = isFavourite(prodotto.slug);
+  const favourite = isFavourite(product.slug);
 
   return (
     <div className="col-12 col-md-12 col-lg">
@@ -42,13 +42,13 @@ function ProductCard({ product }) {
             onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
-              toggleFavourite(prodotto);
+              toggleFavourite(product);
             }}
           >
-            {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" /> }
+            {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" />}
           </button>
           <FiShoppingCart className="icon-btn" />
-           
+
         </div>
       </div>
     </div>
