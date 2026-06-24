@@ -1,7 +1,6 @@
 import { Link } from "react-router"
 import useFavourites from "../../hooks/useFavourites";
 import { useState } from "react";
-import { Link } from "react-router";
 import styles from "./ProductCard.module.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
 
