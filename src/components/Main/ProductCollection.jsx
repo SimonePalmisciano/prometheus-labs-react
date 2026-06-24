@@ -32,9 +32,8 @@ function ProductCollection() {
     }
 
       fetchData();
-  
-  }, [])
 
+  }, [])
 
 
   return <>
