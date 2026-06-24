@@ -38,9 +38,9 @@ function ProductCard({ product }) {
           />
         </Link>
         <div className="card-body">
-          <div className="card-title-container d-flex justify-content-between">
-            <h5 className="card-title">{product.name}</h5>
-            <div>{product.categories.map((category) => {
+          <div className="card-title-container">
+            <h5 className="card-title mb-0">{product.name}</h5>
+            <div className="mt-0 pt-0">{product.categories.map((category) => {
               if (category === "bestseller") { return <span key={category} className="badge bg-primary">{category}</span> }
 
               return
