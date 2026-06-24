@@ -4,9 +4,7 @@ import "../../styles/ProductsPage.css";
 import ProductCard from "../../components/Main/ProductCard.jsx";
 import SearchBar from "../../components/SearchBar.jsx";
 import { useCart } from "../../contexts/CartContext.jsx";
-
-
-const PRODUCTS_URL = "http://localhost:3000/products";
+import api from "../../services/api.js";
 
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
@@ -26,22 +24,13 @@ export default function ProductsPage() {
                 setLoadingProducts(true);
                 setProductsError("");
 
-                const res = await fetch(PRODUCTS_URL);
+                const results = await api.getProducts();
 
-                if (!res.ok) {
-                    throw new Error("An error i");
-                }
-
-                const data = await res.json();
-
-                const results = Array.isArray(data)
-                    ? data
-                    : data.results || data.products || [];
-
-                setProducts(results);
+                setProducts(results || []);
+                
             } catch (error) {
-                console.error("An erro occured while loading products:", error);
-                setProductsError(error.message || "An erro occured while loading products");
+                console.error("An error occured while loading products:", error);
+                setProductsError(error.message || "An error occured while loading products");
             } finally {
                 setLoadingProducts(false);
             }
@@ -60,7 +49,8 @@ export default function ProductsPage() {
         if (category === "bestseller") {
             list = list.filter(
                 (product) =>
-                    product.bestseller === 1 || product.bestseller === true
+                    Array.isArray(product.categories) &&
+                    product.categories.includes("bestseller")
             );
         } else if (category !== "") {
             list = list.filter(
@@ -123,12 +113,10 @@ export default function ProductsPage() {
                             {cat}
                         </option>
                     ))}
-
-                    <option value="bestseller">Bestseller</option>
                 </select>
 
                 <SearchBar
-                    searchUrl={PRODUCTS_URL}
+                    searchUrl={`${api.API_BASE_URL}/products`}
                     searchParam="search" //cambia questo in base a cosa cerca il backend
                     onResults={handleSearchResults}
                     onResetSearch={handleResetSearch}
@@ -156,7 +144,7 @@ export default function ProductsPage() {
             {productsError && <p className="text-danger">{productsError}</p>}
 
             {!loadingProducts && !productsError && visibleProducts.length === 0 && (
-                <p>Nessun prodotto da mostrare</p>
+                <p>No products to be shown</p>
             )}
 
             {!loadingProducts && !productsError && (
