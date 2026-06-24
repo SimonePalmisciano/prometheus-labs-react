@@ -6,7 +6,9 @@ function ProductCollection() {
 
   // stato per i prodotti
   const [latest, setLatest] = useState([]);
+  const [latestLast, setLatestLast] = useState(null);
   const [bestsellers, setBestsellers] = useState([]);
+  const [bestsellersLast, setBestsellersLast] = useState(null);
 
   useEffect(() => {
     
@@ -18,11 +20,17 @@ function ProductCollection() {
         ]);
 
         // mi creo le mie rotte da 5 prodotti
-        const slicedLatest = latestProducts.slice(0, 4);
-        setLatest(slicedLatest);
+        const slicedLatest = latestProducts.slice(0, 3);
+        const slicedLatestLast = latestProducts[3];
 
-        const slicedBestsellers = bestsellerProducts.slice(0, 4);
+        setLatest(slicedLatest);
+        setLatestLast(slicedLatestLast);
+
+        const slicedBestsellers = bestsellerProducts.slice(0, 3);
+        const slicedBestsellersLast = bestsellerProducts[3];
+
         setBestsellers(slicedBestsellers);
+        setBestsellersLast(slicedBestsellersLast);
         
 
       } catch (error) {
@@ -38,8 +46,8 @@ function ProductCollection() {
 
   return <>
     <div className="container my-5">
-      <ProductGrid title="Clients'Favorites" products={bestsellers} />
-      <ProductGrid title="New In" products={latest} />
+      <ProductGrid title="Clients'Favorites" products={bestsellers} lastProduct={bestsellersLast} />
+      <ProductGrid title="New In" products={latest} lastProduct={latestLast} />
       
     </div>
   </>
