@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router";
+import { useParams, Link } from "react-router-dom";
 import api from "../../services/api.js";
 import "../../styles/ProductDetail.css";
 import { FiHeart } from "react-icons/fi";

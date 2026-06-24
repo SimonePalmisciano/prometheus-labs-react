@@ -1,4 +1,4 @@
-import { Link } from "react-router"
+import { Link } from "react-router-dom"
 // Componente card singolo prodotto
 function ProductCard({ prodotto }) {
   return (
