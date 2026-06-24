@@ -29,7 +29,7 @@ export default function ProductsPage() {
                 const res = await fetch(PRODUCTS_URL);
 
                 if (!res.ok) {
-                    throw new Error("Errore nel caricamento prodotti");
+                    throw new Error("An error i");
                 }
 
                 const data = await res.json();
@@ -40,8 +40,8 @@ export default function ProductsPage() {
 
                 setProducts(results);
             } catch (error) {
-                console.error("Errore nel caricamento prodotti:", error);
-                setProductsError(error.message || "Errore nel caricamento prodotti");
+                console.error("An erro occured while loading products:", error);
+                setProductsError(error.message || "An erro occured while loading products");
             } finally {
                 setLoadingProducts(false);
             }
@@ -151,7 +151,7 @@ export default function ProductsPage() {
                 </button>
             </section>
 
-            {loadingProducts && <p>Caricamento prodotti...</p>}
+            {loadingProducts && <p>Products Loading...</p>}
 
             {productsError && <p className="text-danger">{productsError}</p>}
 
