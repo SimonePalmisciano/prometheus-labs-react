@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router";
-
+import { useParams, Link, Navigate } from "react-router";
 import api from "../../services/api.js";
 import "../../styles/ProductDetail.css";
 import { FiHeart } from "react-icons/fi";
+import useFavourites from "../../hooks/useFavourites.js";
 
 
 const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "3000";
@@ -12,6 +12,8 @@ const API_BASE_URL = `http://${SERVER_URL}:${SERVER_PORT}`;
 
 function ProductDetail() {
     const { slug } = useParams();
+    const { isFavourite, toggleFavourite } = useFavourites();
+    const favourite = isFavourite(slug);
     const [product, setProduct] = useState(null);
     const [related, setRelated] = useState([]);
     const [error, setError] = useState(null);
@@ -139,14 +141,14 @@ function ProductDetail() {
                                     : product.mktgDescription.slice(0, 150) + "..."
                                 }
                             </p>
-
-                            <button
-                                className="btn btn-link text-primary p-0"
-                                onClick={() => setExpanded(!expanded)}
-                            >
-                                {expanded ? "Show less ▲" : "Read more ▼"}
-                            </button>
-
+                            <div>
+                                <button
+                                    className="btn btn-link text-primary p-0"
+                                    onClick={() => setExpanded(!expanded)}
+                                >
+                                    {expanded ? "Show less ▲" : "Read more ▼"}
+                                </button>
+                            </div>
 
                             <hr className="border-secondary" />
 
@@ -156,13 +158,24 @@ function ProductDetail() {
 
                             <h5 className="mt-3">Ingredients:</h5>
                             <p>{product.ingredients}</p>
-
-                            <button
-                                className="btn  add-to-cart-btn"
-                                onClick={addToCart}
-                            >
-                                Add to cart
-                            </button>
+                            <div className="example">
+                                <button
+                                    className="btn  add-to-cart-btn"
+                                    onClick={addToCart}
+                                >
+                                    Add to cart
+                                </button>
+                                <button
+                                    className="btn btn-dark bg-jurassik-orange"
+                                    onClick={(event) => {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                        toggleFavourite(product);
+                                    }}
+                                >
+                                    {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" />}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -201,3 +214,4 @@ function ProductDetail() {
 }
 
 export default ProductDetail;
+
