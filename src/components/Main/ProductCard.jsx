@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router"
+import { Link } from "react-router";
+import styles from "./ProductCard.module.css";
+
 // Componente card singolo product
 function ProductCard({ product }) {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div className="col-12 col-md-6 col-lg">
-      <div className="card h-100">
+    <div className="col-12 col-md-12 col-lg">
+      <div className={`card h-100 ${styles.prodCard}`}>
         <Link to={`/products/${product.slug}`}>
           <img
             src={`http://localhost:3000${product.imgMain}`}
@@ -18,7 +20,7 @@ function ProductCard({ product }) {
           <p className="card-text">
             {expanded
               ? product.shortDescription
-              : product.shortDescription.slice(0, 75) + "..."
+              : product.shortDescription.slice(0, 50) + "..."
             }
           </p>
           <button
