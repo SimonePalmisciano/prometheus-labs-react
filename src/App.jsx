@@ -25,8 +25,8 @@ function App() {
               <Route path='products/:slug' element={<ProductDetail />} />
               <Route path="favourites" element={<FavouritesPage />} />
               <Route path="cart" element={<CartPage />} />
-              <Route path='*' element={<NotFound />} />
               <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path='*' element={<NotFound />} />
             </Route>
           </Routes>
         </BrowserRouter>
