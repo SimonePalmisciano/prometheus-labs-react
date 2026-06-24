@@ -6,21 +6,26 @@ import NotFound from "./pages/NotFound.jsx";
 import { FavouritesProvider } from "./contexts/FavouritesContext.jsx";
 import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
 import FavouritesPage from "./pages/FavouritesPage.jsx"
+import { CartProvider } from "./contexts/CartContext.jsx";
+import CartPage from "./pages/CartPage.jsx";
 
 function App() {
   return <>
-    <FavouritesProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<Homepage />} />
-          <Route path='products/:slug' element={<ProductDetail />} />
-          <Route path="favourites" element={<FavouritesPage />} />
-          <Route path='*' element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-    </FavouritesProvider>
+    <CartProvider>
+      <FavouritesProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Layout />}>
+              <Route index element={<Homepage />} />
+              <Route path='products/:slug' element={<ProductDetail />} />
+              <Route path="favourites" element={<FavouritesPage />} />
+              <Route path="cart" element={<CartPage />} />
+              <Route path='*' element={<NotFound />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </FavouritesProvider>
+    </CartProvider>
   </>
 }
 export default App;
