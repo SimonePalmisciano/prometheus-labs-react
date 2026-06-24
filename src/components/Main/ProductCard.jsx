@@ -38,7 +38,14 @@ function ProductCard({ product }) {
           />
         </Link>
         <div className="card-body">
-          <h5 className="card-title">{product.name}</h5>
+          <div className="card-title-container d-flex justify-content-between">
+            <h5 className="card-title">{product.name}</h5>
+            <div>{product.categories.map((category) => {
+              if (category === "bestseller") { return <span key={category} className="badge bg-primary">{category}</span> }
+
+              return
+            })}</div></div>
+
           <p className="card-text">
             {expanded
               ? product.shortDescription
@@ -70,7 +77,20 @@ function ProductCard({ product }) {
           >
             <FiShoppingCart className="icon-btn" />
           </button>
+          {/* Badge categorie */}
+          <div className="d-flex flex-wrap gap-1 mt-2">
+            {product.categories.map((category) => {
+              if (category === "bestseller") { return <span key={category} className="badge bg-primary">{category}</span> }
 
+              return <span key={category} className="badge bg-secondary">{category}</span>
+            })}
+          </div>
+
+          {/* Badge power */}
+          <div className="d-flex flex-wrap gap-1 mt-1">
+            <span className="badge bg-primary">{product.power}</span>
+            <span className="badge bg-info">{product.power_type}</span>
+          </div>
         </div>
       </div>
     </div>
