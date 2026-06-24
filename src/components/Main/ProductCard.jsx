@@ -1,5 +1,5 @@
-import { Link } from "react-router"
-import useFavourites from "../../hooks/useFavourites";
+import { Link } from "react-router";
+import useFavourites from "../../hooks/useFavourites.js";
 import { useState } from "react";
 import styles from "./ProductCard.module.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
