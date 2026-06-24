@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../styles/CheckoutPage.css";
+import { useCart } from "../contexts/CartContext";
 
 export default function CheckoutPage() {
     const [billing, setBilling] = useState({
@@ -26,8 +27,8 @@ export default function CheckoutPage() {
         cvv: ""
     });
 
-    const [cart, setCart] = useState([]);
-    const [total, setTotal] = useState(0);
+    const { cartItems, cartTotal } = useCart();
+
     const [paymentStatus, setPaymentStatus] = useState(null);
 
     const orderPayload = {
@@ -40,7 +41,7 @@ export default function CheckoutPage() {
         house_number: "1",
         postal_code: shipping.postalCode,
         country: shipping.country,
-        items: cart.map(item => ({
+        items: cartItems.map(item => ({
             id: item.id,
             slug: item.slug,
             quantity: item.quantity
@@ -73,13 +74,7 @@ export default function CheckoutPage() {
         }
     };
 
-    useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-        setCart(savedCart);
 
-        const sum = savedCart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-        setTotal(sum);
-    }, []);
 
     return (
         <div className="checkout-container">
@@ -224,16 +219,18 @@ export default function CheckoutPage() {
             <section className="checkout-section">
                 <h2>Order Summary</h2>
 
-                {cart.length === 0 && <p>The cart is empty.</p>}
+                {cartItems.length === 0 && <p>The cart is empty.</p>}
 
-                {cart.map((item) => (
+                {cartItems.map(item => (
                     <div key={item.slug} className="checkout-summary-item">
                         <span>{item.title}</span>
                         <span>{item.quantity} × €{item.price}</span>
                     </div>
                 ))}
 
-                <h3 className="checkout-summary-total">Total: €{total}</h3>
+                <h3 className="checkout-summary-total">Total: €{cartTotal}</h3>
+
+
             </section>
 
             {/* PAYMENT */}
