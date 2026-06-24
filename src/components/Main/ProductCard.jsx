@@ -7,7 +7,7 @@ import { FaHeart } from "react-icons/fa";
 import { useCart } from "../../contexts/CartContext.jsx";
 
 // Componente card singolo product
-function ProductCard({ product }) {
+function ProductCard({ product, className = "" }) {
   const [expanded, setExpanded] = useState(false);
   const { isFavourite, toggleFavourite } = useFavourites();
   const favourite = isFavourite(product.slug);
@@ -28,20 +28,22 @@ function ProductCard({ product }) {
   }
 
   return (
-    <div className="col-12 col-md-12 col-lg">
-      <div className={`card h-100 ${styles.prodCard}`}>
+    <div className={`col-12 col-md-12 col-lg `}>
+      <div className={`card h-100 ${className}`}>
         <Link to={`/products/${product.slug}`}>
           <img
             src={`http://localhost:3000${product.imgMain}`}
-            className="card-img-top"
+            className="card-img-top img-fluid"
             alt={product.name}
           />
         </Link>
         <div className="card-body">
           <div className="card-title-container">
             <h5 className="card-title mb-0">{product.name}</h5>
+            <span className={`${styles.powerTitle}`}>{product.power}</span>
             <div className="mt-0 pt-0">{product.categories.map((category) => {
-              if (category === "bestseller") { return <span key={category} className="badge bg-primary">{category}</span> }
+              if (category === "bestseller") { return <span key={category} className="badge bg-primary">{category}</span> 
+            } else { return <span key={category} className="badge bg-secondary">{category}</span> }
 
               return
             })}</div></div>
@@ -77,18 +79,10 @@ function ProductCard({ product }) {
           >
             <FiShoppingCart className="icon-btn" />
           </button>
-          {/* Badge categorie */}
-          <div className="d-flex flex-wrap gap-1 mt-2">
-            {product.categories.map((category) => {
-              if (category === "bestseller") { return <span key={category} className="badge bg-primary">{category}</span> }
-
-              return <span key={category} className="badge bg-secondary">{category}</span>
-            })}
-          </div>
 
           {/* Badge power */}
           <div className="d-flex flex-wrap gap-1 mt-1">
-            <span className="badge bg-primary">{product.power}</span>
+            
             <span className="badge bg-info">{product.power_type}</span>
           </div>
         </div>

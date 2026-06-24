@@ -1,4 +1,14 @@
 .prodCard {
-    max-width: 400px;
+    width: 400px;
     margin: 0 auto;
+}
+
+.powerTitle {
+    color: red;
+}
+
+.productLast {
+    max-width: 80%;
+    margin: 0 auto;
+    border: 2.5px solid #210d5b;
 }
