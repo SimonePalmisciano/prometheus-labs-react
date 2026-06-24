@@ -91,17 +91,20 @@ export default function ProductsPage() {
         setSearchActive(false);
     }
 
-    function handleAddToCart(event) {
-        event.preventDefault();
-        event.stopPropagation();
+    function handleAddToCart(event, product) {
+    event.preventDefault();
+    event.stopPropagation();
 
-        addToCart({
-            slug: product.slug,
-            name: product.name,
-            price: product.price,
-            image: product.imgMain,
-        });
-    }
+    addToCart({
+        id: product.id,
+        slug: product.slug,
+        name: product.name,
+        price: product.price,
+        image: product.imgMain,
+    });
+}
+
+    
 
     return (
         <main className="container products-page">
@@ -165,12 +168,8 @@ export default function ProductsPage() {
 
                                 <button
                                     className="btn fw-bold add-btn w-100 mt-2"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-                                        console.log("Added to cart:", product);
-                                    }}
-                                >
+                                    onClick={(e) =>handleAddToCart(e, product)}>
+
                                     Add To Cart
                                 </button>
                             </div>
