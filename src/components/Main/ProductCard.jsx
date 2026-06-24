@@ -3,6 +3,7 @@ import useFavourites from "../../hooks/useFavourites.js";
 import { useState } from "react";
 import styles from "./ProductCard.module.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
+import { FaHeart } from "react-icons/fa";
 import { useCart } from "../../contexts/CartContext.jsx";
 
 // Componente card singolo product
@@ -61,7 +62,7 @@ function ProductCard({ product }) {
               toggleFavourite(product);
             }}
           >
-            {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" />}
+            {favourite ? <FaHeart className="icon-btn icon-btn--active" /> : <FiHeart className="icon-btn" />}
           </button>
           <button
             className="btn bg-jurassik-orange"

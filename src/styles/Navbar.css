@@ -95,6 +95,10 @@
   color: #ff4d00;
 }
 
+.icon-btn--active {
+  color: #ff4d00;
+}
+
 .icon-wrapper {
   position: relative;
   display: inline-flex;

@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from "react-router";
 import api from "../../services/api.js";
 import "../../styles/ProductDetail.css";
 import { FiHeart } from "react-icons/fi";
+import { FaHeart } from "react-icons/fa";
 import useFavourites from "../../hooks/useFavourites.js";
 import { useCart } from "../../contexts/CartContext.jsx";
 
@@ -133,7 +134,7 @@ function ProductDetail() {
                                         toggleFavourite(product);
                                     }}
                                 >
-                                    {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" />}
+                                    {favourite ? <FaHeart className="icon-btn icon-btn--active" /> : <FiHeart className="icon-btn" />}
                                 </button>
                             </div>
 
