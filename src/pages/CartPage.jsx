@@ -17,11 +17,14 @@ function CartPage() {
                 <button className="btn btn-primary" onClick={clearCart}>
                     CLEAR CART
                 </button>
+                <Link to="/Checkout">
+                    <button className='btn btn-warning'>Go to Homepage</button>
+                </Link>
             </div>
             {cartItems.length === 0 && <div className="container text-center">
-                <div className="alert alert-warning w-100 text-center">non sono presenti prodotti...</div>
+                <div className="alert alert-warning w-100 text-center">No products added to cart!</div>
                 <Link to="/">
-                    <button className='btn btn-warning'>go back to HomePage'</button>
+                    <button className='btn btn-warning'>Go to Homepage</button>
                 </Link>
             </div>}
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -37,4 +40,4 @@ function CartPage() {
         </div>
     )
 }
-export default CartPage
+export default CartPage;

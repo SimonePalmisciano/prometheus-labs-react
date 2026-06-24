@@ -8,7 +8,7 @@ function FavouritesPage() {
     return (
         <div className="container py-4">
             {favourites.length === 0 && <div className="container text-center">
-                <div className="alert alert-warning w-100 text-center">non sono presenti prodotti...</div>
+                <div className="alert alert-warning w-100 text-center">You don't have any favorites saved yet!</div>
                 <Link to="/">
                     <button className='btn btn-warning'>go back to HomePage'</button>
                 </Link>

@@ -17,7 +17,7 @@ function FavouritesProvider({ children }) {
                 // in memoria nella variabile favourites
                 setFavourites(parsedFavourites);
             } catch {
-                console.error("Errore nel parsing dei preferiti:", error);// aggiungi staus
+                console.error("An error occured while parsing favorites:", error);// aggiungi staus
                 localStorage.removeItem("favourites");
             }
         }
