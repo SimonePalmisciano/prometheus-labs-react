@@ -4,6 +4,7 @@ import api from "../../services/api.js";
 import "../../styles/ProductDetail.css";
 import { FiHeart } from "react-icons/fi";
 import useFavourites from "../../hooks/useFavourites.js";
+import { useCart } from "../../contexts/CartContext.jsx";
 
 
 const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "3000";
@@ -20,6 +21,7 @@ function ProductDetail() {
     const [loading, setLoading] = useState(true);
     const [expanded, setExpanded] = useState(false);
     const [mainImage, setMainImage] = useState(null);
+    const { addToCart } = useCart()
 
     useEffect(() => {
         async function fetchData() {
@@ -61,24 +63,16 @@ function ProductDetail() {
         }
     }
 
-    function addToCart() {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const existing = cart.find((item) => item.slug === product.slug);
+    function handleAddToCart(event) {
+        event.preventDefault();
+        event.stopPropagation();
 
-        if (existing) {
-            existing.quantity += 1;
-        } else {
-            cart.push({
-                slug: product.slug,
-                name: product.name,
-                price: product.price,
-                img: product.imgMain,
-                quantity: 1,
-            });
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-        alert("Added to cart!");
+        addToCart({
+            slug: product.slug,
+            name: product.name,
+            price: product.price,
+            image: product.imgMain,
+        });
     }
 
     if (loading) return <p className="text-center mt-5">Caricamento...</p>;
@@ -170,7 +164,7 @@ function ProductDetail() {
 
                             <button
                                 className="btn  add-to-cart-btn"
-                                onClick={addToCart}
+                                onClick={handleAddToCart}
                             >
                                 Add to cart
                             </button>
