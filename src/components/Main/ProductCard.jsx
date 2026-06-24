@@ -1,5 +1,5 @@
-import { Link } from "react-router"
-import useFavourites from "../../hooks/useFavourites";
+import { Link } from "react-router";
+import useFavourites from "../../hooks/useFavourites.js";
 import { useState } from "react";
 import styles from "./ProductCard.module.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
@@ -25,7 +25,7 @@ function ProductCard({ product }) {
           <p className="card-text">
             {expanded
               ? product.shortDescription
-              : product.shortDescription.slice(0, 50) + "..."
+              : product.shortDescription.slice(0, 45) + "..."
             }
           </p>
           <button
