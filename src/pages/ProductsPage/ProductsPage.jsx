@@ -98,7 +98,7 @@ export default function ProductsPage() {
                 </select>
             </section>
             <section>
-                <button className='btn  mb-2 fw-bold fs-3 text-primary-emphasis'><Link to="/home">Home</Link></button>
+                <button className='btn  mb-2 fw-bold fs-3 text-primary-emphasis'><Link to="/">Home</Link></button>
             </section>
 
             {/* PRODUCT LIST */}
@@ -108,7 +108,8 @@ export default function ProductsPage() {
 
                         <div className="product-wrapper">
 
-                            <ProductCard prodotto={product} />
+                            <ProductCard product={product} />
+
 
                             <button
                                 className="btn fw-bold add-btn w-100 mt-2"
