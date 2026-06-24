@@ -9,7 +9,8 @@ const Navbar = () => {
     return (
         <header className="nav">
             <div className="logo">
-                <img src="/logo/logo.png" alt="logo" />
+                <Link to="/"><img src="/logo/logo.png" alt="logo"/></Link>
+                
             </div>
 
             <div className="mobile-top-icons">
