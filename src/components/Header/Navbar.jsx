@@ -18,9 +18,8 @@ const Navbar = () => {
                 <FiShoppingCart className="icon-btn" />
             </div>
 
-
             <nav className="nav-center">
-                <a>Products</a>
+                <Link to="/products">Products</Link>
                 <a>About Us</a>
                 <a>Contact</a>
             </nav>
@@ -46,12 +45,10 @@ const Navbar = () => {
             </div>
 
             <div className={`mobile-menu ${open ? "open" : ""}`}>
-                <a>Products</a>
+                <Link to="/products">Products</Link>
                 <a>About Us</a>
                 <a>Contact</a>
                 <a className="login">Login / Register</a>
-
-
             </div>
         </header>
     );
