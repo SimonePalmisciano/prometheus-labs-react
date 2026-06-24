@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import Layout from "./layouts/Layout.jsx";
 import Homepage from "./pages/HomePage.jsx";
 import NotFound from "./pages/NotFound.jsx";

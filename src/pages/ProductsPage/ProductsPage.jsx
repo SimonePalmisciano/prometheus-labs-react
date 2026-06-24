@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import "../../styles/ProductsPage.css";
-import ProductCard from "../../components/Main/ProductCard";
+import ProductCard from "../../components/Main/ProductCard.jsx";
 
 
 export default function ProductsPage() {
