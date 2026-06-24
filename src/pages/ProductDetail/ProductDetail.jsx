@@ -131,7 +131,16 @@ function ProductDetail() {
                         <div className="card-body">
                             <div className=" d-flex justify-content-between">
                                 <h1 className="card-title ">{product.name}</h1>
-                                <FiHeart className="icon-btn" />
+                                <button
+                                    className="btn bg-jurassik-orange"
+                                    onClick={(event) => {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                        toggleFavourite(product);
+                                    }}
+                                >
+                                    {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" />}
+                                </button>
                             </div>
 
 
@@ -158,24 +167,13 @@ function ProductDetail() {
 
                             <h5 className="mt-3">Ingredients:</h5>
                             <p>{product.ingredients}</p>
-                            <div className="example">
-                                <button
-                                    className="btn  add-to-cart-btn"
-                                    onClick={addToCart}
-                                >
-                                    Add to cart
-                                </button>
-                                <button
-                                    className="btn btn-dark bg-jurassik-orange"
-                                    onClick={(event) => {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                        toggleFavourite(product);
-                                    }}
-                                >
-                                    {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" />}
-                                </button>
-                            </div>
+
+                            <button
+                                className="btn  add-to-cart-btn"
+                                onClick={addToCart}
+                            >
+                                Add to cart
+                            </button>
                         </div>
                     </div>
                 </div>

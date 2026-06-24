@@ -54,7 +54,7 @@ function ProductCard({ product }) {
 
         <div className="card-footer d-flex gap-3">
           <span className="fw-bold me-auto">€ {product.price}</span>
-          <button className="btn btn-dark bg-jurassik-orange"
+          <button className={`btn bg-jurassik-orange`}
             onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
@@ -64,7 +64,7 @@ function ProductCard({ product }) {
             {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" />}
           </button>
           <button
-            className="btn btn-dark bg-jurassik-orange"
+            className="btn bg-jurassik-orange"
             onClick={handleAddToCart}
           >
             <FiShoppingCart className="icon-btn" />
