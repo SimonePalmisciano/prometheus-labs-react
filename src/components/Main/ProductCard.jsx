@@ -25,7 +25,7 @@ function ProductCard({ product }) {
           <p className="card-text">
             {expanded
               ? product.shortDescription
-              : product.shortDescription.slice(0, 50) + "..."
+              : product.shortDescription.slice(0, 45) + "..."
             }
           </p>
           <button

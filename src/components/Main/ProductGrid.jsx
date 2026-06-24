@@ -8,7 +8,7 @@ function ProductGrid({ title, products }) {
             <h2 className="mb-4">{title}</h2>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {products.map(product => (
-                    <ProductCard key={product.id} prodotto={product} />
+                    <ProductCard key={product.id} product={product} />
                 ))}
             </div>
         </div>
