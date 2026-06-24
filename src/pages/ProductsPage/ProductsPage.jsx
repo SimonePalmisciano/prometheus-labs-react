@@ -162,17 +162,6 @@ export default function ProductsPage() {
                         <div key={product.id} className="col-12 col-sm-6 col-md-4">
                             <div className="product-wrapper">
                                 <ProductCard product={product} />
-
-                                <button
-                                    className="btn fw-bold add-btn w-100 mt-2"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-                                        console.log("Added to cart:", product);
-                                    }}
-                                >
-                                    Add To Cart
-                                </button>
                             </div>
                         </div>
                     ))}
