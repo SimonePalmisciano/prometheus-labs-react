@@ -7,7 +7,7 @@ function NotFound() {
             <div className='notfound'>
                 <div className='container tw-bold text-center mt-5'>
                     <h1>Something went wrong</h1>
-                    <Link to="/HomePage">
+                    <Link to="/">
                         <button className='btn btn-warning'>go back to HomePage'</button>
                     </Link>
                 </div>
