@@ -1,23 +1,54 @@
-import { Link } from "react-router-dom"
-// Componente card singolo prodotto
-function ProductCard({ prodotto }) {
+import { Link } from "react-router";
+import useFavourites from "../../hooks/useFavourites.js";
+import { useState } from "react";
+import styles from "./ProductCard.module.css";
+import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
+
+// Componente card singolo product
+function ProductCard({ product }) {
+  const [expanded, setExpanded] = useState(false);
+  const { isFavourite, toggleFavourite } = useFavourites();
+  const favourite = isFavourite(product.slug);
+
   return (
-    <div className="col">
-      <div className="card h-100">
-        <Link to={`/products/${prodotto.slug}`}>
+    <div className="col-12 col-md-12 col-lg">
+      <div className={`card h-100 ${styles.prodCard}`}>
+        <Link to={`/products/${product.slug}`}>
           <img
-            src={`http://localhost:3000${prodotto.imgMain}`}
+            src={`http://localhost:3000${product.imgMain}`}
             className="card-img-top"
-            alt={prodotto.name}
+            alt={product.name}
           />
         </Link>
         <div className="card-body">
-          <h5 className="card-title">{prodotto.name}</h5>
-          <p className="card-text">{prodotto.shortDescription}</p>
+          <h5 className="card-title">{product.name}</h5>
+          <p className="card-text">
+            {expanded
+              ? product.shortDescription
+              : product.shortDescription.slice(0, 45) + "..."
+            }
+          </p>
+          <button
+            className="btn btn-link text-primary p-0"
+            onClick={() => setExpanded(!expanded)}
+          >
+            {expanded ? "Show less ▲" : "Read more ▼"}
+          </button>
         </div>
-        <div className="card-footer d-flex justify-content-between align-items-center">
-          <span className="fw-bold">€ {prodotto.price}</span>
-          <i className="bi bi-cart3"></i>
+
+        <div className="card-footer d-flex gap-3">
+          <span className="fw-bold me-auto">€ {product.price}</span>
+          <button className="btn btn-dark bg-jurassik-orange"
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              toggleFavourite(product);
+            }}
+          >
+            {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" />}
+          </button>
+          <FiShoppingCart className="icon-btn" />
+
         </div>
       </div>
     </div>
