@@ -44,6 +44,7 @@ function ProductDetail() {
         fetchData();
     }, [slug]);
 
+
     useEffect(() => {
         if (product?.imgMain) setMainImage(`${API_BASE_URL}${product.imgMain}`);
     }, [product?.imgMain]);
