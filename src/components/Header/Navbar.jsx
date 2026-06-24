@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import "../../styles/Navbar.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router";
+import { useFavourites } from "../../contexts/FavouritesContext";
+import { useCart } from "../../contexts/CartContext";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const { favourites } = useFavourites();
+    const { cartCount } = useCart();
 
     return (
         <header className="nav">
             <div className="logo">
-                <img src="/logo/logo.png" alt="logo" />
+                <Link to="/"><img src="/logo/logo.png" alt="logo"/></Link>
+                
             </div>
 
             <div className="mobile-top-icons">
@@ -31,10 +36,16 @@ const Navbar = () => {
                 </div>
 
                 <Link to={"/favourites"}>
-                    <FiHeart className="icon-btn" />
+                    <span className="icon-wrapper">
+                        <FiHeart className="icon-btn" />
+                        {favourites.length > 0 && <span className="icon-badge">{favourites.length}</span>}
+                    </span>
                 </Link>
                 <Link to={"/cart"}>
-                    <FiShoppingCart className="icon-btn" />
+                    <span className="icon-wrapper">
+                        <FiShoppingCart className="icon-btn" />
+                        {cartCount > 0 && <span className="icon-badge">{cartCount}</span>}
+                    </span>
                 </Link>
                 <FiGlobe className="icon-btn" />
                 <FiSun className="icon-btn" />

@@ -3,6 +3,7 @@ import useFavourites from "../../hooks/useFavourites.js";
 import { useState } from "react";
 import styles from "./ProductCard.module.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
+import { FaHeart } from "react-icons/fa";
 import { useCart } from "../../contexts/CartContext.jsx";
 
 // Componente card singolo product
@@ -45,7 +46,7 @@ function ProductCard({ product }) {
             }
           </p>
           <button
-            className="btn btn-link text-primary p-0"
+            className="readBtn"
             onClick={() => setExpanded(!expanded)}
           >
             {expanded ? "Show less ▲" : "Read more ▼"}
@@ -54,17 +55,17 @@ function ProductCard({ product }) {
 
         <div className="card-footer d-flex gap-3">
           <span className="fw-bold me-auto">€ {product.price}</span>
-          <button className="btn btn-dark bg-jurassik-orange"
+          <button className={`btn bg-jurassik-orange`}
             onClick={(event) => {
               event.preventDefault();
               event.stopPropagation();
               toggleFavourite(product);
             }}
           >
-            {favourite ? <FiHeart className="icon-btn" /> : <FiHeart className="icon-btn" />}
+            {favourite ? <FaHeart className="icon-btn icon-btn--active" /> : <FiHeart className="icon-btn" />}
           </button>
           <button
-            className="btn btn-dark bg-jurassik-orange"
+            className="btn bg-jurassik-orange"
             onClick={handleAddToCart}
           >
             <FiShoppingCart className="icon-btn" />

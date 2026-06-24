@@ -3,6 +3,8 @@ import { Link } from "react-router";
 import "../../styles/ProductsPage.css";
 import ProductCard from "../../components/Main/ProductCard.jsx";
 import SearchBar from "../../components/SearchBar.jsx";
+import { useCart } from "../../contexts/CartContext.jsx";
+
 
 const PRODUCTS_URL = "http://localhost:3000/products";
 
@@ -13,6 +15,7 @@ export default function ProductsPage() {
 
     const [category, setCategory] = useState("");
     const [sort, setSort] = useState("");
+    const { addToCart } = useCart();
 
     const [loadingProducts, setLoadingProducts] = useState(true);
     const [productsError, setProductsError] = useState("");
@@ -86,6 +89,18 @@ export default function ProductsPage() {
     function handleResetSearch() {
         setSearchResults([]);
         setSearchActive(false);
+    }
+
+    function handleAddToCart(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        addToCart({
+            slug: product.slug,
+            name: product.name,
+            price: product.price,
+            image: product.imgMain,
+        });
     }
 
     return (
