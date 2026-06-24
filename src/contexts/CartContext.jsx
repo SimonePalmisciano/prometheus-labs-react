@@ -18,7 +18,7 @@ function CartProvider({ children }) {
                 }
             }
         } catch (error) {
-            console.error("Errore nel caricamento del carrello:", error);
+            console.error("An error occured while loading cart:", error);
         } finally {
             setIsLoaded(true);
         }
@@ -29,7 +29,7 @@ function CartProvider({ children }) {
         try {
             localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
         } catch (error) {
-            console.error("Errore nel salvataggio del carrello:", error);
+            console.error("An error occured while saving cart:", error);
         }
     }, [cartItems, isLoaded]);
 
