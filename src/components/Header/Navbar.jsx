@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/Navbar.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -30,8 +30,12 @@ const Navbar = () => {
                     <input placeholder="Search..." />
                 </div>
 
-                <FiHeart className="icon-btn" />
-                <FiShoppingCart className="icon-btn" />
+                <Link to={"/favourites"}>
+                    <FiHeart className="icon-btn" />
+                </Link>
+                <Link to={"/cart"}>
+                    <FiShoppingCart className="icon-btn" />
+                </Link>
                 <FiGlobe className="icon-btn" />
                 <FiSun className="icon-btn" />
             </div>
