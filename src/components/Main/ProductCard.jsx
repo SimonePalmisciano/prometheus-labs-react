@@ -45,7 +45,7 @@ function ProductCard({ product }) {
             }
           </p>
           <button
-            className={`${styles.readBtn}`}
+            className="readBtn"
             onClick={() => setExpanded(!expanded)}
           >
             {expanded ? "Show less ▲" : "Read more ▼"}

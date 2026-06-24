@@ -152,7 +152,7 @@ function ProductDetail() {
                             </p>
                             <div>
                                 <button
-                                    className="btn btn-link text-primary p-0"
+                                    className="readBtn"
                                     onClick={() => setExpanded(!expanded)}
                                 >
                                     {expanded ? "Show less ▲" : "Read more ▼"}
