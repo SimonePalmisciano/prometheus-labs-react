@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/Navbar.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -17,9 +18,8 @@ const Navbar = () => {
                 <FiShoppingCart className="icon-btn" />
             </div>
 
-
             <nav className="nav-center">
-                <a>Products</a>
+                <Link to="/products">Products</Link>
                 <a>About Us</a>
                 <a>Contact</a>
             </nav>
@@ -41,12 +41,10 @@ const Navbar = () => {
             </div>
 
             <div className={`mobile-menu ${open ? "open" : ""}`}>
-                <a>Products</a>
+                <Link to="/products">Products</Link>
                 <a>About Us</a>
                 <a>Contact</a>
                 <a className="login">Login / Register</a>
-
-            
             </div>
         </header>
     );

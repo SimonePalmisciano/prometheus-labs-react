@@ -1,0 +1,45 @@
+.products-page {
+    padding-top: 40px;
+
+}
+
+.product-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-wrapper .col {
+    padding: 0 !important;
+}
+
+
+.add-btn:hover {
+    background-color: #5a23b8;
+    color: white;
+}
+
+.product-wrapper button {
+    margin-top: 5px;
+}
+
+.product-wrapper .card {
+    height: 100%;
+}
+
+.products-filters select {
+    min-width: 160px;
+}
+
+
+.add-btn {
+    background: #301f6a;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    transition: 0.3s ease;
+}
