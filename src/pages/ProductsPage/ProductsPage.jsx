@@ -5,49 +5,63 @@ import "../../styles/ProductsPage.css";
 import styles from "../../components/Main/ProductCard.module.css";
 
 import ProductCard from "../../components/Main/ProductCard.jsx";
-import SearchBar from "../../components/SearchBar.jsx";
 import { useCart } from "../../contexts/CartContext.jsx";
 import api from "../../services/api.js";
 
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
-    const [searchResults, setSearchResults] = useState([]);
-    const [searchActive, setSearchActive] = useState(false);
 
+    // Multi-query states
+    const [search, setSearch] = useState("");
     const [category, setCategory] = useState("");
     const [sort, setSort] = useState("");
+
     const { addToCart } = useCart();
 
     const [loadingProducts, setLoadingProducts] = useState(true);
     const [productsError, setProductsError] = useState("");
 
+    // Build query string dynamically
+    function buildQueryString() {
+        const params = new URLSearchParams();
+
+        if (search) params.append("search", search);
+        if (category) params.append("category", category);
+        if (sort) params.append("sort", sort);
+
+        return params.toString();
+    }
+
+    // Fetch products with multi-query
     useEffect(() => {
         async function fetchProducts() {
             try {
                 setLoadingProducts(true);
                 setProductsError("");
 
-                const results = await api.getProducts();
+                const query = buildQueryString();
+                const results = await api.getProducts(query);
 
                 setProducts(results || []);
-                
             } catch (error) {
-                console.error("An error occured while loading products:", error);
-                setProductsError(error.message || "An error occured while loading products");
+                console.error("Error loading products:", error);
+                setProductsError(error.message || "Error loading products");
             } finally {
                 setLoadingProducts(false);
             }
         }
 
         fetchProducts();
-    }, []);
+    }, [search, category, sort]);
 
+    // Extract categories
     const categories = useMemo(() => {
         return [...new Set(products.flatMap((product) => product.categories || []))];
     }, [products]);
 
+    // Sorting + filtering (client-side)
     const visibleProducts = useMemo(() => {
-        let list = searchActive ? [...searchResults] : [...products];
+        let list = [...products];
 
         if (category === "bestseller") {
             list = list.filter(
@@ -72,38 +86,29 @@ export default function ProductsPage() {
         }
 
         return list;
-    }, [products, searchResults, searchActive, category, sort]);
-
-    function handleSearchResults(results) {
-        setSearchResults(results);
-        setSearchActive(true);
-    }
-
-    function handleResetSearch() {
-        setSearchResults([]);
-        setSearchActive(false);
-    }
+    }, [products, category, sort]);
 
     function handleAddToCart(event, product) {
-    event.preventDefault();
-    event.stopPropagation();
+        event.preventDefault();
+        event.stopPropagation();
 
-    addToCart({
-        id: product.id,
-        slug: product.slug,
-        name: product.name,
-        price: product.price,
-        image: product.imgMain,
-    });
-}
-
-    
+        addToCart({
+            id: product.id,
+            slug: product.slug,
+            name: product.name,
+            price: product.price,
+            image: product.imgMain,
+        });
+    }
 
     return (
         <main className="container products-page">
             <h1 className="text-center mb-4">Products</h1>
 
+            {/* Filters */}
             <section className="d-flex justify-content-center gap-3 mb-2 products-filters">
+
+                {/* Category */}
                 <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
@@ -118,21 +123,24 @@ export default function ProductsPage() {
                     ))}
                 </select>
 
-                <SearchBar
-                    searchUrl={`${api.API_BASE_URL}/products`}
-                    searchParam="search" //cambia questo in base a cosa cerca il backend
-                    onResults={handleSearchResults}
-                    onResetSearch={handleResetSearch}
+                {/* Search */}
+                <input
+                    type="text"
+                    className="form-control w-auto"
+                    placeholder="Search products..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
                 />
 
+                {/* Sort */}
                 <select
                     value={sort}
                     onChange={(e) => setSort(e.target.value)}
                     className="form-select w-auto"
                 >
                     <option value="">Sort by price</option>
-                    <option value="min">Prezzo MIN</option>
-                    <option value="max">Prezzo MAX</option>
+                    <option value="min">Price MIN</option>
+                    <option value="max">Price MAX</option>
                 </select>
             </section>
 
@@ -149,7 +157,10 @@ export default function ProductsPage() {
                     {visibleProducts.map((product) => (
                         <div key={product.id} className="col-12 col-lg-4">
                             <div className="product-wrapper">
-                                <ProductCard product={product} className={`${styles.productCard}`}/>
+                                <ProductCard
+                                    product={product}
+                                    className={`${styles.productCard}`}
+                                />
                             </div>
                         </div>
                     ))}
