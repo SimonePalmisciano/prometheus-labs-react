@@ -38,8 +38,8 @@ function ProductCard({ product, className = "" }) {
           />
         </Link>
         <div className="card-body">
-          <div className="card-title-container">
-            <h5 className="card-title mb-0">{product.name}</h5>
+          <div className="card-title-container text-center">
+            <h5 className={`card-title mb-0 fst-italic ${styles.cardTitle}`}>{product.name}</h5>
             <div className="px-3 d-flex">
               <span className={`${styles.powerTitle}`}>{product.power}</span>
               <span className={`badge bg-dark my-auto p-2 m-3 `}>{product.power_type}</span>

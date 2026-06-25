@@ -4,12 +4,12 @@
 }
 
 .powerTitle {
-    color: #fb923c;
+    color: var(--orange);
     font-size: 20px;
 }
 
 .bestseller {
-    background-color: #fb923c;
+    background-color: var(--orange);
     padding: 5px;
     border-radius: 10px;
 }
@@ -26,6 +26,9 @@
 .productLast {
     max-width: 80%;
     margin: 0 auto;
-    border: 2.5px solid #210d5b;
+    border: 2.5px solid var(--purple);
 }
 
+.cardTitle {
+    color: var(--purple);
+}
