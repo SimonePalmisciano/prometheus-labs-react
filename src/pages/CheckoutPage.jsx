@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../styles/CheckoutPage.css";
 import { useCart } from "../contexts/CartContext";
+import { Link } from "react-router";
 
 export default function CheckoutPage() {
     const [billing, setBilling] = useState({
@@ -223,7 +224,7 @@ export default function CheckoutPage() {
 
                 {cartItems.map(item => (
                     <div key={item.slug} className="checkout-summary-item">
-                        <span>{item.title}</span>
+                        <span>{item.name}</span>
                         <span>{item.quantity} × €{item.price}</span>
                     </div>
                 ))}
