@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../styles/CheckoutPage.css";
 import { useCart } from "../contexts/CartContext";
+import validateCheckout from "../utils/validateCheckout";
 
 export default function CheckoutPage() {
     const [billing, setBilling] = useState({
@@ -32,6 +33,8 @@ export default function CheckoutPage() {
     const { cartItems, cartTotal } = useCart();
 
     const [paymentStatus, setPaymentStatus] = useState(null);
+
+    const [errors, setErrors] = useState({});
 
     const orderPayload = {
         guest_email: billing.email,
@@ -66,8 +69,12 @@ export default function CheckoutPage() {
     };
 
     const handlePayment = () => {
-        const cleanNumber = card.number.replace(/\s/g, "");
+        const newErrors = validateCheckout(billing, shipping, card);
+        setErrors(newErrors);
 
+        if (Object.keys(newErrors).length > 0) return;
+
+        const cleanNumber = card.number.replace(/\s/g, "");
         if (cleanNumber === "4242424242424242") {
             setPaymentStatus("success");
             sendOrder();
@@ -93,6 +100,7 @@ export default function CheckoutPage() {
                         value={billing.firstName}
                         onChange={(e) => setBilling({ ...billing, firstName: e.target.value })}
                     />
+                    {errors.firstName && <p className="text-danger small">{errors.firstName}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -102,6 +110,7 @@ export default function CheckoutPage() {
                         value={billing.lastName}
                         onChange={(e) => setBilling({ ...billing, lastName: e.target.value })}
                     />
+                   {errors.lastName && <p className="text-danger small">{errors.lastName}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -111,6 +120,7 @@ export default function CheckoutPage() {
                         value={billing.email}
                         onChange={(e) => setBilling({ ...billing, email: e.target.value })}
                     />
+                   {errors.email && <p className="text-danger small">{errors.email}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -120,6 +130,7 @@ export default function CheckoutPage() {
                         value={billing.address}
                         onChange={(e) => setBilling({ ...billing, address: e.target.value })}
                     />
+                   {errors.billingAddress && <p className="text-danger small">{errors.billingAddress}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -129,6 +140,7 @@ export default function CheckoutPage() {
                         value={billing.house_number}
                         onChange={(e) => setBilling({ ...billing, house_number: e.target.value })}
                     />
+                    {errors.billingHouseNumber && <p className="text-danger small">{errors.billingHouseNumber}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -138,6 +150,7 @@ export default function CheckoutPage() {
                         value={billing.city}
                         onChange={(e) => setBilling({ ...billing, city: e.target.value })}
                     />
+                   {errors.billingCity && <p className="text-danger small">{errors.billingCity}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -147,6 +160,7 @@ export default function CheckoutPage() {
                         value={billing.postalCode}
                         onChange={(e) => setBilling({ ...billing, postalCode: e.target.value })}
                     />
+                    {errors.billingPostalCode && <p className="text-danger small">{errors.billingPostalCode}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -156,6 +170,7 @@ export default function CheckoutPage() {
                         value={billing.country}
                         onChange={(e) => setBilling({ ...billing, country: e.target.value })}
                     />
+                 {errors.billingCountry && <p className="text-danger small">{errors.billingCountry}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -165,6 +180,7 @@ export default function CheckoutPage() {
                         value={billing.phone}
                         onChange={(e) => setBilling({ ...billing, phone: e.target.value })}
                     />
+                    {errors.phone && <p className="text-danger small">{errors.phone}</p>}
                 </div>
             </section>
 
@@ -179,6 +195,7 @@ export default function CheckoutPage() {
                         value={shipping.address}
                         onChange={(e) => setShipping({ ...shipping, address: e.target.value })}
                     />
+                    {errors.shippingAddress && <p className="text-danger small">{errors.shippingAddress}</p>}
                 </div>
                 <div className="checkout-form-group">
                     <label>House Number</label>
@@ -187,6 +204,7 @@ export default function CheckoutPage() {
                         value={shipping.house_number}
                         onChange={(e) => setShipping({ ...shipping, house_number: e.target.value })}
                     />
+                   {errors.shippingHouseNumber && <p className="text-danger small">{errors.shippingHouseNumber}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -196,6 +214,7 @@ export default function CheckoutPage() {
                         value={shipping.city}
                         onChange={(e) => setShipping({ ...shipping, city: e.target.value })}
                     />
+                   {errors.shippingCity && <p className="text-danger small">{errors.shippingCity}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -205,6 +224,7 @@ export default function CheckoutPage() {
                         value={shipping.postalCode}
                         onChange={(e) => setShipping({ ...shipping, postalCode: e.target.value })}
                     />
+                   {errors.shippingPostalCode && <p className="text-danger small">{errors.shippingPostalCode}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -214,6 +234,7 @@ export default function CheckoutPage() {
                         value={shipping.country}
                         onChange={(e) => setShipping({ ...shipping, country: e.target.value })}
                     />
+                    {errors.shippingCountry && <p className="text-danger small">{errors.shippingCountry}</p>}
                 </div>
             </section>
 
@@ -247,6 +268,7 @@ export default function CheckoutPage() {
                         value={card.number}
                         onChange={(e) => setCard({ ...card, number: e.target.value })}
                     />
+                    {errors.cardNumber && <p className="text-danger small">{errors.cardNumber}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -257,6 +279,7 @@ export default function CheckoutPage() {
                         value={card.expiry}
                         onChange={(e) => setCard({ ...card, expiry: e.target.value })}
                     />
+                    {errors.expiry && <p className="text-danger small">{errors.expiry}</p>}
                 </div>
 
                 <div className="checkout-form-group">
@@ -267,6 +290,7 @@ export default function CheckoutPage() {
                         value={card.cvv}
                         onChange={(e) => setCard({ ...card, cvv: e.target.value })}
                     />
+                    {errors.cvv && <p className="text-danger small">{errors.cvv}</p>}
                 </div>
 
                 <button className="checkout-submit-btn" onClick={handlePayment}>
