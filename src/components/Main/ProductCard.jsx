@@ -40,13 +40,13 @@ function ProductCard({ product, className = "" }) {
         <div className="card-body">
           <div className="card-title-container">
             <h5 className="card-title mb-0">{product.name}</h5>
-            <div className="px-3">
+            <div className="px-3 d-flex">
               <span className={`${styles.powerTitle}`}>{product.power}</span>
-              <span className="badge bg-dark my-auto p-2 m-3">{product.power_type}</span>
+              <span className={`badge bg-dark my-auto p-2 m-3 `}>{product.power_type}</span>
             </div>
             <div className="mt-0 pt-0">{product.categories.map((category) => {
               if (category === "bestseller") {
-                return <span key={category} className="badge bg-primary">{category}</span>
+                return <span key={category} className={`${styles.bestseller}`}>{category}</span>
               } else { return <span key={category} className="badge bg-secondary">{category}</span> }
 
               return

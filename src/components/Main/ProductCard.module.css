@@ -4,7 +4,23 @@
 }
 
 .powerTitle {
-    color: red;
+    color: #fb923c;
+    font-size: 20px;
+}
+
+.bestseller {
+    background-color: #fb923c;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.productCard:hover {
+    transform: scale(102%);
+    transition: 0.2s;
+}
+
+.productMain {
+   
 }
 
 .productLast {
@@ -12,3 +28,4 @@
     margin: 0 auto;
     border: 2.5px solid #210d5b;
 }
+

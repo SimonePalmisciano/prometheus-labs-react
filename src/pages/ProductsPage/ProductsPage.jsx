@@ -133,12 +133,6 @@ export default function ProductsPage() {
                 </select>
             </section>
 
-            <section>
-                <button className="btn mb-2 fw-bold fs-3 text-primary-emphasis">
-                    <Link to="/">Home</Link>
-                </button>
-            </section>
-
             {loadingProducts && <p>Products Loading...</p>}
 
             {productsError && <p className="text-danger">{productsError}</p>}
@@ -148,9 +142,9 @@ export default function ProductsPage() {
             )}
 
             {!loadingProducts && !productsError && (
-                <section className="row g-4">
+                <section className="row g-4 mt-2">
                     {visibleProducts.map((product) => (
-                        <div key={product.id} className="col-12 col-sm-6 col-md-4">
+                        <div key={product.id} className="col-12 col-lg-4">
                             <div className="product-wrapper">
                                 <ProductCard product={product} />
                             </div>

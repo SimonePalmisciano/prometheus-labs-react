@@ -25,8 +25,8 @@ const Navbar = () => {
 
             <nav className="nav-center">
                 <Link to="/products">Products</Link>
-                <a>About Us</a>
-                <a>Contact</a>
+                <Link>About Us</Link>
+                <Link>Contact</Link>
             </nav>
 
             <div className="nav-right">
@@ -57,8 +57,8 @@ const Navbar = () => {
 
             <div className={`mobile-menu ${open ? "open" : ""}`}>
                 <Link to="/products">Products</Link>
-                <a>About Us</a>
-                <a>Contact</a>
+                <Link to="">About Us</Link>
+                <Link to="">Contact</Link>
                 <a className="login">Login / Register</a>
             </div>
         </header>
