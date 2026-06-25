@@ -11,7 +11,8 @@ import api from "../../services/api.js";
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
 
-    // Multi-query states
+
+    const [searchInput, setSearchInput] = useState("");
     const [search, setSearch] = useState("");
     const [category, setCategory] = useState("");
     const [sort, setSort] = useState("");
@@ -21,7 +22,6 @@ export default function ProductsPage() {
     const [loadingProducts, setLoadingProducts] = useState(true);
     const [productsError, setProductsError] = useState("");
 
-    // Build query string dynamically
     function buildQueryString() {
         const params = new URLSearchParams();
 
@@ -32,7 +32,6 @@ export default function ProductsPage() {
         return params.toString();
     }
 
-    // Fetch products with multi-query
     useEffect(() => {
         async function fetchProducts() {
             try {
@@ -54,12 +53,10 @@ export default function ProductsPage() {
         fetchProducts();
     }, [search, category, sort]);
 
-    // Extract categories
     const categories = useMemo(() => {
         return [...new Set(products.flatMap((product) => product.categories || []))];
     }, [products]);
 
-    // Sorting + filtering (client-side)
     const visibleProducts = useMemo(() => {
         let list = [...products];
 
@@ -105,43 +102,70 @@ export default function ProductsPage() {
         <main className="container products-page">
             <h1 className="text-center mb-4">Products</h1>
 
-            {/* Filters */}
-            <section className="d-flex justify-content-center gap-3 mb-2 products-filters">
+            <section className="d-flex justify-content-center align-items-end gap-5 mb-4 products-filters">
 
-                {/* Category */}
-                <select
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    className="form-select w-auto"
-                >
-                    <option value="">All</option>
+                <div className="d-flex flex-column">
+                    <label className="form-label">Category</label>
+                    <select
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                        className="form-select"
+                    >
+                        <option value="">All</option>
 
-                    {categories.map((cat) => (
-                        <option key={cat} value={cat}>
-                            {cat}
-                        </option>
-                    ))}
-                </select>
+                        {categories.map((cat) => (
+                            <option key={cat} value={cat}>
+                                {cat}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className=" d-flex gap-1">
+                    <div className="d-flex flex-column">
+                        <label className="form-label">Search</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Search products..."
+                            value={searchInput}
+                            onChange={(e) => {
+                                const value = e.target.value;
+                                setSearchInput(value);
+                                if (value.trim() === "") {
+                                    setSearch(""); 
+                                }
+                            }}
+                        />
 
-                {/* Search */}
-                <input
-                    type="text"
-                    className="form-control w-auto"
-                    placeholder="Search products..."
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                />
+                    </div>
+                    <div className="d-flex flex-column">
+                        <label className="form-label opacity-0">Search</label>
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => setSearch(searchInput)}
+                        >
+                            Search
+                        </button>
 
-                {/* Sort */}
-                <select
-                    value={sort}
-                    onChange={(e) => setSort(e.target.value)}
-                    className="form-select w-auto"
-                >
-                    <option value="">Sort by price</option>
-                    <option value="min">Price MIN</option>
-                    <option value="max">Price MAX</option>
-                </select>
+                    </div>
+
+
+                </div>
+
+                <div className="d-flex flex-column">
+                    <label className="form-label">Sort</label>
+                    <select
+                        value={sort}
+                        onChange={(e) => setSort(e.target.value)}
+                        className="form-select"
+                    >
+                        <option value="">Sort by price</option>
+                        <option value="min">Price MIN</option>
+                        <option value="max">Price MAX</option>
+                    </select>
+                </div>
+
+
             </section>
 
             {loadingProducts && <p>Products Loading...</p>}
@@ -153,7 +177,7 @@ export default function ProductsPage() {
             )}
 
             {!loadingProducts && !productsError && (
-                <section className="row g-4 mt-2">
+                <section className="row g-4 mt-2 mb-5">
                     {visibleProducts.map((product) => (
                         <div key={product.id} className="col-12 col-lg-4">
                             <div className="product-wrapper">
