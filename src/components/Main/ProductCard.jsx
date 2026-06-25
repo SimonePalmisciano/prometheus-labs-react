@@ -6,6 +6,10 @@ import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "
 import { FaHeart } from "react-icons/fa";
 import { useCart } from "../../contexts/CartContext.jsx";
 
+
+
+
+
 // Componente card singolo product
 function ProductCard({ product, className = "" }) {
   const [expanded, setExpanded] = useState(false);
@@ -27,6 +31,11 @@ function ProductCard({ product, className = "" }) {
     });
   }
 
+  function powerTypeCheck(powerType) {
+    if (powerType === "physical") { return <div className={`badge my-auto p-2 m-3 ${styles.phTag}`}>{product.power_type}</div> };
+    if (powerType === "psychic") { return <div className={`badge my-auto p-2 m-3  ${styles.psyTag}`}>{product.power_type}</div> };
+  }
+
   return (
     <div className={`col-12 col-md-12 col-lg `}>
       <div className={`card h-100 ${className}`}>
@@ -40,9 +49,9 @@ function ProductCard({ product, className = "" }) {
         <div className="card-body">
           <div className="card-title-container text-center">
             <h5 className={`card-title mb-0 fst-italic ${styles.cardTitle}`}>{product.name}</h5>
-            <div className="px-3 d-flex">
-              <span className={`${styles.powerTitle}`}>{product.power}</span>
-              <span className={`badge bg-dark my-auto p-2 m-3 `}>{product.power_type}</span>
+            <div className="px-3">
+              <div className={`${styles.powerTitle}`}>{product.power}</div>
+              {powerTypeCheck(product.power_type)}
             </div>
             <div className="mt-0 pt-0">{product.categories.map((category) => {
               if (category === "bestseller") {

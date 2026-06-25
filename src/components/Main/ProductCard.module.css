@@ -1,8 +1,3 @@
-.prodCard {
-    width: 400px;
-    margin: 0 auto;
-}
-
 .powerTitle {
     color: var(--orange);
     font-size: 20px;
@@ -12,6 +7,11 @@
     background-color: var(--orange);
     padding: 5px;
     border-radius: 10px;
+}
+
+
+.productCard {
+    position: relative;
 }
 
 .productCard:hover {
@@ -31,4 +31,19 @@
 
 .cardTitle {
     color: var(--purple);
+    text-wrap: nowrap;
+}
+
+.psyTag {
+    background-color: var(--purple);
+}
+
+.phTag {
+    background-color: var(--orange);
+}
+
+@media (min-width: 992px) {
+    .cardTitle {
+        font-size: 27px !important;
+    }
 }
