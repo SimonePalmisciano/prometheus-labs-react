@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
+
 import "../../styles/ProductsPage.css";
+import styles from "../../components/Main/ProductCard.module.css";
+
 import ProductCard from "../../components/Main/ProductCard.jsx";
 import SearchBar from "../../components/SearchBar.jsx";
 import { useCart } from "../../contexts/CartContext.jsx";
@@ -146,7 +149,7 @@ export default function ProductsPage() {
                     {visibleProducts.map((product) => (
                         <div key={product.id} className="col-12 col-lg-4">
                             <div className="product-wrapper">
-                                <ProductCard product={product} />
+                                <ProductCard product={product} className={`${styles.productCard}`}/>
                             </div>
                         </div>
                     ))}
