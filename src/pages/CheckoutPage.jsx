@@ -225,8 +225,8 @@ export default function CheckoutPage() {
 
                 {cartItems.map(item => (
                     <div key={item.slug} className="checkout-summary-item">
-                        <span>{item.title}</span>
-                        <span>{item.quantity} × €{item.price}</span>
+                        <span>{item.name} x{item.quantity}</span>
+                        <span>€{(item.quantity * item.price).toFixed(2)}</span>
                     </div>
                 ))}
 
