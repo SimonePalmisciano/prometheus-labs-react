@@ -22,7 +22,11 @@ function ProductDetail() {
     const [loading, setLoading] = useState(true);
     const [expanded, setExpanded] = useState(false);
     const [mainImage, setMainImage] = useState(null);
-    const { addToCart } = useCart()
+    const { addToCart, isInCart, getItemQuantity, increaseQuantity, decreaseQuantity } = useCart();
+    const quantityInCart = getItemQuantity(slug);
+    const productAlreadyInCart = isInCart(slug);
+
+
 
     useEffect(() => {
         async function fetchData() {
@@ -163,12 +167,32 @@ function ProductDetail() {
                             <h5 className="mt-3">Ingredients:</h5>
                             <p>{product.ingredients}</p>
 
-                            <button
-                                className="btn  add-to-cart-btn"
-                                onClick={handleAddToCart}
-                            >
-                                Add to cart
-                            </button>
+                            {!quantityInCart ?
+                                <button
+                                    className="btn  add-to-cart-btn"
+                                    onClick={handleAddToCart}
+                                >
+                                    Add to cart
+                                </button>
+                                :
+                                <div className="d-flex align-items-center">
+                                    <button
+                                        className="btn btn-outline-secondary"
+                                        onClick={() => decreaseQuantity(product.slug)}
+                                    >
+                                        -
+                                    </button>
+                                    <div className="d-flex justify-content-center mx-2">
+                                        {quantityInCart}
+                                    </div>
+                                    <button
+                                        className="btn btn-outline-secondary"
+                                        onClick={() => increaseQuantity(product.slug)}
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
