@@ -8,6 +8,7 @@ export default function CheckoutPage() {
         lastName: "",
         email: "",
         address: "",
+        house_number: "",
         city: "",
         postalCode: "",
         country: "",
@@ -16,6 +17,7 @@ export default function CheckoutPage() {
 
     const [shipping, setShipping] = useState({
         address: "",
+        house_number: "",
         city: "",
         postalCode: "",
         country: ""
@@ -125,7 +127,7 @@ export default function CheckoutPage() {
                     <input
                         type="text"
                         value={billing.house_number}
-                        onChange={(e) => setBilling({ ...billing, address: e.target.value })}
+                        onChange={(e) => setBilling({ ...billing, house_number: e.target.value })}
                     />
                 </div>
 
@@ -183,7 +185,7 @@ export default function CheckoutPage() {
                     <input
                         type="text"
                         value={shipping.house_number}
-                        onChange={(e) => setShipping({ ...shipping, address: e.target.value })}
+                        onChange={(e) => setShipping({ ...shipping, house_number: e.target.value })}
                     />
                 </div>
 
