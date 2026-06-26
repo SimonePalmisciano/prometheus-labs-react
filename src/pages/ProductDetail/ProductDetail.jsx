@@ -34,7 +34,7 @@ function ProductDetail() {
                 const response = await api.getProductBySlug(slug);
 
                 if (!response || response.length === 0) {
-                    setError("Prodotto non trovato");
+                    setError(`Product with slug ${slug} not found`);
                     return;
                 }
 
@@ -59,6 +59,7 @@ function ProductDetail() {
         if (product?.imgMain) setMainImage(`${API_BASE_URL}${product.imgMain}`);
     }, [product?.imgMain]);
 
+    // fetch dei prodotti nel carousel 'frequently bought together'
     async function fetchRelated(category) {
         try {
             const res = await api.getProductsByCategory(category);
@@ -83,7 +84,7 @@ function ProductDetail() {
     if (loading) return <p className="text-center mt-5">Caricamento...</p>;
     if (error || !product) return <Navigate to="/404" replace />;
 
-    const galleryImages = [product.imgMain, product.imgLifestyle, product.imgKsp].filter(Boolean);
+    const galleryImages = [product.imgMain, (product.imgLifestyle) ? `${product.imgLifestyle}` : '', (product.imgKsp) ? `${product.imgKsp}` : ''].filter(Boolean);
 
     return (
         <div className="container my-4 product-detail-container">
@@ -96,25 +97,25 @@ function ProductDetail() {
 
                         {/* Thumbnails */}
                         <div className="col-2 d-flex flex-column gap-3">
-                            {galleryImages.map((imgUrl, index) => (
+                            {galleryImages.map(image => {
                                 <div
-                                    key={index}
-                                    className={`thumbnail-wrapper ${mainImage === `${API_BASE_URL}${imgUrl}` ? "selected" : ""}`}
-                                    onClick={() => setMainImage(`${API_BASE_URL}${imgUrl}`)}
+                                    key={image.index}
+                                    className={`thumbnail-wrapper ${mainImage === `${API_BASE_URL}${image.imgUrl}` ? "selected" : ""}`}
+                                    onClick={() => setMainImage(`${API_BASE_URL}${image.imgUrl}`)}
                                 >
                                     <img
-                                        src={`${API_BASE_URL}${imgUrl}`}
-                                        alt={`${product.name} view ${index + 1}`}
+                                        src={`${API_BASE_URL}${image.imgUrl}`}
+                                        alt={`${product.name} view ${image.index + 1}`}
                                     />
                                 </div>
-                            ))}
+                            })}
                         </div>
 
                         {/* Main Image */}
                         <div className="col-10">
                             <div className="card product-image-card border-0 h-100 d-flex justify-content-center align-items-center">
                                 <img
-                                    src={mainImage || ""}
+                                    src={mainImage || null } // inserendo null invece di stringa vuota si evita richiesta di rete fantasma
                                     className="main-gallery-img"
                                     alt={product.name}
                                 />
