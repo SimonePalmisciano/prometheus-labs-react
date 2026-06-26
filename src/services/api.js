@@ -10,7 +10,7 @@ const api = {
         if (data.error) { 
             throw new Error(data.error);
         }
-        return data.results;
+        return data.result;
     },
 
     async getProductBySlug(slug) {
@@ -19,7 +19,7 @@ const api = {
         if (data.error) {
             throw new Error(data.error)
         }
-        return data.results;
+        return data.result;
     },
 
     async getLatestProducts() {
@@ -29,7 +29,7 @@ const api = {
         if (data.error) { 
             throw new Error(data.error);
         }
-        return data.results;
+        return data.result;
     },
 
     async getBestsellerProducts() {
@@ -39,7 +39,7 @@ const api = {
         if (data.error) { 
             throw new Error(data.error);
         }
-        return data.results;
+        return data.result;
     }
 }
 
