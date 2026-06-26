@@ -41,7 +41,7 @@ function ProductDetail() {
                 const prod = response[0];
                 setProduct(prod);
 
-                fetchRelated(prod.categoryName);
+                fetchRelated(prod.categories[0]);
 
             } catch (err) {
                 console.error(err);
