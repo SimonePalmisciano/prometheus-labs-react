@@ -7,10 +7,10 @@ const api = {
         const response = await fetch(`${API_BASE_URL}/products?${queryString}`);
         if (!response.ok) throw new Error("Error occurred when loading data");
         const data = await response.json();
-        if (data.error) { 
+        if (data.error) {
             throw new Error(data.error);
         }
-        return data.result;
+        return data.results;
     },
 
     async getProductBySlug(slug) {
@@ -19,28 +19,40 @@ const api = {
         if (data.error) {
             throw new Error(data.error)
         }
-        return data.result;
+        return data.results;
     },
 
     async getLatestProducts() {
         const response = await fetch(`${API_BASE_URL}/products/latest`);
         if (!response.ok) throw new Error("Error occurred when loading data");
         const data = await response.json();
-        if (data.error) { 
+        if (data.error) {
             throw new Error(data.error);
         }
-        return data.result;
+        return data.results;
     },
 
     async getBestsellerProducts() {
         const response = await fetch(`${API_BASE_URL}/products/bestsellers`);
         if (!response.ok) throw new Error("Error occurred when loading data");
         const data = await response.json();
-        if (data.error) { 
+        if (data.error) {
             throw new Error(data.error);
         }
-        return data.result;
-    }
+        return data.results;
+    },
+
+    async getProductsByCategory(category) {
+        const response = await fetch(`${API_BASE_URL}/products?category=${category}`);
+        if (!response.ok) throw new Error("Error occurred when loading data");
+        const data = await response.json();
+        if (data.error) {
+            throw new Error(data.error);
+        }
+        return data.results;
+    },
+
+
 }
 
 export default api;
