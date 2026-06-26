@@ -115,7 +115,7 @@ function ProductDetail() {
                         <div className="col-10">
                             <div className="card product-image-card border-0 h-100 d-flex justify-content-center align-items-center">
                                 <img
-                                    src={mainImage || ""}
+                                    src={mainImage || null } // inserendo null invece di stringa vuota si evita richiesta di rete fantasma
                                     className="main-gallery-img"
                                     alt={product.name}
                                 />
