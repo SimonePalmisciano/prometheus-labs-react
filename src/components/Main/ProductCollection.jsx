@@ -18,6 +18,7 @@ function ProductCollection() {
           api.getLatestProducts(),
           api.getBestsellerProducts()
         ]);
+        
 
         // mi creo le mie rotte da 5 prodotti
         const slicedLatest = latestProducts.slice(0, 3);
@@ -26,8 +27,15 @@ function ProductCollection() {
         setLatest(slicedLatest);
         setLatestLast(slicedLatestLast);
 
-        const slicedBestsellers = bestsellerProducts.slice(0, 3);
-        const slicedBestsellersLast = bestsellerProducts[3];
+        const sortedBestsellers = [...bestsellerProducts].sort((a, b) => {
+          return b.total_quantity - a.total_quantity;
+        });
+
+                console.log(sortedBestsellers);
+
+        const slicedBestsellers = sortedBestsellers.slice(0, 3);
+        const slicedBestsellersLast = sortedBestsellers[3];
+
 
         setBestsellers(slicedBestsellers);
         setBestsellersLast(slicedBestsellersLast);
