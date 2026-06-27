@@ -43,14 +43,14 @@ const api = {
     },
 
     async getProductsByCategory(category) {
-        const response = await fetch(`${API_BASE_URL}/products?category=${category}`);
-        if (!response.ok) throw new Error("Error occurred when loading data");
-        const data = await response.json();
-        if (data.error) {
-            throw new Error(data.error);
-        }
-        return data.result;
-    },
+    const response = await fetch(`${API_BASE_URL}/products/category/${category}`);
+    if (!response.ok) throw new Error("Error occurred when loading data");
+    const data = await response.json();
+    if (data.error) {
+        throw new Error(data.error);
+    }
+    return data.result;
+},
 
 
 }
