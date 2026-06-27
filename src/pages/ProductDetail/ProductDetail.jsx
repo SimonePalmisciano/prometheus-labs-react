@@ -205,7 +205,7 @@ function ProductDetail() {
 
             {/* RELATED PRODUCTS */}
             <div className="mt-5">
-                <h3 className="text-primary mb-3">Frequently Bought Together</h3>
+                <h3 className="text-primary mb-3">Also Worth a Look</h3>
 
                 <div className="row">
                     {related
