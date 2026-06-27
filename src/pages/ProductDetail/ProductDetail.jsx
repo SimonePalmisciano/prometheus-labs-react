@@ -6,6 +6,7 @@ import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import useFavourites from "../../hooks/useFavourites.js";
 import { useCart } from "../../contexts/CartContext.jsx";
+import utils from "../../utils/utils.js";
 
 
 const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "3000";
@@ -63,7 +64,10 @@ function ProductDetail() {
     async function fetchRelated(category) {
         try {
             const res = await api.getProductsByCategory(category);
-            setRelated(res);
+            // shuffle dei risultati + selezione 5 da lista shuffled
+            const resFinal = res.sort(utils.getRandomOrder).slice(0,4);
+
+            setRelated(resFinal);
         } catch (err) {
             console.error("Related errors:", err);
         }
@@ -115,7 +119,7 @@ function ProductDetail() {
                         <div className="col-10">
                             <div className="card product-image-card border-0 h-100 d-flex justify-content-center align-items-center">
                                 <img
-                                    src={mainImage || null } // inserendo null invece di stringa vuota si evita richiesta di rete fantasma
+                                    src={mainImage || null} // inserendo null invece di stringa vuota si evita richiesta di rete fantasma
                                     className="main-gallery-img"
                                     alt={product.name}
                                 />
@@ -201,7 +205,7 @@ function ProductDetail() {
 
             {/* RELATED PRODUCTS */}
             <div className="mt-5">
-                <h3 className="text-primary mb-3">Frequently Bought Together</h3>
+                <h3 className="text-primary mb-3">Also Worth a Look</h3>
 
                 <div className="row">
                     {related
