@@ -15,9 +15,9 @@ function ProductCard({ product, className = "" }) {
   const [expanded, setExpanded] = useState(false);
   const { isFavourite, toggleFavourite } = useFavourites();
   const favourite = isFavourite(product.slug);
-  const { addToCart } = useCart();
-
-
+  const { addToCart, isInCart, getItemQuantity, increaseQuantity, decreaseQuantity } = useCart();
+  const quantityInCart = getItemQuantity(product.slug);
+  const productAlreadyInCart = isInCart(product.slug);
 
   function handleAddToCart(event) {
     event.preventDefault();
@@ -89,17 +89,35 @@ function ProductCard({ product, className = "" }) {
           >
             {favourite ? <FaHeart className="icon-btn icon-btn--active" /> : <FiHeart className="icon-btn" />}
           </button>
+
           <div className={`d-flex align-items-center ${styles.priceBox}`}>
             <span className={`fw-bold me-auto ${styles.productPrice}`}>€ {product.price}</span>
-            <button
-              className="btn bg-jurassik-orange"
-              onClick={handleAddToCart}
-            >
-              <FiShoppingCart className="icon-btn" />
-            </button>
+            {!productAlreadyInCart ? <button
+            className="btn bg-jurassik-orange"
+            onClick={handleAddToCart}
+          >
+            <FiShoppingCart className="icon-btn" />
+          </button>
+            :
+            <div className="d-flex align-items-center">
+              <button
+                className="btn btn-outline-secondary"
+                onClick={() => decreaseQuantity(product.slug)}
+              >
+                -
+              </button>
+              <div className="d-flex justify-content-center mx-2">
+                {quantityInCart}
+              </div>
+              <button
+                className="btn btn-outline-secondary"
+                onClick={() => increaseQuantity(product.slug)}
+              >
+                +
+              </button>
+            </div>
+          }
           </div>
-
-
         </div>
       </div>
     </div>

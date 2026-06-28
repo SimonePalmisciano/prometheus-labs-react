@@ -1,22 +1,21 @@
 .products-page {
     padding-top: 40px;
-
+    padding-bottom: 5rem;
 }
 
 .product-wrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
+    transition: transform 0.2s ease;
+}
+
+.product-wrapper:hover {
+    transform: translateY(-4px);
 }
 
 .product-wrapper .col {
     padding: 0 !important;
-}
-
-
-.add-btn:hover {
-    background-color: #5a23b8;
-    color: white;
 }
 
 .product-wrapper button {
@@ -26,11 +25,6 @@
 .product-wrapper .card {
     height: 100%;
 }
-
-.products-filters select {
-    min-width: 160px;
-}
-
 
 .add-btn {
     background: #301f6a;
@@ -42,4 +36,27 @@
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
     transition: 0.3s ease;
+}
+
+.add-btn:hover {
+    background-color: #5a23b8;
+    color: white;
+}
+
+.products-filters {
+    gap: 1.5rem;
+}
+
+.products-filters select,
+.products-filters input {
+    min-width: 180px;
+}
+
+.products-filters .form-label {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.products-filters button {
+    height: 38px;
 }

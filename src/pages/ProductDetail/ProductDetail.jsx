@@ -6,6 +6,7 @@ import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import useFavourites from "../../hooks/useFavourites.js";
 import { useCart } from "../../contexts/CartContext.jsx";
+import utils from "../../utils/utils.js";
 
 
 const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "3000";
@@ -22,7 +23,11 @@ function ProductDetail() {
     const [loading, setLoading] = useState(true);
     const [expanded, setExpanded] = useState(false);
     const [mainImage, setMainImage] = useState(null);
-    const { addToCart } = useCart()
+    const { addToCart, isInCart, getItemQuantity, increaseQuantity, decreaseQuantity } = useCart();
+    const quantityInCart = getItemQuantity(slug);
+    const productAlreadyInCart = isInCart(slug);
+
+
 
     useEffect(() => {
         async function fetchData() {
@@ -30,14 +35,14 @@ function ProductDetail() {
                 const response = await api.getProductBySlug(slug);
 
                 if (!response || response.length === 0) {
-                    setError("Prodotto non trovato");
+                    setError(`Product with slug ${slug} not found`);
                     return;
                 }
 
                 const prod = response[0];
                 setProduct(prod);
 
-                fetchRelated(prod.categoryName);
+                fetchRelated(prod.categories[0]);
 
             } catch (err) {
                 console.error(err);
@@ -55,10 +60,14 @@ function ProductDetail() {
         if (product?.imgMain) setMainImage(`${API_BASE_URL}${product.imgMain}`);
     }, [product?.imgMain]);
 
+    // fetch dei prodotti nel carousel 'frequently bought together'
     async function fetchRelated(category) {
         try {
             const res = await api.getProductsByCategory(category);
-            setRelated(res);
+            // shuffle dei risultati + selezione 5 da lista shuffled
+            const resFinal = res.sort(utils.getRandomOrder).slice(0,4);
+
+            setRelated(resFinal);
         } catch (err) {
             console.error("Related errors:", err);
         }
@@ -79,7 +88,7 @@ function ProductDetail() {
     if (loading) return <p className="text-center mt-5">Caricamento...</p>;
     if (error || !product) return <Navigate to="/404" replace />;
 
-    const galleryImages = [product.imgMain, product.imgLifestyle, product.imgKsp].filter(Boolean);
+    const galleryImages = [product.imgMain, (product.imgLifestyle) ? `${product.imgLifestyle}` : '', (product.imgKsp) ? `${product.imgKsp}` : ''].filter(Boolean);
 
     return (
         <div className="container my-4 product-detail-container">
@@ -92,25 +101,25 @@ function ProductDetail() {
 
                         {/* Thumbnails */}
                         <div className="col-2 d-flex flex-column gap-3">
-                            {galleryImages.map((imgUrl, index) => (
+                            {galleryImages.map(image => {
                                 <div
-                                    key={index}
-                                    className={`thumbnail-wrapper ${mainImage === `${API_BASE_URL}${imgUrl}` ? "selected" : ""}`}
-                                    onClick={() => setMainImage(`${API_BASE_URL}${imgUrl}`)}
+                                    key={image.index}
+                                    className={`thumbnail-wrapper ${mainImage === `${API_BASE_URL}${image.imgUrl}` ? "selected" : ""}`}
+                                    onClick={() => setMainImage(`${API_BASE_URL}${image.imgUrl}`)}
                                 >
                                     <img
-                                        src={`${API_BASE_URL}${imgUrl}`}
-                                        alt={`${product.name} view ${index + 1}`}
+                                        src={`${API_BASE_URL}${image.imgUrl}`}
+                                        alt={`${product.name} view ${image.index + 1}`}
                                     />
                                 </div>
-                            ))}
+                            })}
                         </div>
 
                         {/* Main Image */}
                         <div className="col-10">
                             <div className="card product-image-card border-0 h-100 d-flex justify-content-center align-items-center">
                                 <img
-                                    src={mainImage || ""}
+                                    src={mainImage || null} // inserendo null invece di stringa vuota si evita richiesta di rete fantasma
                                     className="main-gallery-img"
                                     alt={product.name}
                                 />
@@ -163,12 +172,32 @@ function ProductDetail() {
                             <h5 className="mt-3">Ingredients:</h5>
                             <p>{product.ingredients}</p>
 
-                            <button
-                                className="btn  add-to-cart-btn"
-                                onClick={handleAddToCart}
-                            >
-                                Add to cart
-                            </button>
+                            {!quantityInCart ?
+                                <button
+                                    className="btn  add-to-cart-btn"
+                                    onClick={handleAddToCart}
+                                >
+                                    Add to cart
+                                </button>
+                                :
+                                <div className="d-flex align-items-center">
+                                    <button
+                                        className="btn btn-outline-secondary"
+                                        onClick={() => decreaseQuantity(product.slug)}
+                                    >
+                                        -
+                                    </button>
+                                    <div className="d-flex justify-content-center mx-2">
+                                        {quantityInCart}
+                                    </div>
+                                    <button
+                                        className="btn btn-outline-secondary"
+                                        onClick={() => increaseQuantity(product.slug)}
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
@@ -176,7 +205,7 @@ function ProductDetail() {
 
             {/* RELATED PRODUCTS */}
             <div className="mt-5">
-                <h3 className="text-primary mb-3">Frequently Bought Together</h3>
+                <h3 className="text-primary mb-3">Also Worth a Look</h3>
 
                 <div className="row">
                     {related
