@@ -85,9 +85,8 @@
 
 .powerTitle {
     color: var(--orange-lighter);
-    font-size: 22px;
+    font-size: 20px;
     text-shadow: -2px -2px 1px var(--purple), 2px -2px 1px var(--purple), -2px 2px 1px var(--purple), 2px 2px 1px var(--purple);
-
 }
 
 .productLast .cardTitle {
@@ -132,7 +131,7 @@
 }
 
 .priceBox:hover {
-    transform: scale(115%);
+    transform: scale(105%);
     transition: 0.2s;
     color: #fd7e14 !important;
 }
@@ -140,12 +139,13 @@
 .productPrice {
     font-size: 88%;
     text-shadow: 0px 4px 9px #666666;
+    padding-right: 7.5px;
 }
 
 .productType {
     position: absolute;
     top: 77%;
-    right: 145px;
+    left: 85px;
 }
 
 .productLast .productType {
@@ -160,6 +160,13 @@
     border: none;
 
 }
+
+.quantityBtn {
+    color: white;
+    
+}
+
+.quantityBtn:hover { border: 1px solid orange; }
 
 @media (min-width: 1200px) {
     .productLast img {
@@ -191,7 +198,7 @@
 
     .productType {
         transform: scale(85%);
-        right: 142px;
+        left: 85px;
     }
 }
 
@@ -255,11 +262,10 @@
     }
 
     .powerTitle {
-        font-size: 18px !important;
+        font-size: 16px !important;
     }
 
     .productType {
-        right: 75%;
-        right: 132px;
+        left: 65px;
     }
 }

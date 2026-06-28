@@ -101,7 +101,7 @@ function ProductCard({ product, className = "" }) {
             :
             <div className="d-flex align-items-center">
               <button
-                className="btn btn-outline-secondary"
+                className={`${styles.quantityBtn} btn`}
                 onClick={() => decreaseQuantity(product.slug)}
               >
                 -
@@ -110,7 +110,7 @@ function ProductCard({ product, className = "" }) {
                 {quantityInCart}
               </div>
               <button
-                className="btn btn-outline-secondary"
+                className={`${styles.quantityBtn} btn`}
                 onClick={() => increaseQuantity(product.slug)}
               >
                 +
