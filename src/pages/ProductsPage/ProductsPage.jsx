@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 
 import "../../styles/ProductsPage.css";
 import styles from "../../components/Main/ProductCard.module.css";
@@ -12,25 +12,25 @@ export default function ProductsPage() {
     const [products, setProducts] = useState([]);
 
 
-    const [searchInput, setSearchInput] = useState("");
-    const [search, setSearch] = useState("");
-    const [category, setCategory] = useState("");
-    const [sort, setSort] = useState("");
+    const [searchParams, setSearchParams] = useSearchParams();
+    const search = searchParams.get("search") ?? "";
+    const category = searchParams.get("category") ?? "";
+    const sort = searchParams.get("sort") ?? "";
+
+    const [searchInput, setSearchInput] = useState(searchParams.get("search") ?? "");
+
+    function setParam(key, value) {
+        setSearchParams(prev => {
+            const next = new URLSearchParams(prev);
+            if (value) next.set(key, value); else next.delete(key);
+            return next;
+        });
+    }
 
     const { addToCart } = useCart();
 
     const [loadingProducts, setLoadingProducts] = useState(true);
     const [productsError, setProductsError] = useState("");
-
-    function buildQueryString() {
-        const params = new URLSearchParams();
-
-        if (search) params.append("search", search);
-        if (category) params.append("category", category);
-        if (sort) params.append("sort", sort);
-
-        return params.toString();
-    }
 
     useEffect(() => {
         async function fetchProducts() {
@@ -38,7 +38,7 @@ export default function ProductsPage() {
                 setLoadingProducts(true);
                 setProductsError("");
 
-                const query = buildQueryString();
+                const query = searchParams.toString();
                 const results = await api.getProducts(query);
 
                 setProducts(results || []);
@@ -51,7 +51,7 @@ export default function ProductsPage() {
         }
 
         fetchProducts();
-    }, [search, category, sort]);
+    }, [searchParams]);
 
     const categories = useMemo(() => {
         return [...new Set(products.flatMap((product) => product.categories || []))];
@@ -108,7 +108,7 @@ export default function ProductsPage() {
                     <label className="form-label">Category</label>
                     <select
                         value={category}
-                        onChange={(e) => setCategory(e.target.value)}
+                        onChange={(e) => setParam("category", e.target.value)}
                         className="form-select"
                     >
                         <option value="">All</option>
@@ -132,7 +132,7 @@ export default function ProductsPage() {
                                 const value = e.target.value;
                                 setSearchInput(value);
                                 if (value.trim() === "") {
-                                    setSearch(""); 
+                                    setParam("search", "");
                                 }
                             }}
                         />
@@ -142,7 +142,7 @@ export default function ProductsPage() {
                         <label className="form-label opacity-0">Search</label>
                         <button
                             className="btn btn-primary"
-                            onClick={() => setSearch(searchInput)}
+                            onClick={() => setParam("search", searchInput.trim())}
                         >
                             Search
                         </button>
@@ -156,7 +156,7 @@ export default function ProductsPage() {
                     <label className="form-label">Sort</label>
                     <select
                         value={sort}
-                        onChange={(e) => setSort(e.target.value)}
+                        onChange={(e) => setParam("sort", e.target.value)}
                         className="form-select"
                     >
                         <option value="">Sort by price</option>
@@ -170,10 +170,10 @@ export default function ProductsPage() {
 
             {loadingProducts && <p>Products Loading...</p>}
 
-            {productsError && <p className="text-danger">{productsError}</p>}
+            {productsError && <p className="text-danger text-center my-5 fs-5">`No products found with name "{search}"`</p>}
 
             {!loadingProducts && !productsError && visibleProducts.length === 0 && (
-                <p>No products to be shown</p>
+                <p>{search ? `No products found with name "${search}"` : "No products to be shown"}</p>
             )}
 
             {!loadingProducts && !productsError && (

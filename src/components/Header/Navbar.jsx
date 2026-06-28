@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import "../../styles/Navbar.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useFavourites } from "../../contexts/FavouritesContext";
 import { useCart } from "../../contexts/CartContext";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const [navSearch, setNavSearch] = useState("");
     const { favourites } = useFavourites();
     const { cartCount } = useCart();
+    const navigate = useNavigate();
+
+    function handleNavSearch(e) {
+        if (e.key === "Enter" && navSearch.trim()) {
+            navigate(`/products?search=${encodeURIComponent(navSearch.trim())}`);
+        }
+    }
 
     return (
         <header className="nav">
@@ -32,7 +40,12 @@ const Navbar = () => {
             <div className="nav-right">
                 <div className="search-box ">
                     <FiSearch className="icon" />
-                    <input placeholder="Search..." />
+                    <input
+                        placeholder="Search powers..."
+                        value={navSearch}
+                        onChange={(e) => setNavSearch(e.target.value)}
+                        onKeyDown={handleNavSearch}
+                    />
                 </div>
 
                 <Link to={"/favourites"}>
@@ -59,7 +72,6 @@ const Navbar = () => {
                 <Link to="/products">Products</Link>
                 <Link to="">About Us</Link>
                 <Link to="">Contact</Link>
-                <a className="login">Login / Register</a>
             </div>
         </header>
     );
