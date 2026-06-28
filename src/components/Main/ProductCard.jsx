@@ -6,6 +6,10 @@ import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "
 import { FaHeart } from "react-icons/fa";
 import { useCart } from "../../contexts/CartContext.jsx";
 
+
+
+
+
 // Componente card singolo product
 function ProductCard({ product, className = "" }) {
   const [expanded, setExpanded] = useState(false);
@@ -27,47 +31,55 @@ function ProductCard({ product, className = "" }) {
     });
   }
 
+  function powerTypeCheck(powerType) {
+    if (powerType === "physical") { return <div className={`badge my-auto p-2 m-3 ${styles.powTag} ${styles.phTag}`}>{product.power_type}</div> };
+    if (powerType === "psychic") { return <div className={`badge my-auto p-2 m-3  ${styles.powTag} ${styles.psyTag}`}>{product.power_type}</div> };
+  }
+
   return (
-    <div className={`col-12 col-md-12 col-lg `}>
-      <div className={`card h-100 ${className}`}>
+    <div className={`col-12 col-md-12 col-lg ${className}`}>
+      <div className={`card h-100 `}>
         <Link to={`/products/${product.slug}`}>
           <img
             src={`http://localhost:3000${product.imgMain}`}
-            className="card-img-top img-fluid"
+            className="card-img-top"
             alt={product.name}
           />
         </Link>
-        <div className="card-body">
-          <div className="card-title-container">
-            <h5 className="card-title mb-0">{product.name}</h5>
-            <div className="px-3 d-flex">
-              <span className={`${styles.powerTitle}`}>{product.power}</span>
-              <span className={`badge bg-dark my-auto p-2 m-3 `}>{product.power_type}</span>
+        <div className={`${styles.cardBody}`}>
+          <div className="card-title-container text-center">
+            <h5 className={`card-title mb-0 fst-italic ${styles.cardTitle}`}>{product.name}</h5>
+            <div className="px-3">
+              <div className={`${styles.powerTitle}`}>{product.power}</div>
+              {powerTypeCheck(product.power_type)}
             </div>
-            <div className="mt-0 pt-0">{product.categories.map((category) => {
-              if (category === "bestseller") {
-                return <span key={category} className={`${styles.bestseller}`}>{category}</span>
-              } else { return <span key={category} className="badge bg-secondary">{category}</span> }
+          </div>
+          <div className="mt-0 pt-0">{product.categories.map((category) => {
+            if (category === "bestseller") {
+              return <span key={category} className={`${styles.bestseller}`}>{category}</span>
+            } else { return <span key={category} className={`badge bg-secondary ${styles.productType}`}>{category}</span> }
 
-              return
-            })}</div></div>
-
+            return
+          })}</div>
           <p className="card-text">
             {expanded
               ? product.shortDescription
               : product.shortDescription.slice(0, 0) + ""
             }
           </p>
+          {/* Readbtn rimosso
+          
           <button
             className="readBtn"
             onClick={() => setExpanded(!expanded)}
           >
             {expanded ? "Show less ▲" : "Read more ▼"}
-          </button>
+          </button> */}
+
         </div>
 
-        <div className="card-footer d-flex gap-3">
-          <span className="fw-bold me-auto">€ {product.price}</span>
+        <div className={`card-footer d-flex gap-3 justify-content-between ${styles.cardFooter}`}>
+
           <button className={`btn bg-jurassik-orange`}
             onClick={(event) => {
               event.preventDefault();
@@ -77,7 +89,10 @@ function ProductCard({ product, className = "" }) {
           >
             {favourite ? <FaHeart className="icon-btn icon-btn--active" /> : <FiHeart className="icon-btn" />}
           </button>
-          {!productAlreadyInCart ? <button
+
+          <div className={`d-flex align-items-center ${styles.priceBox}`}>
+            <span className={`fw-bold me-auto ${styles.productPrice}`}>€ {product.price}</span>
+            {!productAlreadyInCart ? <button
             className="btn bg-jurassik-orange"
             onClick={handleAddToCart}
           >
@@ -102,10 +117,6 @@ function ProductCard({ product, className = "" }) {
               </button>
             </div>
           }
-
-          {/* Badge power */}
-          <div className="d-flex flex-wrap gap-1 mt-1">
-
           </div>
         </div>
       </div>

@@ -70,6 +70,13 @@
     --color-error-50: #fef2f2;
     --color-error-500: #ef4444;
     --color-error-700: #b91c1c;
+
+    /* Final palette colors */
+
+    --purple: #210d5b;
+    --orange: #fb923c;
+    --orange-lighter: #f59e0b;
+    --orange-darker: #b45309;
 }
 
 @font-face {

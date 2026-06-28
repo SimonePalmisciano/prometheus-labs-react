@@ -1,17 +1,45 @@
-.prodCard {
-    width: 400px;
+/* Card */
+
+.productCard {
+
+    padding-top: 2.5%;
+    z-index: 99;
+    position: relative;
+    min-height: 500px;
+
+}
+
+.productCard img {
+
+    z-index: 90;
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border: 4px outset #210d5ba5;
+    border-radius: 5px;
+}
+
+/* Card comportam. specifico */
+
+.productMain {
+    max-width: 90%;
     margin: 0 auto;
+
 }
 
-.powerTitle {
-    color: #fb923c;
-    font-size: 20px;
+.productLast {
+
+    padding-top: 0;
+    margin-bottom: 0;
+    min-height: 680px;
+    border: 6px outset #210d5bbe;
+    border-radius: 15px;
 }
 
-.bestseller {
-    background-color: #fb923c;
-    padding: 5px;
-    border-radius: 10px;
+.productLast img {
+    width: 100%;
+    border: none;
 }
 
 .productCard:hover {
@@ -19,13 +47,219 @@
     transition: 0.2s;
 }
 
-.productMain {
-   
+.productMain img:hover {
+    border: 6px double #210d5bbe;
 }
 
-.productLast {
-    max-width: 80%;
-    margin: 0 auto;
-    border: 2.5px solid #210d5b;
+.productLast:hover {
+    border: 7px double #821cadbe;
 }
 
+/* Body della card: appare in sovrapposizione all'immagine */
+
+.cardBody {
+    z-index: 95;
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    background-color: rgba(156, 27, 199, 0.133);
+    height: 35%;
+    padding: 3% 0;
+    pointer-events: none;
+}
+
+.productMain .cardBody {
+    padding: 5% 0;
+}
+
+
+
+/* Contenuto card body */
+
+.cardTitle {
+    color: whitesmoke;
+    text-wrap: nowrap;
+    text-shadow: 0px 4px 9px #000000;
+    text-decoration: underline;
+}
+
+.powerTitle {
+    color: var(--orange-lighter);
+    font-size: 22px;
+    text-shadow: -2px -2px 1px var(--purple), 2px -2px 1px var(--purple), -2px 2px 1px var(--purple), 2px 2px 1px var(--purple);
+
+}
+
+.productLast .cardTitle {
+    position: relative;
+    bottom: -5px;
+    font-size: 45px !important;
+}
+
+.productLast .powerTitle {
+    position: relative;
+    bottom: -10px;
+    font-size: 30px !important;
+}
+
+.bestseller {
+    background-color: rgba(165, 162, 162, 0.637);
+    padding: 5px;
+    border-radius: 10px;
+    position: absolute;
+    top: -175%;
+    right: 10px;
+    text-decoration: underline;
+}
+
+
+.powTag {
+    position: absolute;
+    top: -10px;
+    right: 0;
+}
+
+.psyTag {
+    background-color: #210d5bbe;
+}
+
+.phTag {
+    background-color: #fb923cb3;
+}
+
+.priceBox {
+    color: white;
+}
+
+.priceBox:hover {
+    transform: scale(115%);
+    transition: 0.2s;
+    color: #fd7e14 !important;
+}
+
+.productPrice {
+    font-size: 88%;
+    text-shadow: 0px 4px 9px #666666;
+}
+
+.productType {
+    position: absolute;
+    top: 77%;
+    right: 145px;
+}
+
+.productLast .productType {
+    top: 81%;
+    transform: scale(102%);
+}
+
+.cardFooter {
+    z-index: 98;
+    position: relative;
+    bottom: -88%;
+    border: none;
+
+}
+
+@media (min-width: 1200px) {
+    .productLast img {
+        max-width: 25%;
+        left: 38%;
+    }
+
+    .productType {
+        transform: scale(100%) !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .productMain .cardTitle {
+        font-size: 27px !important;
+    }
+
+    .productLast {
+        margin: 0 5%;
+    }
+
+    .productLast .cardBody {
+        bottom: -9px;
+    }
+
+    .productLast .cardFooter {
+        bottom: -92%;
+    }
+
+    .productType {
+        transform: scale(85%);
+        right: 142px;
+    }
+}
+
+@media (min-width: 768px) {
+    .productCard img {
+        min-height: 220px;
+        padding-bottom: 0px;
+    }
+
+    .productMain {
+        max-width: 500px;
+    }
+
+    .productLast .cardBody {
+        bottom: -9px;
+    }
+
+    .productLast .cardFooter {
+        bottom: -92%;
+    }
+}
+
+@media (max-width: 767px) {
+    .productCard {
+        min-height: 400px;
+    }
+
+    .cardFooter {
+        bottom: -86%;
+    }
+
+    .powTag {
+        top: -10px;
+    }
+
+    .productLast .cardTitle {
+        position: relative;
+        bottom: -5px;
+        font-size: 30px !important;
+    }
+
+    .productLast .powerTitle {
+        position: relative;
+        bottom: -10px;
+        font-size: 25px !important;
+    }
+
+    .productType {
+        top: 75%;
+    }
+
+    .productLast .productType {
+    top: 75%;
+    transform: scale(102%);
+}
+}
+
+@media (max-width: 380px) {
+    .cardTitle {
+        font-size: 20px !important;
+    }
+
+    .powerTitle {
+        font-size: 18px !important;
+    }
+
+    .productType {
+        right: 75%;
+        right: 132px;
+    }
+}
