@@ -85,18 +85,18 @@
 }
 
 .icon-btn {
-  color: #fff;
+  color: #ffffff !important;
   font-size: 25px;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 .icon-btn:hover {
-  color: #ff4d00;
+  color: #ff4d00 !important;
 }
 
 .icon-btn--active {
-  color: #ff4d00;
+  color: #ff4d00 !important;
 }
 
 .icon-wrapper {

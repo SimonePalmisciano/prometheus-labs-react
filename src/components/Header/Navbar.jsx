@@ -30,7 +30,7 @@ const Navbar = () => {
             </nav>
 
             <div className="nav-right">
-                <div className="search-box">
+                <div className="search-box ">
                     <FiSearch className="icon" />
                     <input placeholder="Search..." />
                 </div>
@@ -47,7 +47,7 @@ const Navbar = () => {
                         {cartCount > 0 && <span className="icon-badge">{cartCount}</span>}
                     </span>
                 </Link>
-                <FiGlobe className="icon-btn" />
+                <FiGlobe className="icon-btn " />
                 <FiSun className="icon-btn" />
             </div>
 
