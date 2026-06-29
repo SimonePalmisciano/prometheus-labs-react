@@ -10,6 +10,7 @@ import api from "../../services/api.js";
 
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
 
 
     const [searchParams, setSearchParams] = useSearchParams();
@@ -32,6 +33,40 @@ export default function ProductsPage() {
     const [loadingProducts, setLoadingProducts] = useState(true);
     const [productsError, setProductsError] = useState("");
 
+    // useEffect per fetch categories
+    useEffect(() => {
+        async function fetchCategories() {
+            try {
+                const allProducts = await api.getProducts('');
+
+                console.log("RISPOSTA API CATEGORIE:", allProducts);
+
+                if (allProducts && Array.isArray(allProducts)) {
+
+                    const uniqueCategories = new Set(); // il set gestisce anche le categorie multiple!!! 
+
+                    allProducts.forEach(product => {
+                        if (Array.isArray(product.categories)) {
+                            product.categories.forEach(cat => uniqueCategories.add(cat));
+                        }
+
+
+
+                    })
+                    setCategories([...uniqueCategories]); // spalmo in un array
+                    console.log(categories);
+
+                }
+            } catch (error) {
+                console.error("Error loading categories:", error);
+            }
+
+        }
+        fetchCategories();
+
+    }, []);
+    
+    // useEffect per fetch dei prodotti in dipendenza dai search params
     useEffect(() => {
         async function fetchProducts() {
             try {
@@ -42,6 +77,7 @@ export default function ProductsPage() {
                 const results = await api.getProducts(query);
 
                 setProducts(results || []);
+
             } catch (error) {
                 console.error("Error loading products:", error);
                 setProductsError(error.message || "Error loading products");
@@ -53,26 +89,9 @@ export default function ProductsPage() {
         fetchProducts();
     }, [searchParams]);
 
-    const categories = useMemo(() => {
-        return [...new Set(products.flatMap((product) => product.categories || []))];
-    }, [products]);
 
     const visibleProducts = useMemo(() => {
         let list = [...products];
-
-        if (category === "bestseller") {
-            list = list.filter(
-                (product) =>
-                    Array.isArray(product.categories) &&
-                    product.categories.includes("bestseller")
-            );
-        } else if (category !== "") {
-            list = list.filter(
-                (product) =>
-                    Array.isArray(product.categories) &&
-                    product.categories.includes(category)
-            );
-        }
 
         if (sort === "min") {
             list.sort((a, b) => Number(a.price) - Number(b.price));
