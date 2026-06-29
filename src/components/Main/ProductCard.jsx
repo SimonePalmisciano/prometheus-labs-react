@@ -55,11 +55,10 @@ function ProductCard({ product, className = "" }) {
             </div>
           </div>
           <div className="mt-0 pt-0">{product.categories.map((category) => {
-            if (category === "bestseller") {
-              return <span key={category} className={`${styles.bestseller}`}>{category}</span>
-            } else { return <span key={category} className={`badge bg-secondary ${styles.productType}`}>{category}</span> }
-
-            return
+            if (category === "iconic") {
+              return <span key={category} className={`${styles.iconic}`}>{category}</span>
+            } 
+            return <span key={category} className={`badge bg-secondary ${styles.productType}`}>{category}</span> 
           })}</div>
           <p className="card-text">
             {expanded
