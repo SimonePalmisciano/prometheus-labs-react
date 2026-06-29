@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router";
-import api from "../../services/api.js";
-import "../../styles/ProductDetail.css";
+import api from "../services/api.js";
+import "../styles/ProductDetail.css";
 import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
-import useFavourites from "../../hooks/useFavourites.js";
-import { useCart } from "../../contexts/CartContext.jsx";
-import utils from "../../utils/utils.js";
+import useFavourites from "../hooks/useFavourites.js";
+import { useCart } from "../contexts/CartContext.jsx";
+import utils from "../utils/utils.js";
 
 
 const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "3000";

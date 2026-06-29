@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router";
 
-import "../../styles/ProductsPage.css";
-import styles from "../../components/Main/ProductCard.module.css";
-
-import ProductCard from "../../components/Main/ProductCard.jsx";
-import { useCart } from "../../contexts/CartContext.jsx";
-import api from "../../services/api.js";
+import "../styles/ProductsPage.css";
+import styles from "../components/Cards/ProductCard.module.css";
+import ProductCard from "../components/Cards/ProductCard.jsx";
+import { useCart } from "../contexts/CartContext.jsx";
+import api from "../services/api.js";
 import { FiSearch } from "react-icons/fi";
+
 
 
 export default function ProductsPage() {

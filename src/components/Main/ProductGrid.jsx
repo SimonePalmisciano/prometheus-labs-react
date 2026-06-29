@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import ProductCard from "./ProductCard.jsx";
+import ProductCard from "../Cards/ProductCard.jsx";
 import api from "../../services/api.js";
-import styles from "./ProductCard.module.css";
+import styles from "../Cards/ProductCard.module.css";
 
 
 function ProductGrid({ title, products, lastProduct }) {
