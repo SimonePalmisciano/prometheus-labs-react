@@ -39,8 +39,6 @@ export default function ProductsPage() {
             try {
                 const allProducts = await api.getProducts('');
 
-                console.log("RISPOSTA API CATEGORIE:", allProducts);
-
                 if (allProducts && Array.isArray(allProducts)) {
 
                     const uniqueCategories = new Set(); // il set gestisce anche le categorie multiple!!! 
@@ -54,7 +52,6 @@ export default function ProductsPage() {
 
                     })
                     setCategories([...uniqueCategories]); // spalmo in un array
-                    console.log(categories);
 
                 }
             } catch (error) {
@@ -65,7 +62,7 @@ export default function ProductsPage() {
         fetchCategories();
 
     }, []);
-    
+
     // useEffect per fetch dei prodotti in dipendenza dai search params
     useEffect(() => {
         async function fetchProducts() {
