@@ -10,11 +10,13 @@ import api from "../../services/api.js";
 
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
 
 
     const [searchParams, setSearchParams] = useSearchParams();
     const search = searchParams.get("search") ?? "";
-    const category = searchParams.get("category") ?? "";
+    const categoryParam = searchParams.get("category") ?? "";
+    const selectedCategories = categoryParam ? categoryParam.split(',') : [];
     const sort = searchParams.get("sort") ?? "";
 
     const [searchInput, setSearchInput] = useState(searchParams.get("search") ?? "");
@@ -32,6 +34,37 @@ export default function ProductsPage() {
     const [loadingProducts, setLoadingProducts] = useState(true);
     const [productsError, setProductsError] = useState("");
 
+    // useEffect per fetch categories
+    useEffect(() => {
+        async function fetchCategories() {
+            try {
+                const allProducts = await api.getProducts('');
+
+                if (allProducts && Array.isArray(allProducts)) {
+
+                    const uniqueCategories = new Set(); // il set gestisce anche le categorie multiple!!! 
+
+                    allProducts.forEach(product => {
+                        if (Array.isArray(product.categories)) {
+                            product.categories.forEach(cat => uniqueCategories.add(cat));
+                        }
+
+
+
+                    })
+                    setCategories([...uniqueCategories]); // spalmo in un array
+
+                }
+            } catch (error) {
+                console.error("Error loading categories:", error);
+            }
+
+        }
+        fetchCategories();
+
+    }, []);
+
+    // useEffect per fetch dei prodotti in dipendenza dai search params
     useEffect(() => {
         async function fetchProducts() {
             try {
@@ -42,6 +75,7 @@ export default function ProductsPage() {
                 const results = await api.getProducts(query);
 
                 setProducts(results || []);
+
             } catch (error) {
                 console.error("Error loading products:", error);
                 setProductsError(error.message || "Error loading products");
@@ -53,26 +87,9 @@ export default function ProductsPage() {
         fetchProducts();
     }, [searchParams]);
 
-    const categories = useMemo(() => {
-        return [...new Set(products.flatMap((product) => product.categories || []))];
-    }, [products]);
 
     const visibleProducts = useMemo(() => {
         let list = [...products];
-
-        if (category === "bestseller") {
-            list = list.filter(
-                (product) =>
-                    Array.isArray(product.categories) &&
-                    product.categories.includes("bestseller")
-            );
-        } else if (category !== "") {
-            list = list.filter(
-                (product) =>
-                    Array.isArray(product.categories) &&
-                    product.categories.includes(category)
-            );
-        }
 
         if (sort === "min") {
             list.sort((a, b) => Number(a.price) - Number(b.price));
@@ -83,7 +100,7 @@ export default function ProductsPage() {
         }
 
         return list;
-    }, [products, category, sort]);
+    }, [products, categoryParam, sort]);
 
     function handleAddToCart(event, product) {
         event.preventDefault();
@@ -105,20 +122,36 @@ export default function ProductsPage() {
             <section className="d-flex justify-content-center align-items-end gap-5 mb-4 products-filters">
 
                 <div className="d-flex flex-column">
-                    <label className="form-label">Category</label>
-                    <select
-                        value={category}
-                        onChange={(e) => setParam("category", e.target.value)}
-                        className="form-select"
-                    >
-                        <option value="">All</option>
+                    <label className="form-label">Categories</label>
 
-                        {categories.map((cat) => (
-                            <option key={cat} value={cat}>
+                    {categories.map((cat) => (
+                        <div className="form-check" key={cat}>
+                            <input
+                                className="form-check-input"
+                                type="checkbox"
+                                id={cat}
+                                checked={selectedCategories.includes(cat)}
+                                onChange={(e) => {
+                                    let updatedList;
+
+                                    if (e.target.checked) {
+                                        updatedList = [...selectedCategories, cat];
+                                    } else {
+                                        updatedList = selectedCategories.filter(c => c !== cat);
+                                    }
+
+                                    setParam(
+                                        "category",
+                                        updatedList.length ? updatedList.join(",") : ""
+                                    );
+                                }}
+                            />
+
+                            <label className="form-check-label" htmlFor={cat}>
                                 {cat}
-                            </option>
-                        ))}
-                    </select>
+                            </label>
+                        </div>
+                    ))}
                 </div>
                 <div className=" d-flex gap-1">
                     <div className="d-flex flex-column">
@@ -133,6 +166,12 @@ export default function ProductsPage() {
                                 setSearchInput(value);
                                 if (value.trim() === "") {
                                     setParam("search", "");
+                                }
+
+                            }}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    setParam("search", searchInput.trim());
                                 }
                             }}
                         />
@@ -170,7 +209,7 @@ export default function ProductsPage() {
 
             {loadingProducts && <p>Products Loading...</p>}
 
-            {productsError && <p className="text-danger text-center my-5 fs-5">`No products found with name "{search}"`</p>}
+            {productsError && <p className="text-danger text-center my-5 fs-5">{search ? `No products found for search term "${search}"` : productsError}</p>}
 
             {!loadingProducts && !productsError && visibleProducts.length === 0 && (
                 <p>{search ? `No products found with name "${search}"` : "No products to be shown"}</p>

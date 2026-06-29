@@ -4,6 +4,9 @@ const API_BASE_URL = `http://${SERVER_URL}:${SERVER_PORT}`;
 
 const api = {
     async getProducts(queryString = "") {
+        // Se c'è una query aggiungiamo '?', altrimenti usiamo l'URL pulito
+        const url = queryString ? `${API_BASE_URL}/products?${queryString}` : `${API_BASE_URL}/products`;
+        
         const response = await fetch(`${API_BASE_URL}/products?${queryString}`);
         if (!response.ok) throw new Error("Error occurred when loading data");
         const data = await response.json();
