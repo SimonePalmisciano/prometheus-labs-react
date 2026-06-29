@@ -49,7 +49,7 @@ function NewsletterPopup() {
                 {!submitted ? (
                     <>
                         <h2>Welcome to Prometheus Labs!</h2>
-                        <p>Subscribe to our newsletter and be the first to know about new superpowers.</p>
+                       <p className="newsletter-subtitle">Subscribe to our newsletter and be the first to know about new superpowers.</p>
 
                         <form onSubmit={handleSubmit}>
                             <input
