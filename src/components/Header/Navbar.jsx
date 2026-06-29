@@ -21,14 +21,24 @@ const Navbar = () => {
     return (
         <header className="nav">
             <div className="logo">
-                <Link to="/"><img src="/logo/logo.png" alt="logo"/></Link>
-                
+                <Link to="/"><img src="/logo/logo.png" alt="logo" /></Link>
+
             </div>
 
             <div className="mobile-top-icons">
-                <FiSearch className="icon-btn" />
-                <FiHeart className="icon-btn" />
-                <FiShoppingCart className="icon-btn" />
+
+                <Link to={"/favourites"}>
+                    <span className="icon-wrapper">
+                        <FiHeart className="icon-btn" />
+                        {favourites.length > 0 && <span className="icon-badge">{favourites.length}</span>}
+                    </span>
+                </Link>
+                <Link to={"/cart"}>
+                    <span className="icon-wrapper">
+                        <FiShoppingCart className="icon-btn" />
+                        {cartCount > 0 && <span className="icon-badge">{cartCount}</span>}
+                    </span>
+                </Link>
             </div>
 
             <nav className="nav-center">
@@ -60,8 +70,12 @@ const Navbar = () => {
                         {cartCount > 0 && <span className="icon-badge">{cartCount}</span>}
                     </span>
                 </Link>
-                <FiGlobe className="icon-btn " />
-                <FiSun className="icon-btn" />
+                {
+                    /* COMMENTATI FINO A QUANDO NON HANNO UN'UTILITA'
+                    <FiGlobe className="icon-btn " />
+                    <FiSun className="icon-btn" /> 
+                    */
+                }
             </div>
 
             <div className="hamburger" onClick={() => setOpen(!open)}>
