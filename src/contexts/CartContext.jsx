@@ -159,9 +159,9 @@ function CartProvider({ children }) {
         cartTotal,
     };
     return (
-        <CartContext.Provider value={value}>
+        <CartContext value={value}>
             {children}
-        </CartContext.Provider>
+        </CartContext>
     );
 
 }

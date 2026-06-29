@@ -1,7 +1,7 @@
 import { useCart } from "../contexts/CartContext";
-import ProductCard from "../components/Main/ProductCard";
+import ProductCard from "../components/Main/ProductCard.jsx";
 import { Link } from "react-router";
-import CartItemCard from "../components/Main/CartItemCard";
+import CartItemCard from "../components/Main/CartItemCard.jsx";
 
 function CartPage() {
     const { cartItems, cartCount, clearCart, cartTotal } = useCart();
@@ -25,9 +25,9 @@ function CartPage() {
                     <button className='btn btn-warning'>Go to Homepage</button>
                 </Link>  
             </div>}
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div className="row flex-column g-4">
                 {cartItems.map((item) => (
-                    <div className="col" key={item.slug}>
+                    <div className="col-8" key={item.slug}>
                         <CartItemCard item={item} />
                     </div>
                 ))}
