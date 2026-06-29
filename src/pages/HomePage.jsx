@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Herosection from "../components/Main/HeroSection.jsx";
 import ProductCollection from "../components/Main/ProductCollection.jsx";
 import api from "../services/api.js";
+import NewsletterPopup from "../components/NewsletterPopup.jsx";
 
 function HomePage() {
 // stato per memozizare prodotti
@@ -26,6 +27,7 @@ useEffect(() => {
 }, []);
 
     return <>
+            <NewsletterPopup />
             <Herosection />
             <ProductCollection />
         </>
