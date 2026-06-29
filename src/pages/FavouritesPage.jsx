@@ -13,6 +13,9 @@ function FavouritesPage() {
                     <button className='btn btn-warning'>go back to HomePage'</button>
                 </Link>
             </div>}
+            <div className="title my-3">
+                <h1>Your Favourites ({favourites.length})</h1>
+            </div>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 {favourites.map((favourites) => (
                     <div className="col" key={favourites.slug}>
