@@ -23,7 +23,7 @@ function CartPage() {
                 <div className="alert alert-warning w-100 text-center">No products added to cart!</div>
                 <Link to="/">
                     <button className='btn btn-warning'>Go to Homepage</button>
-                </Link>  
+                </Link>
             </div>}
             <div className="row flex-column g-4">
                 {cartItems.map((item) => (
@@ -32,17 +32,35 @@ function CartPage() {
                     </div>
                 ))}
             </div>
+            {cartItems.length > 0 && (
+                <div className="col-8 mb-4 card p-3 bg-white">
+                    <h6 className="text-uppercase fw-bold text-dark border-bottom pb-2 mb-3 fs-6 style-font-futuristic">
+                        ITEMS BREAKDOWN
+                    </h6>
+                    {cartItems.map((item) => (
+                        <div key={`summary-${item.slug}`} className="d-flex justify-content-between align-items-center mb-2 small">
+                            <div>
+                                <span className="font-monospace text-muted"> {item.slug} </span>
+                                <span className="ms-2 text-dark fw-medium">× {item.quantity}</span>
+                            </div>
+                            <span className="fw-bold text-dark">
+                                € {(item.price * item.quantity).toFixed(2)}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            )}
             <div className="text-start">
                 <h5>TOTAL PRICE: € {cartTotal}</h5>
             </div>
             <div className="py-5">
                 <Link to="/checkout"
-                onClick={(e) => isCartEmpty && e.preventDefault()} 
-                className={isCartEmpty ? "pointer-events-none" : ""}>
-                    <button className='btn btn-warning'disabled={isCartEmpty}>Checkout</button>
+                    onClick={(e) => isCartEmpty && e.preventDefault()}
+                    className={isCartEmpty ? "pointer-events-none" : ""}>
+                    <button className='btn btn-warning' disabled={isCartEmpty}>Checkout</button>
                 </Link>
             </div>
-            
+
         </div>
     )
 }
