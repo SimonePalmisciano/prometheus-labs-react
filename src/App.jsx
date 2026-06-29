@@ -4,9 +4,9 @@ import Layout from "./layouts/Layout.jsx";
 import Homepage from "./pages/HomePage.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import { FavouritesProvider } from "./contexts/FavouritesContext.jsx";
-import ProductsPage from "./pages/ProductsPage/ProductsPage.jsx";
+import ProductsPage from "./pages/ProductsPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
-import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
+import ProductDetail from "./pages/ProductDetail.jsx";
 import FavouritesPage from "./pages/FavouritesPage.jsx"
 import { CartProvider } from "./contexts/CartContext.jsx";
 import CartPage from "./pages/CartPage.jsx";
