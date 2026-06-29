@@ -1,7 +1,7 @@
 import { useCart } from "../contexts/CartContext";
-import ProductCard from "../components/Main/ProductCard.jsx";
+import ProductCard from "../components/Cards/ProductCard.jsx";
 import { Link } from "react-router";
-import CartItemCard from "../components/Main/CartItemCard.jsx";
+import CartItemCard from "../components/Cards/CartItemCard.jsx";
 
 function CartPage() {
     const { cartItems, cartCount, clearCart, cartTotal } = useCart();

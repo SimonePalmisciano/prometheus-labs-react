@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router";
 
-import "../../styles/ProductsPage.css";
-import styles from "../../components/Main/ProductCard.module.css";
+import "../styles/ProductsPage.css";
+import styles from "../components/Cards/ProductCard.module.css";
 
-import ProductCard from "../../components/Main/ProductCard.jsx";
-import { useCart } from "../../contexts/CartContext.jsx";
-import api from "../../services/api.js";
+import ProductCard from "../components/Cards/ProductCard.jsx";
+import { useCart } from "../contexts/CartContext.jsx";
+import api from "../services/api.js";
 
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
