@@ -3,10 +3,12 @@ import { Link, useSearchParams } from "react-router";
 
 import "../styles/ProductsPage.css";
 import styles from "../components/Cards/ProductCard.module.css";
-
 import ProductCard from "../components/Cards/ProductCard.jsx";
 import { useCart } from "../contexts/CartContext.jsx";
 import api from "../services/api.js";
+import { FiSearch } from "react-icons/fi";
+
+
 
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
@@ -91,6 +93,15 @@ export default function ProductsPage() {
     const visibleProducts = useMemo(() => {
         let list = [...products];
 
+        // FILTER BY CATEGORY
+        if (selectedCategories.length > 0) {
+            list = list.filter(product =>
+                Array.isArray(product.categories) &&
+                product.categories.some(cat => selectedCategories.includes(cat))
+            );
+        }
+
+        // SORT
         if (sort === "min") {
             list.sort((a, b) => Number(a.price) - Number(b.price));
         }
@@ -100,7 +111,8 @@ export default function ProductsPage() {
         }
 
         return list;
-    }, [products, categoryParam, sort]);
+    }, [products, selectedCategories, sort]);
+
 
     function handleAddToCart(event, product) {
         event.preventDefault();
@@ -118,14 +130,131 @@ export default function ProductsPage() {
     return (
         <main className="container products-page">
             <h1 className="text-center mb-4">Products</h1>
+            <hr className="line" />
 
-            <section className="d-flex justify-content-center gap-5 mb-4 products-filters flex-column">
-                <div className=" d-flex gap-1">
+            <section className="filters-row-mobile mb-3">
+
+
+                <div className="mobile-search">
+                    <input
+                        type="text"
+                        placeholder="Search"
+                        value={searchInput}
+                        onChange={(e) => setSearchInput(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && setParam("search", searchInput)}
+                    />
+                </div>
+
+
+
+
+                <div className="mobile-row-2">
+
+                    <select
+                        value={selectedCategories[0] || ""}
+                        onChange={(e) => setParam("category", e.target.value)}
+                    >
+                        <option value="">Categories</option>
+                        {categories.map(cat => (
+                            <option key={cat} value={cat}>{cat}</option>
+                        ))}
+                    </select>
+
+                    <select
+                        value={sort}
+                        onChange={(e) => setParam("sort", e.target.value)}
+                    >
+                        <option value="">Sort</option>
+                        <option value="min">Price MIN</option>
+                        <option value="max">Price MAX</option>
+                    </select>
+
+                </div>
+
+            </section>
+
+            <section className="filters-row  ">
+
+
+                <div className="d-flex flex-column w-25 gap-2 ">
+                    <label className="form-label fw-bold fs-5 text-center">Categories</label>
+
+                    <div className="category-columns">
+                        <div className="category-column">
+                            {categories.slice(0, 2).map((cat) => {
+                                const isSelected = selectedCategories.includes(cat);
+
+                                return (
+                                    <div
+                                        key={cat}
+                                        className={`category-chip ${isSelected ? "active" : ""}`}
+                                        onClick={() => {
+                                            let updatedList;
+
+                                            if (!isSelected) {
+                                                updatedList = [...selectedCategories, cat];
+                                            } else {
+                                                updatedList = selectedCategories.filter(c => c !== cat);
+                                            }
+
+                                            setParam(
+                                                "category",
+                                                updatedList.length ? updatedList.join(",") : ""
+                                            );
+                                        }}
+                                    >
+                                        {cat}
+                                        {isSelected && <span className="checkmark">✓</span>}
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        <div className="category-column">
+                            {categories.slice(2).map((cat) => {
+                                const isSelected = selectedCategories.includes(cat);
+
+                                return (
+                                    <div
+                                        key={cat}
+                                        className={`category-chip ${isSelected ? "active" : ""}`}
+                                        onClick={() => {
+                                            let updatedList;
+
+                                            if (!isSelected) {
+                                                updatedList = [...selectedCategories, cat];
+                                            } else {
+                                                updatedList = selectedCategories.filter(c => c !== cat);
+                                            }
+
+                                            setParam(
+                                                "category",
+                                                updatedList.length ? updatedList.join(",") : ""
+                                            );
+                                        }}
+                                    >
+                                        {cat}
+                                        {isSelected && <span className="checkmark">✓</span>}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div className=" d-flex  flex-column w-25 gap-3 ">
                     <div className="d-flex flex-column">
-                        <label className="form-label">Search</label>
+                        <label className="form-label fw-bold fs-5 text-center">Search</label>
+
+
+                    </div>
+                    <div className="d-flex gap-1 ">
                         <input
                             type="text"
-                            className="form-control"
+                            className="form-control compact-input rounded-4"
                             placeholder="Search products..."
                             value={searchInput}
                             onChange={(e) => {
@@ -143,11 +272,8 @@ export default function ProductsPage() {
                             }}
                         />
 
-                    </div>
-                    <div className="d-flex flex-column">
-                        <label className="form-label opacity-0">Search</label>
                         <button
-                            className="btn btn-primary"
+                            className="btn search-btn compact-btn rounded-4"
                             onClick={() => setParam("search", searchInput.trim())}
                         >
                             Search
@@ -158,47 +284,12 @@ export default function ProductsPage() {
 
                 </div>
 
-                <div>
-                    <label className="form-label">Categories</label>
-                    <div className="d-flex wrapper-check-input">
-
-                        {categories.map((cat) => (
-                            <div className="form-check" key={cat}>
-                                <input
-                                    className="form-check-input"
-                                    type="checkbox"
-                                    id={cat}
-                                    checked={selectedCategories.includes(cat)}
-                                    onChange={(e) => {
-                                        let updatedList;
-
-                                        if (e.target.checked) {
-                                            updatedList = [...selectedCategories, cat];
-                                        } else {
-                                            updatedList = selectedCategories.filter(c => c !== cat);
-                                        }
-
-                                        setParam(
-                                            "category",
-                                            updatedList.length ? updatedList.join(",") : ""
-                                        );
-                                    }}
-                                />
-
-                                <label className="form-check-label mx-1" htmlFor={cat}>
-                                    {cat}
-                                </label>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="d-flex flex-column">
-                    <label className="form-label">Sort</label>
+                <div className="d-flex flex-column w-25 text-center gap-3">
+                    <label className="form-label fw-bold fs-5">Sort</label>
                     <select
                         value={sort}
                         onChange={(e) => setParam("sort", e.target.value)}
-                        className="form-select"
+                        className="form-select rounded-4 compact-input"
                     >
                         <option value="">Sort by price</option>
                         <option value="min">Price MIN</option>
@@ -218,7 +309,7 @@ export default function ProductsPage() {
             )}
 
             {!loadingProducts && !productsError && (
-                <section className="row g-4 mt-2 mb-5">
+                <section className="row g-4 mb-5">
                     {visibleProducts.map((product) => (
                         <div key={product.id} className="col-12 col-lg-4">
                             <div className="product-wrapper">
