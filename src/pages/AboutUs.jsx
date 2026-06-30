@@ -88,7 +88,7 @@ export default function AboutUs() {
                     <div className="innovation-card">
                         <h3 className="innovation-title">DailySUPer — Your best, every day.</h3>
                         <p className="innovation-text">
-                            Daily nutrition for everyday heroes. Shakes and bars designed to support enhanced performance,
+                            Daily nutrition for everyday heroes. Delicious shakes designed to support enhanced performance,
                             helping you unlock practical superpowers that make work, training, studying, and life feel easier
                             every day.
                         </p>
