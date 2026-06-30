@@ -80,7 +80,7 @@ function ProductDetail() {
         });
     }
 
-    if (loading) return <p className="text-center mt-5">Caricamento...</p>;
+    if (loading) return <p className="text-center mt-5">Loading...</p>;
     if (error || !product) return <Navigate to="/404" replace />;
 
     const galleryImages = [product.imgMain, (product.imgLifestyle) ? `${product.imgLifestyle}` : '', (product.imgKsp) ? `${product.imgKsp}` : ''].filter(Boolean);
@@ -200,7 +200,7 @@ function ProductDetail() {
 
             {/* RELATED PRODUCTS */}
             <div className="mt-5">
-                <h3 className="text-primary mb-3">Also Worth a Look</h3>
+                <h3 className="text-dark mb-3">Also Worth a Look</h3>
 
                 <div className="row">
                     {related
