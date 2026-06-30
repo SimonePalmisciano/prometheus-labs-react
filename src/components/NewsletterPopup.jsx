@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../styles/NewsletterPopup.css";
+import { API_URL } from "../utils/utils";
 
 // Popup newsletter mostrato solo alla prima visita
 function NewsletterPopup() {
@@ -23,7 +24,7 @@ function NewsletterPopup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await fetch("http://localhost:3000/newsletter", {
+            await fetch(`${API_URL}/newsletter`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email })
@@ -49,7 +50,7 @@ function NewsletterPopup() {
                 {!submitted ? (
                     <>
                         <h2>Welcome to Prometheus Labs!</h2>
-                       <p className="newsletter-subtitle">Subscribe to our newsletter and be the first to know about new superpowers.</p>
+                        <p className="newsletter-subtitle">Subscribe to our newsletter and be the first to know about new superpowers.</p>
 
                         <form onSubmit={handleSubmit}>
                             <input

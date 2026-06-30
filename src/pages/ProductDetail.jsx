@@ -6,12 +6,7 @@ import { FiHeart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import useFavourites from "../hooks/useFavourites.js";
 import { useCart } from "../contexts/CartContext.jsx";
-import utils from "../utils/utils.js";
-
-
-const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || "3000";
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || "localhost";
-const API_BASE_URL = `http://${SERVER_URL}:${SERVER_PORT}`;
+import {utils, API_URL} from "../utils/utils.js";
 
 function ProductDetail() {
     const { slug } = useParams();
@@ -57,7 +52,7 @@ function ProductDetail() {
 
 
     useEffect(() => {
-        if (product?.imgMain) setMainImage(`${API_BASE_URL}${product.imgMain}`);
+        if (product?.imgMain) setMainImage(`${API_URL}${product.imgMain}`);
     }, [product?.imgMain]);
 
     // fetch dei prodotti nel carousel 'frequently bought together'
@@ -104,11 +99,11 @@ function ProductDetail() {
                             {galleryImages.map(image => {
                                 <div
                                     key={image.index}
-                                    className={`thumbnail-wrapper ${mainImage === `${API_BASE_URL}${image.imgUrl}` ? "selected" : ""}`}
-                                    onClick={() => setMainImage(`${API_BASE_URL}${image.imgUrl}`)}
+                                    className={`thumbnail-wrapper ${mainImage === `${API_URL}${image.imgUrl}` ? "selected" : ""}`}
+                                    onClick={() => setMainImage(`${API_URL}${image.imgUrl}`)}
                                 >
                                     <img
-                                        src={`${API_BASE_URL}${image.imgUrl}`}
+                                        src={`${API_URL}${image.imgUrl}`}
                                         alt={`${product.name} view ${image.index + 1}`}
                                     />
                                 </div>
@@ -218,7 +213,7 @@ function ProductDetail() {
                                 >
                                     <div className="card bg-dark text-light related-card">
                                         <img
-                                            src={`${API_BASE_URL}${item.imgMain}`}
+                                            src={`${API_URL}${item.imgMain}`}
                                             className="card-img-top"
                                             alt={item.name}
                                         />

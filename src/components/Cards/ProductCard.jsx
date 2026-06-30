@@ -5,6 +5,7 @@ import styles from "./ProductCard.module.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import { useCart } from "../../contexts/CartContext.jsx";
+import { API_URL } from "../../utils/utils.js";
 
 
 
@@ -41,7 +42,7 @@ function ProductCard({ product, className = "" }) {
       <div className={`card h-100 `}>
         <Link to={`/products/${product.slug}`}>
           <img
-            src={`http://localhost:3000${product.imgMain}`}
+            src={`${API_URL}${product.imgMain}`}
             className="card-img-top"
             alt={product.name}
           />
