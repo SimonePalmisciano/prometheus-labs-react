@@ -175,6 +175,45 @@ export default function ProductsPage() {
 
             <section className="filters-row  ">
 
+                <div className=" d-flex  flex-column w-25 gap-3 ">
+                    <div className="d-flex flex-column">
+                        <label className="form-label fw-bold fs-5 text-center">Search</label>
+
+
+                    </div>
+                    <div className="d-flex gap-1 ">
+                        <input
+                            type="text"
+                            className="form-control compact-input rounded-4"
+                            placeholder="Search products..."
+                            value={searchInput}
+                            onChange={(e) => {
+                                const value = e.target.value;
+                                setSearchInput(value);
+                                if (value.trim() === "") {
+                                    setParam("search", "");
+                                }
+
+                            }}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    setParam("search", searchInput.trim());
+                                }
+                            }}
+                        />
+
+                        <button
+                            className="btn search-btn compact-btn rounded-4"
+                            onClick={() => setParam("search", searchInput.trim())}
+                        >
+                            Search
+                        </button>
+
+                    </div>
+
+
+                </div>
+
 
                 <div className="d-flex flex-column w-25 gap-2 ">
                     <label className="form-label fw-bold fs-5 text-center">Categories</label>
@@ -240,48 +279,6 @@ export default function ProductsPage() {
                             })}
                         </div>
                     </div>
-
-
-
-
-                </div>
-                <div className=" d-flex  flex-column w-25 gap-3 ">
-                    <div className="d-flex flex-column">
-                        <label className="form-label fw-bold fs-5 text-center">Search</label>
-
-
-                    </div>
-                    <div className="d-flex gap-1 ">
-                        <input
-                            type="text"
-                            className="form-control compact-input rounded-4"
-                            placeholder="Search products..."
-                            value={searchInput}
-                            onChange={(e) => {
-                                const value = e.target.value;
-                                setSearchInput(value);
-                                if (value.trim() === "") {
-                                    setParam("search", "");
-                                }
-
-                            }}
-                            onKeyDown={(e) => {
-                                if (e.key === "Enter") {
-                                    setParam("search", searchInput.trim());
-                                }
-                            }}
-                        />
-
-                        <button
-                            className="btn search-btn compact-btn rounded-4"
-                            onClick={() => setParam("search", searchInput.trim())}
-                        >
-                            Search
-                        </button>
-
-                    </div>
-
-
                 </div>
 
                 <div className="d-flex flex-column w-25 text-center gap-3">
