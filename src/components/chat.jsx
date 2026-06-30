@@ -1,8 +1,56 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import agent from "../assets/agent.png";
+import api from "../services/api.js";
 
 export default function ChatWidget() {
+    const messagesEndRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
+    const [textInput, setTextInput] = useState('');
+    const [convHistory, setConvHistory] = useState([]);
+
+    // gestione scroll auto verso ultimo msg
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [convHistory]);
+
+    const submitHandler = async (event) => {
+        event.preventDefault();
+
+        if (textInput.trim() === '') {
+            return;
+        }
+
+        const currentPrompt = textInput;// salvo msg
+
+        setTextInput(''); // svuoto textarea
+
+        setConvHistory((prevHistory) => [
+            ...prevHistory,
+            { sender: 'You', text: currentPrompt }
+        ]);
+
+        // avvio chiamata a hermes
+
+        try {
+            const agentResponse = await api.sendMessageToHermes(userPrompt);
+
+            setConvHistory((prevHistory) => [
+                ...prevHistory,
+                { sender: 'Hermes', text: agentResponse }
+            ]);
+
+        } catch (error) {
+            console.error('An error occoured while transmitting user message to Hermes:', error);
+
+            // informo user che ci sono problemini 
+            setConvHistory((prevHistory) => [
+                ...prevHistory,
+                { sender: 'System', text: 'Unable to get a response from Hermes. Please try again later.' }
+            ]);
+
+        }
+
+    };
 
     return (
         <>
@@ -27,18 +75,50 @@ export default function ChatWidget() {
                     </div>
 
                     <div className="flex-grow-1 p-3 overflow-auto chat-support">
-                        {/* contenuto chat */}
+                        {convHistory.map((msg, index) => {
+                            // Capiamo se il messaggio è dell'utente attuale
+                            const isYou = msg.sender === 'You';
+
+                            return (
+                                <div
+                                    key={index}
+                                    className={`d-flex flex-column mb-3 ${isYou ? 'align-items-end' : 'align-items-start'}`}
+                                >
+                                    <span className="small text-muted mb-1 fw-bold">
+                                        {isYou ? 'You:' : 'Hermes:'}
+                                    </span>
+                                    <div
+                                        className={`p-2 rounded max-width-75 ${isYou
+                                                ? 'bg-secondary text-white rounded-start-3 rounded-bottom-3'
+                                                : 'bg-light text-dark border rounded-end-3 rounded-bottom-3'
+                                            }`}
+                                        style={{ maxWidth: '75%' }} // Evita che la nuvoletta si allarghi al 100% dello schermo
+                                    >
+                                        {msg.text}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                        {/* div ancora per lo scroll auto verso ultimo msg */}
+                        <div ref={messagesEndRef} />
                     </div>
-                    <div className="topbtchat d-flex align-items-center gap-2 p-2 border-top bg-light">
+
+                    <form className="topbtchat d-flex align-items-center gap-2 p-2 border-top bg-light"
+                        onSubmit={submitHandler}>
                         <input
                             type="text"
                             className="form-control rounded-pill"
                             placeholder="Ask anything..."
+                            value={textInput}
+                            onChange={(event) => {
+                                setTextInput(event.target.value);
+                            }}
                         />
-                        <button className="btn btn-success rounded-circle d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
+                        <button className="btn btn-success rounded-circle d-flex align-items-center justify-content-center"
+                            style={{ width: '40px', height: '40px' }}>
                             <i className="bi bi-send-fill"></i>
                         </button>
-                    </div>
+                    </form>
                 </div>
             )}
         </>
