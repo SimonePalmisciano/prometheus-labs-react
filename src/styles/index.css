@@ -116,12 +116,18 @@ h6 {
 }
 
 .chat-window {
+    width: 420px;         
+    height: 600px;         
+    max-height: 85vh;     
     bottom: 90px;
     right: 24px;
-    width: 320px;
     height: 420px;
     z-Index: 1050;
     overflow: hidden;
+}
+
+.chat-window h3 {
+    font-size: 1.3rem;     
 }
 
 .imgchat {

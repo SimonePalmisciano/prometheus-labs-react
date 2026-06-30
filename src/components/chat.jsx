@@ -30,10 +30,12 @@ export default function ChatWidget() {
             { sender: 'You', text: currentPrompt }
         ]);
 
+        setIsLoading(true);
+
         // avvio chiamata a hermes
 
         try {
-            const agentResponse = await api.sendMessageToHermes(userPrompt);
+            const agentResponse = await api.sendMessageToHermes(currentPrompt);
 
             setConvHistory((prevHistory) => [
                 ...prevHistory,
@@ -69,7 +71,7 @@ export default function ChatWidget() {
                 <div
                     className="chat-window position-fixed bg-white rounded shadow d-flex flex-column"
                 >
-                    <div className="topbtchat bg-primary text-dark p-3 fw-bold d-flex justify-content-between align-items-center">
+                    <div className="topbtchat bg-secondary text-dark p-3 fw-bold d-flex justify-content-between align-items-center">
                         <h3 className="mb-0">
                             Ask Hermes
                         </h3>
