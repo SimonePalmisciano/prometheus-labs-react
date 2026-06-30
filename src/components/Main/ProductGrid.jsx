@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
 import ProductCard from "../Cards/ProductCard.jsx";
-import api from "../../services/api.js";
 import styles from "../Cards/ProductCard.module.css";
 
 
