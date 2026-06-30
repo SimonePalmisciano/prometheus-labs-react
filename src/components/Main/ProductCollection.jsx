@@ -19,19 +19,17 @@ function ProductCollection() {
           api.getBestsellerProducts()
         ]);
         
-
-        // mi creo le mie rotte da 5 prodotti
         const slicedLatest = latestProducts.slice(0, 3);
         const slicedLatestLast = latestProducts[3];
 
         setLatest(slicedLatest);
         setLatestLast(slicedLatestLast);
-
+        // la total quanity è il numero totale di unità vendute
+        // per il dato prodotto recuperata da orders
         const sortedBestsellers = [...bestsellerProducts].sort((a, b) => {
-          return b.total_quantity - a.total_quantity;
+          return b.total_quantity - a.total_quantity; 
         });
 
-                console.log(sortedBestsellers);
 
         const slicedBestsellers = sortedBestsellers.slice(0, 3);
         const slicedBestsellersLast = sortedBestsellers[3];
