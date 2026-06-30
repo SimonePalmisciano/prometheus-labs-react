@@ -52,6 +52,19 @@ const api = {
     return data.result;
 },
 
+async subscribeNewsletter(email) {
+    const response = await fetch(`${API_BASE_URL}/newsletter`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+    });
+    if (!response.ok) throw new Error("Error occurred while subscribing");
+    const data = await response.json();
+    if (data.error) {
+        throw new Error(data.error);
+    }
+    return data;
+},
 
 }
 
