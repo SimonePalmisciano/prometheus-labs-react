@@ -1,13 +1,14 @@
 import { useContext } from "react";
-import { FavouritesContext } from "../contexts/FavouritesContext";
+import { FavouritesContext } from "../contexts/FavouritesContext.jsx";
 
 function useFavourites() {
     const favouriteValues = useContext(FavouritesContext);
+
     if (!favouriteValues) {
-        throw new Error("Hai dimenticato di mettere il FavouritesProvider");
+        throw new Error("Hey Johnny... you forgot to set FavouritesProvider!");
     }
 
     return favouriteValues;
 }
 
-export default useFavourites
+export default useFavourites;
