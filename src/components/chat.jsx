@@ -3,10 +3,11 @@ import agent from "../assets/agent.png";
 import api from "../services/api.js";
 
 export default function ChatWidget() {
-    const messagesEndRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [textInput, setTextInput] = useState('');
     const [convHistory, setConvHistory] = useState([]);
+    const messagesEndRef = useRef(null);
 
     // gestione scroll auto verso ultimo msg
     useEffect(() => {
@@ -48,6 +49,9 @@ export default function ChatWidget() {
                 { sender: 'System', text: 'Unable to get a response from Hermes. Please try again later.' }
             ]);
 
+        } finally {
+
+            setIsLoading(false);
         }
 
     };
@@ -89,8 +93,8 @@ export default function ChatWidget() {
                                     </span>
                                     <div
                                         className={`p-2 rounded max-width-75 ${isYou
-                                                ? 'bg-secondary text-white rounded-start-3 rounded-bottom-3'
-                                                : 'bg-light text-dark border rounded-end-3 rounded-bottom-3'
+                                            ? 'bg-secondary text-white rounded-start-3 rounded-bottom-3'
+                                            : 'bg-light text-dark border rounded-end-3 rounded-bottom-3'
                                             }`}
                                         style={{ maxWidth: '75%' }} // Evita che la nuvoletta si allarghi al 100% dello schermo
                                     >
@@ -99,6 +103,15 @@ export default function ChatWidget() {
                                 </div>
                             );
                         })}
+                        {isLoading && (
+                            <div className="d-flex flex-column mb-3 align-items-start">
+                                <span className="small text-muted mb-1 fw-bold">Hermes:</span>
+                                <div className="p-2 rounded bg-light text-dark border rounded-end-3 rounded-bottom-3" style={{ maxWidth: '75%' }}>
+                                    <span className="spinner-border spinner-border-sm text-success me-2" role="status"></span>
+                                    <span className="text-muted italic">Hermes is typing...</span>
+                                </div>
+                            </div>
+                        )}
                         {/* div ancora per lo scroll auto verso ultimo msg */}
                         <div ref={messagesEndRef} />
                     </div>
@@ -111,11 +124,13 @@ export default function ChatWidget() {
                             placeholder="Ask anything..."
                             value={textInput}
                             onChange={(event) => {
-                                setTextInput(event.target.value);
+                                setTextInput(event.target.value)
                             }}
+                            disabled={isLoading}
                         />
                         <button className="btn btn-success rounded-circle d-flex align-items-center justify-content-center"
-                            style={{ width: '40px', height: '40px' }}>
+                            style={{ width: '40px', height: '40px' }}
+                            disabled={isLoading}>
                             <i className="bi bi-send-fill"></i>
                         </button>
                     </form>
