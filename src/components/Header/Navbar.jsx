@@ -44,7 +44,6 @@ const Navbar = () => {
             <nav className="nav-center">
                 <Link to="/products">Products</Link>
                 <Link to="/about">About Us</Link>
-                <Link>Contact</Link>
             </nav>
 
             <div className="nav-right">
@@ -103,7 +102,6 @@ const Navbar = () => {
                 </div>
                 <Link to="/products">Products</Link>
                 <Link to="">About Us</Link>
-                <Link to="">Contact</Link>
                 
             </div>
         </header>
