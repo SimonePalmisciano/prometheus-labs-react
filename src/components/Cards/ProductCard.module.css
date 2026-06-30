@@ -98,13 +98,15 @@
 }
 
 .iconic {
-    background-color: rgba(255, 0, 0, 0.637);
-    padding: 5px;
+    border: 6px outset var(--orange-lighter);
+    color: var(--orange-lighter);
+    background-color: #fd7d1450;
+    padding: 7.5px;
+    font-size: 16px;
     border-radius: 10px;
     position: absolute;
     top: -175%;
     right: 10px;
-    text-decoration: underline;
 }
 
 
