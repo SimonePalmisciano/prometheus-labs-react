@@ -6,7 +6,7 @@ const api = {
     async getProducts(queryString = "") {
         // Se c'è una query aggiungiamo '?', altrimenti usiamo l'URL pulito
         const url = queryString ? `${API_BASE_URL}/products?${queryString}` : `${API_BASE_URL}/products`;
-        
+
         const response = await fetch(`${API_BASE_URL}/products?${queryString}`);
         if (!response.ok) throw new Error("Error occurred when loading data");
         const data = await response.json();
@@ -46,16 +46,40 @@ const api = {
     },
 
     async getProductsByCategory(category) {
-    const response = await fetch(`${API_BASE_URL}/products/category/${category}`);
-    if (!response.ok) throw new Error("Error occurred when loading data");
-    const data = await response.json();
-    if (data.error) {
-        throw new Error(data.error);
+        const response = await fetch(`${API_BASE_URL}/products/category/${category}`);
+        if (!response.ok) throw new Error("Error occurred when loading data");
+        const data = await response.json();
+        if (data.error) {
+            throw new Error(data.error);
+        }
+        return data.result;
+    },
+    async sendMessageToHermes(prompt) {
+        try {
+            const response = await fetch(`${API_BASE_URL}/aiagent/chat`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    prompt
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error("Error occurred when loading data");
+            }
+
+            const data = await response.json();
+            if (data.error) {
+                throw new Error(data.error);
+            }
+
+            return data.results;
+        } catch (error) {
+            throw error;
+        }
     }
-    return data.result;
-},
-
-
-}
+};
 
 export default api;
