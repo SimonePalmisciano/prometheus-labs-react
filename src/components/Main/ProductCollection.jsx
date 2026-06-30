@@ -53,10 +53,9 @@ function ProductCollection() {
 
 
   return <>
-    <div className="container my-5">
+    <div className="">
       <ProductGrid title="Clients'Favorites" products={bestsellers} lastProduct={bestsellersLast} />
       <ProductGrid title="New In" products={latest} lastProduct={latestLast} />
-      
     </div>
   </>
 }
