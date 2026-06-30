@@ -48,7 +48,7 @@ function ProductCard({ product, className = "" }) {
         </Link>
         <div className={`${styles.cardBody}`}>
           <div className="card-title-container text-center">
-            <h5 className={`card-title mb-0 fst-italic ${styles.cardTitle}`}>{product.name}</h5>
+            <h5 className={`mb-0 fst-italic ${styles.cardTitle}`}>{product.name}</h5>
             <div className="px-3">
               <div className={`${styles.powerTitle}`}>{product.power}</div>
               {powerTypeCheck(product.power_type)}
