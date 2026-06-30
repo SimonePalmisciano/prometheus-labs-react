@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "../styles/CheckoutPage.css";
 import { useCart } from "../contexts/CartContext";
 import validateCheckout from "../utils/validateCheckout";
-import { API_URL } from "../utils/utils";
+import api from "../services/api";
 
 export default function CheckoutPage() {
     const [billing, setBilling] = useState({
@@ -44,7 +44,7 @@ export default function CheckoutPage() {
         phone_number: billing.phone,
         city: shipping.city,
         address: shipping.address,
-        house_number: "1",
+        house_number: shipping.house_number,
         postal_code: shipping.postalCode,
         country: shipping.country,
         items: cartItems.map(item => ({
@@ -55,18 +55,9 @@ export default function CheckoutPage() {
     };
 
     const sendOrder = async () => {
-        try {
-            const res = await fetch(`${API_URL}/orders`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(orderPayload)
-            });
-
-            const data = await res.json();
-            console.log("Order created:", data);
-        } catch (error) {
-            console.error("Error sending order:", error);
-        }
+        const data = await api.createOrder(orderPayload);
+        console.log("Order created:", data);
+        return data;
     };
 
     const handlePayment = () => {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {API_URL} from "../utils/utils.js"
+import api from "../services/api.js"
 
 function SearchBar({ onResults, onResetSearch }) {
     const [query, setQuery] = useState("");
@@ -26,23 +26,8 @@ function SearchBar({ onResults, onResetSearch }) {
             setError("");
             setHasSearched(true);
 
-            const response = await fetch(
-                `${API_URL}/products?search=${encodeURIComponent(trimmedQuery)}`
-            );
-
-            const data = await response.json();
-
-            if (response.status === 404) {
-                setResultsCount(0);
-                onResults([]);
-                return;
-            }
-
-            if (!response.ok) {
-                throw new Error(data.error || "Errore nella chiamata al server");
-            }
-
-            const results = data.results || [];
+            const queryString = `search=${encodeURIComponent(trimmedQuery)}`;
+            const results = await api.getProducts(queryString);
 
             setResultsCount(results.length);
             onResults(results);

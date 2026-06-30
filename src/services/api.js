@@ -79,7 +79,45 @@ const api = {
         } catch (error) {
             throw error;
         }
-    }
+    },
+    async subscribeToNewsletter(email) {
+        const response = await fetch(`${API_BASE_URL}/newsletter`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email })
+        });
+
+        if (!response.ok) {
+            throw new Error("Errore durante l'iscrizione alla newsletter");
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+            throw new Error(data.error);
+        }
+
+        return data;
+    },
+    async createOrder(orderPayload) {
+        const response = await fetch(`${API_BASE_URL}/orders`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(orderPayload)
+        });
+        const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data.error || "Error occurred when creating order");
+        }
+        if (data.error) {
+            throw new Error(data.error);
+        }
+        return data.result ?? data;
+    },
 };
 
 export default api;

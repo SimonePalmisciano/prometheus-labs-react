@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "../styles/NewsletterPopup.css";
-import { API_URL } from "../utils/utils";
+import api from "../services/api";
 
 // Popup newsletter mostrato solo alla prima visita
 function NewsletterPopup() {
@@ -24,11 +24,7 @@ function NewsletterPopup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await fetch(`${API_URL}/newsletter`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email })
-            });
+            await api.subscribeToNewsletter(email);
             setSubmitted(true);
             setTimeout(() => {
                 handleClose();
