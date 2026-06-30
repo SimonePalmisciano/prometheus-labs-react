@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router";
-
 import "../styles/ProductsPage.css";
 import styles from "../components/Cards/ProductCard.module.css";
 import ProductCard from "../components/Cards/ProductCard.jsx";
@@ -8,19 +7,14 @@ import { useCart } from "../contexts/CartContext.jsx";
 import api from "../services/api.js";
 import { FiSearch } from "react-icons/fi";
 
-
-
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
-
-
     const [searchParams, setSearchParams] = useSearchParams();
     const search = searchParams.get("search") ?? "";
     const categoryParam = searchParams.get("category") ?? "";
     const selectedCategories = categoryParam ? categoryParam.split(',') : [];
     const sort = searchParams.get("sort") ?? "";
-
     const [searchInput, setSearchInput] = useState(searchParams.get("search") ?? "");
 
     function setParam(key, value) {
@@ -32,7 +26,6 @@ export default function ProductsPage() {
     }
 
     const { addToCart } = useCart();
-
     const [loadingProducts, setLoadingProducts] = useState(true);
     const [productsError, setProductsError] = useState("");
 
@@ -48,11 +41,8 @@ export default function ProductsPage() {
 
                     allProducts.forEach(product => {
                         if (Array.isArray(product.categories)) {
-                            product.categories.forEach(cat => uniqueCategories.add(cat));
+                            product.categories.forEach(category => uniqueCategories.add(category));
                         }
-
-
-
                     })
                     setCategories([...uniqueCategories]); // spalmo in un array
 
@@ -63,7 +53,6 @@ export default function ProductsPage() {
 
         }
         fetchCategories();
-
     }, []);
 
     // useEffect per fetch dei prodotti in dipendenza dai search params
@@ -97,7 +86,7 @@ export default function ProductsPage() {
         if (selectedCategories.length > 0) {
             list = list.filter(product =>
                 Array.isArray(product.categories) &&
-                product.categories.some(cat => selectedCategories.includes(cat))
+                product.categories.some(category => selectedCategories.includes(category))
             );
         }
 
@@ -145,9 +134,6 @@ export default function ProductsPage() {
                     />
                 </div>
 
-
-
-
                 <div className="mobile-row-2">
 
                     <select
@@ -155,8 +141,8 @@ export default function ProductsPage() {
                         onChange={(e) => setParam("category", e.target.value)}
                     >
                         <option value="">Categories</option>
-                        {categories.map(cat => (
-                            <option key={cat} value={cat}>{cat}</option>
+                        {categories.map(category => (
+                            <option key={category} value={category}>{category}</option>
                         ))}
                     </select>
 
@@ -172,13 +158,11 @@ export default function ProductsPage() {
                 </div>
 
             </section>
-
             <section className="filters-row  ">
 
                 <div className=" d-flex  flex-column w-25 gap-3 ">
                     <div className="d-flex flex-column">
                         <label className="form-label fw-bold fs-5 text-center">Search</label>
-
 
                     </div>
                     <div className="d-flex gap-1 ">
@@ -210,30 +194,26 @@ export default function ProductsPage() {
                         </button>
 
                     </div>
-
-
                 </div>
-
-
                 <div className="d-flex flex-column w-25 gap-2 ">
                     <label className="form-label fw-bold fs-5 text-center">Categories</label>
 
                     <div className="category-columns">
                         <div className="category-column">
-                            {categories.slice(0, 2).map((cat) => {
-                                const isSelected = selectedCategories.includes(cat);
+                            {categories.slice(0, 2).map((category) => {
+                                const isSelected = selectedCategories.includes(category);
 
                                 return (
                                     <div
-                                        key={cat}
+                                        key={category}
                                         className={`category-chip ${isSelected ? "active" : ""}`}
                                         onClick={() => {
                                             let updatedList;
 
                                             if (!isSelected) {
-                                                updatedList = [...selectedCategories, cat];
+                                                updatedList = [...selectedCategories, category];
                                             } else {
-                                                updatedList = selectedCategories.filter(c => c !== cat);
+                                                updatedList = selectedCategories.filter(c => c !== category);
                                             }
 
                                             setParam(
@@ -242,7 +222,7 @@ export default function ProductsPage() {
                                             );
                                         }}
                                     >
-                                        {cat}
+                                        {category}
                                         {isSelected && <span className="checkmark">✓</span>}
                                     </div>
                                 );
@@ -250,20 +230,20 @@ export default function ProductsPage() {
                         </div>
 
                         <div className="category-column">
-                            {categories.slice(2).map((cat) => {
-                                const isSelected = selectedCategories.includes(cat);
+                            {categories.slice(2).map((category) => {
+                                const isSelected = selectedCategories.includes(category);
 
                                 return (
                                     <div
-                                        key={cat}
+                                        key={category}
                                         className={`category-chip ${isSelected ? "active" : ""}`}
                                         onClick={() => {
                                             let updatedList;
 
                                             if (!isSelected) {
-                                                updatedList = [...selectedCategories, cat];
+                                                updatedList = [...selectedCategories, category];
                                             } else {
-                                                updatedList = selectedCategories.filter(c => c !== cat);
+                                                updatedList = selectedCategories.filter(c => c !== category);
                                             }
 
                                             setParam(
@@ -272,7 +252,7 @@ export default function ProductsPage() {
                                             );
                                         }}
                                     >
-                                        {cat}
+                                        {category}
                                         {isSelected && <span className="checkmark">✓</span>}
                                     </div>
                                 );
