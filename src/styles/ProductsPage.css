@@ -47,9 +47,9 @@
     gap: 1.5rem;
 }
 
-.products-filters select,
-.products-filters input {
+.products-filters select {
     min-width: 180px;
+    max-width: 260px;
 }
 
 .products-filters .form-label {

@@ -211,19 +211,19 @@ function ProductDetail() {
                     {related
                         .filter((item) => item.slug !== product.slug)
                         .map((item) => (
-                            <div key={item.slug} className="col-md-3 mb-4">
+                            <div key={item.slug} className="card-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                                 <Link
                                     to={`/products/${item.slug}`}
                                     className="text-decoration-none"
                                 >
-                                    <div className="card bg-dark text-light border-primary related-card">
+                                    <div className="card bg-dark text-light related-card">
                                         <img
                                             src={`${API_BASE_URL}${item.imgMain}`}
                                             className="card-img-top"
                                             alt={item.name}
                                         />
                                         <div className="card-body">
-                                            <h5 className="card-title">{item.name}</h5>
+                                            <h5 className="">{item.name}</h5>
                                         </div>
                                     </div>
                                 </Link>
