@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import agent from "../assets/agent.png";
 import api from "../services/api.js";
+import renderAgentResponse from '../utils/chatutils.jsx';
 
 export default function ChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
@@ -100,7 +101,14 @@ export default function ChatWidget() {
                                             }`}
                                         style={{ maxWidth: '75%' }} // Evita che la nuvoletta si allarghi al 100% dello schermo
                                     >
-                                        {msg.text}
+                                        {/* GESTIONE CONDIZIONALE DEL PARSING */}
+                                        {isYou ? (
+                                            // Se sei tu, stampa testo 
+                                            msg.text
+                                        ) : (
+                                            // Se è Hermes o System, passa il testo all'utility che usa react-markdown
+                                            renderAgentResponse(msg.text)
+                                        )}
                                     </div>
                                 </div>
                             );
