@@ -1,13 +1,13 @@
 const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || '3000';
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'localhost';
-const API_BASE_URL = `http://${SERVER_URL}:${SERVER_PORT}`;
+import { API_URL } from "../utils/utils.js";
 
 const api = {
     async getProducts(queryString = "") {
         // Se c'è una query aggiungiamo '?', altrimenti usiamo l'URL pulito
-        const url = queryString ? `${API_BASE_URL}/products?${queryString}` : `${API_BASE_URL}/products`;
+        const url = queryString ? `${API_URL}/products?${queryString}` : `${API_URL}/products`;
 
-        const response = await fetch(`${API_BASE_URL}/products?${queryString}`);
+        const response = await fetch(`${API_URL}/products?${queryString}`);
         if (!response.ok) throw new Error("Error occurred when loading data");
         const data = await response.json();
         if (data.error) {
@@ -17,7 +17,7 @@ const api = {
     },
 
     async getProductBySlug(slug) {
-        const response = await fetch(`${API_BASE_URL}/products/${slug}`);
+        const response = await fetch(`${API_URL}/products/${slug}`);
         const data = await response.json();
         if (data.error) {
             throw new Error(data.error)
@@ -26,7 +26,7 @@ const api = {
     },
 
     async getLatestProducts() {
-        const response = await fetch(`${API_BASE_URL}/products/latest`);
+        const response = await fetch(`${API_URL}/products/latest`);
         if (!response.ok) throw new Error("Error occurred when loading data");
         const data = await response.json();
         if (data.error) {
@@ -36,7 +36,7 @@ const api = {
     },
 
     async getBestsellerProducts() {
-        const response = await fetch(`${API_BASE_URL}/products/bestsellers`);
+        const response = await fetch(`${API_URL}/products/bestsellers`);
         if (!response.ok) throw new Error("Error occurred when loading data");
         const data = await response.json();
         if (data.error) {
@@ -46,7 +46,7 @@ const api = {
     },
 
     async getProductsByCategory(category) {
-        const response = await fetch(`${API_BASE_URL}/products/category/${category}`);
+        const response = await fetch(`${API_URL}/products/category/${category}`);
         if (!response.ok) throw new Error("Error occurred when loading data");
         const data = await response.json();
         if (data.error) {
@@ -56,7 +56,7 @@ const api = {
     },
     async sendMessageToHermes(prompt) {
         try {
-            const response = await fetch(`${API_BASE_URL}/aiagent/chat`, {
+            const response = await fetch(`${API_URL}/aiagent/chat`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -81,7 +81,7 @@ const api = {
         }
     },
     async subscribeToNewsletter(email) {
-        const response = await fetch(`${API_BASE_URL}/newsletter`, {
+        const response = await fetch(`${API_URL}/newsletter`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -102,7 +102,7 @@ const api = {
         return data;
     },
     async createOrder(orderPayload) {
-        const response = await fetch(`${API_BASE_URL}/orders`, {
+        const response = await fetch(`${API_URL}/orders`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
