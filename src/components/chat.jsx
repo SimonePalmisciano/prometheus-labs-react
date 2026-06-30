@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import agent from "../assets/agent.png";
 import api from "../services/api.js";
 import renderAgentResponse from '../utils/chatutils.jsx';
+import "../styles/ChatWidget.css";
 
 export default function ChatWidget() {
     const [isOpen, setIsOpen] = useState(false);

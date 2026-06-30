@@ -1,0 +1,100 @@
+/* Finestra della chat */
+.chat-window {
+    background: #2d1b4e;
+    border: 1px solid #5a3d8f;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    width: 350px;
+    height: 450px;
+    bottom: 100px;
+    right: 24px;
+    z-index: 1050;
+    animation: chatOpen 0.25s ease-out;
+    transform-origin: bottom right;
+}
+
+/* Header */
+.chat-window .topbtchat:first-child {
+    background: #1a0f33 !important;
+    border-bottom: 1px solid #5a3d8f;
+}
+
+.chat-window .topbtchat:first-child h3 {
+    color: #e0d4ff !important;
+    font-size: 1.1rem;
+}
+
+.chat-window .topbtchat:first-child button i {
+    color: #b894f5 !important;
+}
+
+/* Sfondo area messaggi */
+.chat-support {
+    background: #2d1b4e;
+}
+
+/* Messaggio utente */
+.chat-support .bg-secondary {
+    background: #7b3fe4 !important;
+    color: #fff !important;
+}
+
+/* Messaggio Hermes */
+.chat-support .bg-light {
+    background: #3d2a6b !important;
+    color: #e0d4ff !important;
+    border: 1px solid #5a3d8f !important;
+}
+
+/* Etichette mittente */
+.chat-support .text-muted {
+    color: #a98fd4 !important;
+}
+
+/* Spinner */
+.chat-support .spinner-border.text-success {
+    color: #b894f5 !important;
+}
+
+/* Footer input */
+.chat-window form.topbtchat {
+    background: #1a0f33 !important;
+    border-top: 1px solid #5a3d8f !important;
+}
+
+.chat-window form.topbtchat input {
+    background: #3d2a6b;
+    border: 1px solid #5a3d8f;
+    color: #fff;
+}
+
+.chat-window form.topbtchat input::placeholder {
+    color: #8a7aa8;
+}
+
+.chat-window form.topbtchat input:focus {
+    border-color: #9b59e6;
+    color: #fff;
+}
+
+/* Bottone invio */
+.chat-window form.topbtchat .btn-success {
+    background: #7b3fe4 !important;
+    border: none !important;
+}
+
+.chat-window form.topbtchat .btn-success:hover {
+    background: #6a2fd4 !important;
+}
+
+/* Animazione apertura */
+@keyframes chatOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
