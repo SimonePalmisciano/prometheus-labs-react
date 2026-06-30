@@ -1,4 +1,5 @@
 import { useCart } from "../../contexts/CartContext.jsx";
+import { API_URL } from "../../utils/utils.js";
 
 function CartItemCard({ item }) {
     const { increaseQuantity, decreaseQuantity, removeFromCart, getItemQuantity } = useCart();
@@ -9,7 +10,7 @@ function CartItemCard({ item }) {
             <div className="row g-0 align-items-center">
                 <div className="col-4 col-md-4">
                     <img
-                        src={`http://localhost:3000${item.image}`}
+                        src={`${API_URL}${item.image}`}
                         className="img-fluid rounded-start"
                         alt={item.name}
                     />

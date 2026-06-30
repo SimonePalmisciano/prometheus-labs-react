@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {API_URL} from "../utils/utils.js"
 
 function SearchBar({ onResults, onResetSearch }) {
     const [query, setQuery] = useState("");
@@ -26,7 +27,7 @@ function SearchBar({ onResults, onResetSearch }) {
             setHasSearched(true);
 
             const response = await fetch(
-                `http://localhost:3000/products?search=${encodeURIComponent(trimmedQuery)}`
+                `${API_URL}/products?search=${encodeURIComponent(trimmedQuery)}`
             );
 
             const data = await response.json();
