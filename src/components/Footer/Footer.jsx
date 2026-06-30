@@ -16,10 +16,10 @@ export default function Footer() {
 
                 {/* CONTACTS */}
                 <div className="footer-contacts">
-                    <h4>Contatti</h4>
-                    <p>Email: info@prometheuslabs.fake</p>
-                    <p>Telefono: +39 345 987 1234</p>
-                    <p>Indirizzo: Via Roma 12, Milano</p>
+                    <h4>Contacts</h4>
+                    <p>Email: info@prometheuslabs.com</p>
+                    <p>Phone +39 02 987 1234</p>
+                    <p>Address: Via Roma 12, Milan 20100 - Italy</p>
                 </div>
 
                 {/* SOCIAL */}
