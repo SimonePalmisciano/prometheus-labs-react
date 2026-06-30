@@ -11,6 +11,7 @@ import FavouritesPage from "./pages/FavouritesPage.jsx"
 import { CartProvider } from "./contexts/CartContext.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
+import AboutUs from "./pages/AboutUs.jsx";
 
 function App() {
   return <>
@@ -27,6 +28,7 @@ function App() {
               <Route path="cart" element={<CartPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path='*' element={<NotFound />} />
+              <Route path="/about" element={<AboutUs/>}/>
             </Route>
           </Routes>
         </BrowserRouter>
