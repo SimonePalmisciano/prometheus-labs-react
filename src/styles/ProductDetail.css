@@ -10,9 +10,11 @@
     border-radius: 10px;
 }
 
-.card.bg-dark.text-light.border-primary {
+.card.bg-dark {
     border-radius: 10px;
     padding: 20px;
+    height: 300px;
+    /* width: 220px; */
 }
 
 .card-title {
@@ -46,15 +48,15 @@
 
 
 
-.col-md-3 .card {
+.card-wrapper .card {
     transition: transform 0.2s ease;
 }
 
-.col-md-3 .card:hover {
+.card-wrapper .card:hover {
     transform: scale(1.03);
 }
 
-.col-md-3 img {
+.card-wrapper img {
     height: 180px;
     object-fit: cover;
     border-radius: 8px;
@@ -126,7 +128,7 @@
         font-size: 20px;
     }
 
-    .col-md-3 img {
+    .card-wrapper img {
         height: 150px;
     }
 }

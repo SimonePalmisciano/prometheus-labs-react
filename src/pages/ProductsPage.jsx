@@ -119,40 +119,7 @@ export default function ProductsPage() {
         <main className="container products-page">
             <h1 className="text-center mb-4">Products</h1>
 
-            <section className="d-flex justify-content-center align-items-end gap-5 mb-4 products-filters">
-
-                <div className="d-flex flex-column">
-                    <label className="form-label">Categories</label>
-
-                    {categories.map((cat) => (
-                        <div className="form-check" key={cat}>
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                id={cat}
-                                checked={selectedCategories.includes(cat)}
-                                onChange={(e) => {
-                                    let updatedList;
-
-                                    if (e.target.checked) {
-                                        updatedList = [...selectedCategories, cat];
-                                    } else {
-                                        updatedList = selectedCategories.filter(c => c !== cat);
-                                    }
-
-                                    setParam(
-                                        "category",
-                                        updatedList.length ? updatedList.join(",") : ""
-                                    );
-                                }}
-                            />
-
-                            <label className="form-check-label" htmlFor={cat}>
-                                {cat}
-                            </label>
-                        </div>
-                    ))}
-                </div>
+            <section className="d-flex justify-content-center gap-5 mb-4 products-filters flex-column">
                 <div className=" d-flex gap-1">
                     <div className="d-flex flex-column">
                         <label className="form-label">Search</label>
@@ -189,6 +156,41 @@ export default function ProductsPage() {
                     </div>
 
 
+                </div>
+
+                <div>
+                    <label className="form-label">Categories</label>
+                    <div className="d-flex wrapper-check-input">
+
+                        {categories.map((cat) => (
+                            <div className="form-check" key={cat}>
+                                <input
+                                    className="form-check-input"
+                                    type="checkbox"
+                                    id={cat}
+                                    checked={selectedCategories.includes(cat)}
+                                    onChange={(e) => {
+                                        let updatedList;
+
+                                        if (e.target.checked) {
+                                            updatedList = [...selectedCategories, cat];
+                                        } else {
+                                            updatedList = selectedCategories.filter(c => c !== cat);
+                                        }
+
+                                        setParam(
+                                            "category",
+                                            updatedList.length ? updatedList.join(",") : ""
+                                        );
+                                    }}
+                                />
+
+                                <label className="form-check-label mx-1" htmlFor={cat}>
+                                    {cat}
+                                </label>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="d-flex flex-column">
