@@ -77,15 +77,34 @@ const Navbar = () => {
                     */
                 }
             </div>
+            <div className="search-box search-medium">
+                <FiSearch className="icon" />
+                <input
+                    placeholder="Search powers..."
+                    value={navSearch}
+                    onChange={(e) => setNavSearch(e.target.value)}
+                    onKeyDown={handleNavSearch}
+                />
+            </div>
 
             <div className="hamburger" onClick={() => setOpen(!open)}>
                 {open ? <FiX /> : <FiMenu />}
             </div>
 
             <div className={`mobile-menu ${open ? "open" : ""}`}>
+                <div className="search-box search-mobile mt-3">
+                    <FiSearch className="icon" />
+                    <input
+                        placeholder="Search powers..."
+                        value={navSearch}
+                        onChange={(e) => setNavSearch(e.target.value)}
+                        onKeyDown={handleNavSearch}
+                    />
+                </div>
                 <Link to="/products">Products</Link>
                 <Link to="">About Us</Link>
                 <Link to="">Contact</Link>
+                
             </div>
         </header>
     );
