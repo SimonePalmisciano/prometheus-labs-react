@@ -1,6 +1,7 @@
-import useFavourites from "../hooks/useFavourites"
-import ProductCard from "../components/Cards/ProductCard";
 import { Link } from "react-router";
+import useFavourites from "../hooks/useFavourites.js";
+import ProductCard from "../components/Cards/ProductCard";
+
 
 function FavouritesPage() {
     const { favourites } = useFavourites();
@@ -21,9 +22,10 @@ function FavouritesPage() {
                     <div className="col" key={favourites.slug}>
                         <ProductCard product={favourites} />
                     </div>
-                ))}
+                ))};
             </div>
         </div>
     )
-}
-export default FavouritesPage
+;}
+
+export default FavouritesPage;
