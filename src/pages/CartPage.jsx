@@ -40,7 +40,7 @@ function CartPage() {
                     {cartItems.map((item) => (
                         <div key={`summary-${item.slug}`} className="d-flex justify-content-between align-items-center mb-2 small">
                             <div>
-                                <span className="font-monospace text-muted"> {item.slug} </span>
+                                <span className="font-monospace text-muted"> {item.name} </span>
                                 <span className="ms-2 text-dark fw-medium">× {item.quantity}</span>
                             </div>
                             <span className="fw-bold text-dark">
