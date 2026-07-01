@@ -14,6 +14,7 @@ export default function ProductsPage() {
     const search = searchParams.get("search") ?? "";
     const categoryParam = searchParams.get("category") ?? "";
     const selectedCategories = categoryParam ? categoryParam.split(',') : [];
+    const isAllSelected = selectedCategories.length === 0;
     const sort = searchParams.get("sort") ?? "";
     const [searchInput, setSearchInput] = useState(searchParams.get("search") ?? "");
 
@@ -114,7 +115,20 @@ export default function ProductsPage() {
             price: product.price,
             image: product.imgMain,
         });
-    }
+    };
+
+    function toggleCategory(category) {
+        const isSelected = selectedCategories.includes(category);
+
+        let updatedList;
+        if (isSelected) {
+            updatedList = selectedCategories.filter(c => c !== category);
+        } else {
+            updatedList = [...selectedCategories, category];
+        }
+
+        setParam("category", updatedList.length ? updatedList.join(",") : "");
+    };
 
     return (
         <main className="container products-page">
@@ -199,6 +213,13 @@ export default function ProductsPage() {
                     <label className="form-label fw-bold fs-5 text-center">Categories</label>
 
                     <div className="category-columns">
+                        <div
+                            className={`category-chip ${isAllSelected ? "active" : ""}`}
+                            onClick={() => setParam("category", "")}
+                        >
+                            All
+                            {isAllSelected && <span className="checkmark">✓</span>}
+                        </div>
                         <div className="category-column">
                             {categories.slice(0, 2).map((category) => {
                                 const isSelected = selectedCategories.includes(category);
@@ -207,20 +228,7 @@ export default function ProductsPage() {
                                     <div
                                         key={category}
                                         className={`category-chip ${isSelected ? "active" : ""}`}
-                                        onClick={() => {
-                                            let updatedList;
-
-                                            if (!isSelected) {
-                                                updatedList = [...selectedCategories, category];
-                                            } else {
-                                                updatedList = selectedCategories.filter(c => c !== category);
-                                            }
-
-                                            setParam(
-                                                "category",
-                                                updatedList.length ? updatedList.join(",") : ""
-                                            );
-                                        }}
+                                        onClick={() => toggleCategory(category)}
                                     >
                                         {category}
                                         {isSelected && <span className="checkmark">✓</span>}
@@ -237,20 +245,7 @@ export default function ProductsPage() {
                                     <div
                                         key={category}
                                         className={`category-chip ${isSelected ? "active" : ""}`}
-                                        onClick={() => {
-                                            let updatedList;
-
-                                            if (!isSelected) {
-                                                updatedList = [...selectedCategories, category];
-                                            } else {
-                                                updatedList = selectedCategories.filter(c => c !== category);
-                                            }
-
-                                            setParam(
-                                                "category",
-                                                updatedList.length ? updatedList.join(",") : ""
-                                            );
-                                        }}
+                                        onClick={() => toggleCategory(category)}
                                     >
                                         {category}
                                         {isSelected && <span className="checkmark">✓</span>}
@@ -263,9 +258,6 @@ export default function ProductsPage() {
 
                 <div className="d-flex flex-column w-25 text-center gap-3">
                     <label className="form-label fw-bold fs-5 ">Sort</label>
-
-
-
                     <div className="ios-switch-container" onClick={() => {
                         const next = sort === "min" ? "max" : "min";
                         setParam("sort", next);

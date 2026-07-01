@@ -23,11 +23,10 @@ function FavouritesPage() {
                     <div className="col" key={favourites.slug}>
                         <ProductCard product={favourites} />
                     </div>
-                ))};
+                ))}
             </div>
         </div>
-    )
-        ;
+    );
 }
 
 export default FavouritesPage;
