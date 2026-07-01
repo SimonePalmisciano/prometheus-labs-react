@@ -14,3 +14,14 @@
     color: white;
     background-color: var(--orange-lighter);
 }
+
+.clearCartBtn {
+    
+    border: 1.5px solid var(--orange-darker) !important;
+    color: var(--orange-darker) !important;
+}
+
+.clearCartBtn:hover {
+    background-color: var(--orange-lighter) !important;
+    color: white !important;
+}

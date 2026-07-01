@@ -110,12 +110,14 @@ body {
 .category-columns {
     display: flex;
     justify-content: space-evenly;
+    gap: 5px;
 }
 
 .category-column {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
+    column-gap: 5px;
 }
 
 
