@@ -66,9 +66,9 @@
 /* Contenuto card body */
 
 .cardTitle {
-    color: whitesmoke;
+    color: #2c127a;
     text-wrap: nowrap;
-    text-shadow: 0px 4px 9px #000000;
+   
     text-decoration: underline;
 }
 
@@ -106,6 +106,10 @@
 
 .powTag {
     display: inline-block;
+    position: absolute;
+    left: -5px;
+    top: 10px;
+    z-index: 99;
 }
 
 .psyTag {
@@ -128,7 +132,7 @@
 
 .productPrice {
     font-size: 88%;
-    text-shadow: 0px 4px 9px #666666;
+
     padding-right: 7.5px;
 }
 
@@ -144,6 +148,7 @@
     z-index: 98;
     position: relative;
     border: none;
+    box-shadow: 0px 10px 30px -6px rgba(0,0,0,0.75);
 }
 
 .cardFooter :global(.icon-btn) {
