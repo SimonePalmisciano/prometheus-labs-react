@@ -8,22 +8,24 @@ function ProductGrid({ title, products, lastProduct }) {
             <div className={`${styles.sectTitleBox}`}>
                 <h2 className={`${styles.sectionTitle}`}>{title}</h2>
             </div>
-            <div className="mx-lg-5 mx-3 mt-5">
-                <div className="row row-cols-md-3 g-4">
-                    {products.map(product => (
-                        <ProductCard
-                            key={product.id}
-                            product={product}
-                            className={`${styles.productCard} ${styles.productMain}`}
-                        />
-                    ))}
-                </div>
-                <div className="d-flex justify-content-center mt-4">
-                    {lastProduct && <ProductCard
-                        key={lastProduct.id}
-                        product={lastProduct}
-                        className={`${styles.productCard} ${styles.productLast}`}
-                    />}
+            <div className="container">
+                <div className="mx-lg-5 mx-3 mt-5">
+                    <div className="row row-cols-md-3 g-4">
+                        {products.map(product => (
+                            <ProductCard
+                                key={product.id}
+                                product={product}
+                                className={`${styles.productCard} ${styles.productMain}`}
+                            />
+                        ))}
+                    </div>
+                    <div className="d-flex justify-content-center mt-4">
+                        {lastProduct && <ProductCard
+                            key={lastProduct.id}
+                            product={lastProduct}
+                            className={`${styles.productCard} ${styles.productLast}`}
+                        />}
+                    </div>
                 </div>
             </div>
         </div>
