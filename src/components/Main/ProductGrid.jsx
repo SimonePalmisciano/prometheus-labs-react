@@ -19,13 +19,13 @@ function ProductGrid({ title, products, lastProduct }) {
                             />
                         ))}
                     </div>
-                    {/* <div className="d-flex justify-content-center mt-4">
+                    <div className="d-flex justify-content-center mt-4">
                         {lastProduct && <ProductCard
                             key={lastProduct.id}
                             product={lastProduct}
                             className={`${styles.productCard} ${styles.productLast}`}
                         />}
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>
