@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react"
 import ProductGrid from "./ProductGrid.jsx"
 import api from "../../services/api.js"
+import { Link } from "react-router";
+
+import DailysupBanner from "./DailysupBanner.jsx";
 
 function ProductCollection() {
 
@@ -53,6 +56,7 @@ function ProductCollection() {
   return <>
     <div className="">
       <ProductGrid title="Clients'Favorites" products={bestsellers} lastProduct={bestsellersLast} />
+      <Link to="/products?category=dailysuper"> <DailysupBanner /> </Link>
       <ProductGrid title="New In" products={latest} lastProduct={latestLast} />
     </div>
   </>
