@@ -29,24 +29,26 @@ const Navbar = () => {
 
                 <Link to={"/favourites"}>
                     <span className="icon-wrapper">
-                        <FiHeart className="icon-btn" />
+                        <FiHeart className="icon-btn mt-1" />
                         {favourites.length > 0 && <span className="icon-badge">{favourites.length}</span>}
                     </span>
                 </Link>
                 <Link to={"/cart"}>
                     <span className="icon-wrapper">
-                        <FiShoppingCart className="icon-btn" />
+                        <FiShoppingCart className="icon-btn mt-1" />
                         {cartCount > 0 && <span className="icon-badge">{cartCount}</span>}
                     </span>
                 </Link>
             </div>
 
-            <nav className="nav-center">
-                <Link to="/products">Products</Link>
-                <Link to="/about">About Us</Link>
-            </nav>
+
 
             <div className="nav-right">
+                <nav className="nav-center">
+                    <Link to="/">Home</Link>
+                    <Link to="/products">Products</Link>
+                    <Link to="/about">About Us</Link>
+                </nav>
                 <div className="search-box ">
                     <FiSearch className="icon" />
                     <input
@@ -59,13 +61,13 @@ const Navbar = () => {
 
                 <Link to={"/favourites"}>
                     <span className="icon-wrapper">
-                        <FiHeart className="icon-btn" />
+                        <FiHeart className="icon-btn mt-1" />
                         {favourites.length > 0 && <span className="icon-badge">{favourites.length}</span>}
                     </span>
                 </Link>
                 <Link to={"/cart"}>
                     <span className="icon-wrapper">
-                        <FiShoppingCart className="icon-btn" />
+                        <FiShoppingCart className="icon-btn mt-1" />
                         {cartCount > 0 && <span className="icon-badge">{cartCount}</span>}
                     </span>
                 </Link>
@@ -100,9 +102,10 @@ const Navbar = () => {
                         onKeyDown={handleNavSearch}
                     />
                 </div>
+                <Link to="">Home</Link>
                 <Link to="/products">Products</Link>
                 <Link to="">About Us</Link>
-                
+
             </div>
         </header>
     );

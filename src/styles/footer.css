@@ -3,7 +3,7 @@
     background-color: #0c0111;
     color: #fff;
     padding: 3rem 1.5rem;
-    margin-top: 4rem;
+
 }
 
 .footer-content {
@@ -106,5 +106,18 @@
 @media (min-width: 768px) {
     .footer-content {
     grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+@media (max-width: 380px) {
+    .footer-content {
+        transform: scale(75%);
     }
 }

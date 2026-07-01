@@ -1,0 +1,16 @@
+.bg-purlpler {
+    margin-top: 20px;
+    color: white;
+    background-color: rgb(156, 27, 199);
+    height: 80px;
+}
+
+.btnHome {
+    background-color: rgba(156, 27, 199, 0.397);
+}
+
+.btnHome:hover {
+    transform: scale(105%);
+    color: white;
+    background-color: var(--orange-lighter);
+}
