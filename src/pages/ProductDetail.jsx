@@ -107,7 +107,7 @@ function ProductDetail() {
             <div className="row">
 
                 {/* LEFT SIDE: Thumbnail Column + Main Image */}
-                <div className="col-md-6">
+                <div className="col-md-6 space-part-mobile">
                     <div className="row">
 
                         {/* Thumbnails */}
@@ -215,8 +215,8 @@ function ProductDetail() {
             </div>
 
             {/* RELATED PRODUCTS */}
-            <div className="mt-5">
-                <h3 className="mb-3">Also Worth a Look</h3>
+            <div className="mt-5 mb-5">
+                <h3 className=" m-5 look-mobile">Also Worth a Look</h3>
 
                 <div className="row">
                     {related
@@ -234,7 +234,7 @@ function ProductDetail() {
                                             alt={item.name}
                                         />
                                         <div className="card-body text-nowrap">
-                                            <h5 className="look-card-title">{item.name}</h5>
+                                            <h5 className="look-card-title mt-4">{item.name}</h5>
                                         </div>
                                     </div>
                                 </Link>
