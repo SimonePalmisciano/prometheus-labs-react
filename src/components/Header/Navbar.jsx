@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/Navbar.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
-import { Link, useNavigate } from "react-router";
+import { NavLink, Link, useNavigate } from "react-router";
 import { useFavourites } from "../../contexts/FavouritesContext";
 import { useCart } from "../../contexts/CartContext";
 
@@ -45,10 +45,28 @@ const Navbar = () => {
 
             <div className="nav-right">
                 <nav className="nav-center">
-                    <Link to="/">Home</Link>
-                    <Link to="/products">Products</Link>
-                    <Link to="/about">About Us</Link>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) => isActive ? "active-link" : ""}
+                    >
+                        Home
+                    </NavLink>
+
+                    <NavLink
+                        to="/products"
+                        className={({ isActive }) => isActive ? "active-link" : ""}
+                    >
+                        Products
+                    </NavLink>
+
+                    <NavLink
+                        to="/about"
+                        className={({ isActive }) => isActive ? "active-link" : ""}
+                    >
+                        About Us
+                    </NavLink>
                 </nav>
+
                 <div className="search-box ">
                     <FiSearch className="icon" />
                     <input
@@ -102,9 +120,9 @@ const Navbar = () => {
                         onKeyDown={handleNavSearch}
                     />
                 </div>
-                <Link to="">Home</Link>
-                <Link to="/products">Products</Link>
-                <Link to="">About Us</Link>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/products">Products</NavLink>
+                <NavLink to="/about">About Us</NavLink>
 
             </div>
         </header>
