@@ -4,17 +4,19 @@
     padding-top: 2.5%;
     z-index: 99;
     position: relative;
-    min-height: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 .productCard img {
     z-index: 90;
-    position: absolute;
+    position: relative;
     object-fit: contain;
     width: 100%;
-    height: 100%;
-    border: 4px outset #210d5ba5;
+    height: 260px;
     border-radius: 5px;
+    background-color: #ffffff;
+    margin-bottom: 12px;
 }
 
 /* Card comportam. specifico */
@@ -22,29 +24,19 @@
 .productMain {
     max-width: 90%;
     margin: 0 auto;
-
+    border-radius: 5px;
 }
 
 .productLast {
     padding-top: 0;
     margin-bottom: 0;
-    min-height: 680px;
     border: 6px outset #210d5bbe;
     border-radius: 15px;
-}
-
-.productLast img {
-
-    border: none;
 }
 
 .productCard:hover {
     transform: scale(102%);
     transition: 0.2s;
-}
-
-.productMain img:hover {
-    border: 6px double #210d5bbe;
 }
 
 .productLast:hover {
@@ -54,12 +46,15 @@
 /* Body della card: appare in sovrapposizione all'immagine */
 
 .cardBody {
-    z-index: 95;
-    position: absolute;
     width: 100%;
-    bottom: 0%;
-    background-color: rgba(156, 27, 199, 0.23);
-    height: 35%;
+    flex: 1 1 auto;
+    background: linear-gradient(
+        to bottom,
+        rgba(156, 27, 199, 0.12) 0%,
+        rgba(156, 27, 199, 0.30) 60%,
+        rgba(76, 13, 97, 0.55) 100%
+    );
+    height: auto;
     padding: 3% 0;
     pointer-events: none;
 }
@@ -103,15 +98,14 @@
     font-size: 16px;
     border-radius: 10px;
     position: absolute;
-    top: -175%;
+    top: 10px;
     right: 10px;
+    z-index: 96;
 }
 
 
 .powTag {
-    position: absolute;
-    top: -10px;
-    right: 0;
+    display: inline-block;
 }
 
 .psyTag {
@@ -123,7 +117,7 @@
 }
 
 .priceBox {
-    color: white;
+    color: var(--purple);
 }
 
 .priceBox:hover {
@@ -139,25 +133,37 @@
 }
 
 .productType {
-    position: absolute;
-    top: 77%;
-    left: 85px;
+    display: inline-block;
 }
 
 .productLast .productType {
-    top: 81%;
     transform: scale(102%);
 }
 
 .cardFooter {
     z-index: 98;
     position: relative;
-    bottom: -88%;
     border: none;
 }
 
+.cardFooter :global(.icon-btn) {
+    color: var(--purple) !important;
+}
+
+.cardFooter :global(.icon-btn):hover {
+    color: var(--orange) !important;
+}
+
+.cardFooter :global(.icon-btn--active) {
+    color: var(--orange) !important;
+}
+
+.cardFooter :global(.icon-btn--active):hover {
+    color: var(--orange) !important;
+}
+
 .quantityBtn {
-    color: white;
+    color: var(--purple);
 
 }
 
@@ -223,8 +229,9 @@
 @media (min-width: 1200px) {
     .productLast img {
         max-width: 55%;
-        left: 50%;
-        transform: translateX(-50%);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .productType {
@@ -238,12 +245,13 @@
     }
 
     .productLast {
-        margin: 0 5%;
+        width: 800px;
+        flex: 0 0 auto;
+        margin: 0;
     }
 
     .productType {
         transform: scale(85%);
-        left: 85px;
     }
 
     .sectionTitle::after {
@@ -265,10 +273,6 @@
         max-width: 500px;
     }
 
-    .productLast .cardFooter {
-        bottom: -92%;
-    }
-
     .cardTitle {
         font-size: 25px;
     }
@@ -279,14 +283,6 @@
 @media (max-width: 767px) {
     .productCard {
         min-height: 400px;
-    }
-
-    .cardFooter {
-        bottom: -86%;
-    }
-
-    .powTag {
-        top: -10px;
     }
 
     .productLast .cardTitle {
@@ -301,12 +297,7 @@
         font-size: 25px !important;
     }
 
-    .productType {
-        top: 75%;
-    }
-
     .productLast .productType {
-        top: 75%;
         transform: scale(102%);
     }
 
@@ -349,10 +340,6 @@
 
     .powerTitle {
         font-size: 16px !important;
-    }
-
-    .productType {
-        left: 65px;
     }
 }
 

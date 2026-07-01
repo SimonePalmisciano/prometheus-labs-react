@@ -50,12 +50,12 @@ function ProductCard({ product, className = "" }) {
         <div className={`${styles.cardBody}`}>
           <div className="card-title-container text-center">
             <h5 className={`mb-0 fst-italic ${styles.cardTitle}`}>{product.name}</h5>
-            <div className="px-3">
+            <div className="">
               <div className={`${styles.powerTitle}`}>{product.power}</div>
               {powerTypeCheck(product.power_type)}
             </div>
           </div>
-          <div className="mt-0 pt-0">{product.categories.map((category) => {
+          <div className="mx-3">{product.categories.map((category) => {
             if (category === "iconic") {
               return <span key={category} className={`${styles.iconic}`}>{category}</span>
             } 
