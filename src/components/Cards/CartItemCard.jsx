@@ -7,7 +7,7 @@ function CartItemCard({ item }) {
     const quantityInCart = getItemQuantity(item.slug);
 
     return (
-        <div className="card mb-3">
+        <div className="card cartItemCard mb-3">
 
             <div className="row g-0 align-items-center">
                 <div className="col-4 col-md-4">

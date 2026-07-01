@@ -1,0 +1,10 @@
+.cartItemCard {
+    min-width: 450px;
+}
+
+@media screen and (max-width: 992px){
+    .main-wrapper {
+        align-items: center;
+    }
+
+}
