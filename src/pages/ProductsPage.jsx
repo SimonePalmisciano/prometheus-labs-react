@@ -148,26 +148,35 @@ export default function ProductsPage() {
                     />
                 </div>
 
-                <div className="mobile-row-2">
+                <div className="mobile-row-2 justify-content-between">
+                    <div className="d-flex flex-column align-items-center flex-grow-1">
+                        <label htmlFor="categoryFilter">Categories</label>
+                        <select
+                            id="categoryFilter"
+                            className="w-100"
+                            value={selectedCategories[0] || ""}
+                            onChange={(e) => setParam("category", e.target.value)}
+                        >
+                            <option value="">All</option>
+                            {categories.map(category => (
+                                <option key={category} value={category}>{category}</option>
+                            ))}
+                        </select>
+                    </div>
 
-                    <select
-                        value={selectedCategories[0] || ""}
-                        onChange={(e) => setParam("category", e.target.value)}
-                    >
-                        <option value="">Categories</option>
-                        {categories.map(category => (
-                            <option key={category} value={category}>{category}</option>
-                        ))}
-                    </select>
-
-                    <select
-                        value={sort}
-                        onChange={(e) => setParam("sort", e.target.value)}
-                    >
-                        <option value="">Sort</option>
-                        <option value="min">Price MIN</option>
-                        <option value="max">Price MAX</option>
-                    </select>
+                    <div className="d-flex flex-column align-items-center flex-grow-1">
+                        <label htmlFor="priceSort">Price</label>
+                        <select
+                            id="priceSort"
+                            className="w-100"
+                            value={sort}
+                            onChange={(e) => setParam("sort", e.target.value)}
+                        >
+                            <option value="">Sort</option>
+                            <option value="min">Price MIN</option>
+                            <option value="max">Price MAX</option>
+                        </select>
+                    </div>
 
                 </div>
 
