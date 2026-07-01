@@ -1,8 +1,10 @@
 import { useState } from "react";
 import api from "../services/api.js"
+import { useSearch } from "../../contexts/useSearch.jsx";
 
 function SearchBar({ onResults, onResetSearch }) {
-    const [query, setQuery] = useState("");
+    // const [query, setQuery] = useState("");
+    const { searchQuery, setSearchQuery } = useSearch();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [hasSearched, setHasSearched] = useState(false);
@@ -11,7 +13,7 @@ function SearchBar({ onResults, onResetSearch }) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const trimmedQuery = query.trim();
+        const trimmedQuery = searchQuery.trim();
 
         if (!trimmedQuery) {
             setHasSearched(false);
@@ -52,8 +54,8 @@ function SearchBar({ onResults, onResetSearch }) {
                     type="text"
                     className="form-control"
                     placeholder="Find product..."
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}
+                    value={searchQuery}
+                    onChange={(event) => setSearchQuery(event.target.value)}
                 />
             </form>
 

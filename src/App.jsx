@@ -11,31 +11,34 @@ import FavouritesPage from "./pages/FavouritesPage.jsx"
 import { CartProvider } from "./contexts/CartContext.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
+import { SearchProvider } from "./contexts/useSearch.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import ThankYouPage from "./pages/ThankYouPage.jsx";
 
 function App() {
   return <>
-    <CartProvider>
-      <FavouritesProvider>
-        <BrowserRouter>
-        <ScrollToTop/>
-          <Routes>
-            <Route path='/' element={<Layout />}>
-              <Route index element={<Homepage />} />
-              <Route path='products' element={<ProductsPage />} />
-              <Route path='products/:slug' element={<ProductDetail />} />
-              <Route path="favourites" element={<FavouritesPage />} />
-              <Route path="cart" element={<CartPage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-              <Route path="/thank-you" element={<ThankYouPage />} />
-              <Route path='*' element={<NotFound />} />
-              <Route path="/about" element={<AboutUs/>}/>
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </FavouritesProvider>
-    </CartProvider>
+    <SearchProvider>
+      <CartProvider>
+        <FavouritesProvider>
+          <BrowserRouter>
+            <ScrollToTop />
+            <Routes>
+              <Route path='/' element={<Layout />}>
+                <Route index element={<Homepage />} />
+                <Route path='products' element={<ProductsPage />} />
+                <Route path='products/:slug' element={<ProductDetail />} />
+                <Route path="favourites" element={<FavouritesPage />} />
+                <Route path="cart" element={<CartPage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/thank-you" element={<ThankYouPage />} />
+                <Route path='*' element={<NotFound />} />
+                <Route path="/about" element={<AboutUs />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </FavouritesProvider>
+      </CartProvider>
+    </SearchProvider>
   </>
 }
 export default App;

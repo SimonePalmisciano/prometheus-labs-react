@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import "../../styles/Navbar.css";
 import { FiSearch, FiHeart, FiShoppingCart, FiGlobe, FiSun, FiMenu, FiX } from "react-icons/fi";
 import { Link, useNavigate } from "react-router";
-import { useFavourites } from "../../contexts/FavouritesContext";
-import { useCart } from "../../contexts/CartContext";
+import { useFavourites } from "../../contexts/FavouritesContext.jsx";
+import { useCart } from "../../contexts/CartContext.jsx";
+import { useSearch } from "../../contexts/useSearch.jsx";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    const [navSearch, setNavSearch] = useState("");
+    // const [navSearch, setNavSearch] = useState("");
+    const { searchQuery, setSearchQuery } = useSearch();
     const { favourites } = useFavourites();
     const { cartCount } = useCart();
     const navigate = useNavigate();
 
     function handleNavSearch(e) {
-        if (e.key === "Enter" && navSearch.trim()) {
-            navigate(`/products?search=${encodeURIComponent(navSearch.trim())}`);
+        if (e.key === "Enter" && searchQuery.trim()) {
+            navigate(`/products`);
         }
     }
 
@@ -53,8 +55,8 @@ const Navbar = () => {
                     <FiSearch className="icon" />
                     <input
                         placeholder="Search powers..."
-                        value={navSearch}
-                        onChange={(e) => setNavSearch(e.target.value)}
+                        value={searchQuery}
+                        onChange={(event) => setSearchQuery(event.target.value)}
                         onKeyDown={handleNavSearch}
                     />
                 </div>
@@ -82,8 +84,8 @@ const Navbar = () => {
                 <FiSearch className="icon" />
                 <input
                     placeholder="Search powers..."
-                    value={navSearch}
-                    onChange={(e) => setNavSearch(e.target.value)}
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleNavSearch}
                 />
             </div>
@@ -97,8 +99,8 @@ const Navbar = () => {
                     <FiSearch className="icon" />
                     <input
                         placeholder="Search powers..."
-                        value={navSearch}
-                        onChange={(e) => setNavSearch(e.target.value)}
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                         onKeyDown={handleNavSearch}
                     />
                 </div>
