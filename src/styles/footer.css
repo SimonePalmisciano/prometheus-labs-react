@@ -108,3 +108,16 @@
     grid-template-columns: repeat(3, 1fr);
     }
 }
+
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+@media (max-width: 380px) {
+    .footer-content {
+        transform: scale(75%);
+    }
+}
