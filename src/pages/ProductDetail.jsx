@@ -216,7 +216,7 @@ function ProductDetail() {
 
             {/* RELATED PRODUCTS */}
             <div className="mt-5">
-                <h3 className="text-dark mb-3">Also Worth a Look</h3>
+                <h3 className="mb-3">Also Worth a Look</h3>
 
                 <div className="row">
                     {related
@@ -227,14 +227,14 @@ function ProductDetail() {
                                     to={`/products/${item.slug}`}
                                     className="text-decoration-none"
                                 >
-                                    <div className="card bg-dark text-light related-card">
+                                    <div className="look-card">
                                         <img
                                             src={`${API_URL}${item.imgMain}`}
                                             className="card-img-top"
                                             alt={item.name}
                                         />
-                                        <div className="card-body">
-                                            <h5 className="">{item.name}</h5>
+                                        <div className="card-body text-nowrap">
+                                            <h5 className="look-card-title">{item.name}</h5>
                                         </div>
                                     </div>
                                 </Link>
