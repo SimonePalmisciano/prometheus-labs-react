@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import "../styles/CheckoutPage.css";
 import { useCart } from "../contexts/CartContext";
 import validateCheckout from "../utils/validateCheckout";
 import api from "../services/api";
 
+
 export default function CheckoutPage() {
+    const navigate = useNavigate();
     const [billing, setBilling] = useState({
         firstName: "",
         lastName: "",
@@ -68,9 +71,9 @@ export default function CheckoutPage() {
 
         const cleanNumber = card.number.replace(/\s/g, "");
         if (cleanNumber === "4242424242424242") {
-            setPaymentStatus("success");
             sendOrder();
             clearCart();
+            navigate("/thank-you");
         } else {
             setPaymentStatus("error");
         }

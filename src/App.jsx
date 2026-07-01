@@ -12,6 +12,7 @@ import { CartProvider } from "./contexts/CartContext.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
+import ThankYouPage from "./pages/ThankYouPage.jsx";
 
 function App() {
   return <>
@@ -27,6 +28,7 @@ function App() {
               <Route path="favourites" element={<FavouritesPage />} />
               <Route path="cart" element={<CartPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/thank-you" element={<ThankYouPage />} />
               <Route path='*' element={<NotFound />} />
               <Route path="/about" element={<AboutUs/>}/>
             </Route>
