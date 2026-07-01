@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useCart } from "../../contexts/CartContext.jsx";
 import { API_URL } from "../../utils/utils.js";
 
@@ -7,13 +8,16 @@ function CartItemCard({ item }) {
 
     return (
         <div className="card mb-3">
+
             <div className="row g-0 align-items-center">
                 <div className="col-4 col-md-4">
-                    <img
-                        src={`${API_URL}${item.image}`}
-                        className="img-fluid rounded-start"
-                        alt={item.name}
-                    />
+                    <Link to={`/products/${item.slug}`}>
+                        <img
+                            src={`${API_URL}${item.image}`}
+                            className="img-fluid rounded-start"
+                            alt={item.name}
+                        />
+                    </Link>
                 </div>
 
                 <div className="col-8 col-md-8">
@@ -56,7 +60,7 @@ function CartItemCard({ item }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 
