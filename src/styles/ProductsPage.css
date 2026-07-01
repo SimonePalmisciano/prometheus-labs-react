@@ -73,22 +73,23 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 5px 12px;        
-    border-radius: 12px;    
+    padding: 5px 12px;
+    border-radius: 12px;
     background-color: #eebc93;
     border: 1px solid var(--orange-darker);
     cursor: pointer;
     transition: all 0.15s ease;
-    font-size: 16px;      
-    font-weight:550;
+    font-size: 16px;
+    font-weight: 550;
     line-height: 1;
     white-space: nowrap;
 }
 
-.compact-input{
+.compact-input {
     background-color: #eebc93;
     border: 1px solid var(--orange-darker) !important;
 }
+
 .category-chip:hover {
     background: var(--orange);
     border-color: var(--orange-darker);
@@ -114,14 +115,14 @@ body {
 .category-column {
     display: flex;
     flex-direction: column;
-    gap: 8px; 
+    gap: 8px;
 }
 
 
 
 .filters-row {
     display: flex;
-    align-items:flex-start;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 10px;
     flex-wrap: nowrap;
@@ -129,6 +130,7 @@ body {
     margin-top: 35px;
     margin-bottom: 35px;
 }
+
 .filters-row select,
 .filters-row input {
     min-width: 140px !important;
@@ -138,7 +140,7 @@ body {
     background: var(--purple);
     color: white;
     border: none;
-    border-radius: 6px; 
+    border-radius: 6px;
     padding: 4px 14px;
     font-weight: 600;
     transition: 0.2s ease;
@@ -148,15 +150,18 @@ body {
     background: purple;
     color: white;
 }
+
 .filters-row .form-label {
     margin-bottom: 4px;
     font-size: 0.9rem;
 }
+
 .category-chip.active {
     background: #4b3bb8;
     border-color: var(--orange-darker) !important;
 }
-.line{
+
+.line {
     border: none;
     height: 2px;
     width: 100%;
@@ -168,12 +173,72 @@ body {
     margin: 1.5rem 0;
     border-radius: 999px;
 }
+
 .filters-row-mobile {
     display: none;
 }
 
+.ios-switch-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    justify-content: center;
+}
+
+.switch-text {
+    font-size: 17px;
+    font-weight: 500;
+    color: #ac68b3;
+    transition: color 0.25s ease;
+}
+
+.switch-text.active {
+    color: purple;
+    font-weight: bold;
+}
+
+.ios-switch-track {
+    width: 52px;
+    height: 32px;
+    background: #e5e5ea;
+    border-radius: 16px;
+    position: relative;
+    transition: background 0.25s ease;
+}
+
+.ios-switch-track::after {
+    content: "";
+    width: 28px;
+    height: 28px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease;
+}
+
+.ios-switch-track.min {
+    background: #eebc93;
+}
+
+.ios-switch-track.min::after {
+    transform: translateX(0);
+}
+
+.ios-switch-track.max {
+    background: #eebc93;
+}
+
+.ios-switch-track.max::after {
+    transform: translateX(20px);
+}
+
 @media (max-width: 768px) {
-    .filters-row{
+    .filters-row {
         display: none;
     }
 
@@ -210,68 +275,15 @@ body {
         font-weight: 600;
         text-align: center;
     }
-    .search-btn{
+
+    .search-btn {
         width: 50px;
     }
 }
 
-
-
-.ios-switch-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-    user-select: none;
-    justify-content: center;
-}
-
-.switch-text {
-    font-size: 17px;
-    font-weight: 500;
-    color: #ac68b3; 
-    transition: color 0.25s ease;
-}
-
-.switch-text.active {
-    color: purple; 
-    font-weight: bold;
-}
-
-.ios-switch-track {
-    width: 52px;
-    height: 32px;
-    background: #e5e5ea;
-    border-radius: 16px;
-    position: relative;
-    transition: background 0.25s ease;
-}
-
-.ios-switch-track::after {
-    content: "";
-    width: 28px;
-    height: 28px;
-    background: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    transition: transform 0.25s ease;
-}
-
-.ios-switch-track.min {
-    background: #eebc93; 
-}
-
-.ios-switch-track.min::after {
-    transform: translateX(0);
-}
-
-.ios-switch-track.max {
-    background: #eebc93;
-}
-
-.ios-switch-track.max::after {
-    transform: translateX(20px);
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .category-columns {
+        flex-direction: column;
+        gap: 8px;
+    }
 }
