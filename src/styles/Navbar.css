@@ -48,7 +48,7 @@
 }
 
 .nav-center a:hover {
-  color: #ffffff;
+  color: #f56d32;
 }
 
 .nav-right {
@@ -85,7 +85,7 @@
 }
 
 .icon {
-  color: #bbb;
+  color: #ffffff;
   font-size: 18px;
 }
 
@@ -144,7 +144,7 @@
   overflow: hidden;
   max-height: 0;
 
-  background: rgba(156, 27, 199, 0.23);
+  background: rgba(156, 27, 199, 0.797);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
@@ -165,7 +165,8 @@
 }
 
 .mobile-menu a:hover {
-  color: #f56d32;
+  color: #ff8550;
+  backdrop-filter: blur(18px);
 }
 
 .mobile-menu.open {
