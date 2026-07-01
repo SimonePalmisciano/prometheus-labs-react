@@ -8,9 +8,11 @@
 .footer-content {
     max-width: 75rem;
     margin: 0 auto;
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr;
     gap: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .footer-brand h3 {
@@ -41,10 +43,13 @@
 .footer-nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    gap: 50px;
 }
 
 .footer-nav li {
     margin-bottom: 0.5rem;
+    text-wrap: nowrap;
 }
 
 .footer-nav a {
@@ -62,10 +67,14 @@
 .footer-social ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .footer-social li {
     margin-bottom: 0.5rem;
+    flex-basis: 20%;
 }
 
 .footer-social a {

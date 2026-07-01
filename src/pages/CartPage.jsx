@@ -21,9 +21,9 @@ function CartPage() {
                 </button>
             </div>
             {cartItems.length === 0 && <div className="container text-center">
-                <div className="alert alert-warning w-100 text-center">No products added to cart!</div>
+                <div className="alert bg-purlpler w-100 py-4">No products added to cart yet!</div>
                 <Link to="/">
-                    <button className='btn btn-warning'>Go to Homepage</button>
+                    <button className='btn btnHome mt-3'>Go to Homepage</button>
                 </Link>
             </div>}
             <div className="main-wrapper">
@@ -52,7 +52,7 @@ function CartPage() {
                         ))}
                     </div>
                 )}
-                <div className="text-start">
+                <div className="text-start mt-5">
                     <h5>TOTAL PRICE: € {cartTotal}</h5>
                 </div>
                 <div className="py-5">

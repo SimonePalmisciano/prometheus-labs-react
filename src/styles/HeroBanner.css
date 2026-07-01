@@ -108,12 +108,12 @@
 
 @media (max-width: 440px) {
   .hero-t-span {
-    font-size: 55px;
+    font-size: 25px;
     line-height: 90%;
   };
 
   .hero-banner {
-    background-image: url("/images/hero-banner-mobile.png");
+    background-image: url("/images/hero-banner-mobile2.png");
     background-position: bottom;
     background-size: cover;
     padding-top: 90px;
@@ -123,7 +123,7 @@
   }
 
   .hero-title {
-    font-size: 38px;
+    font-size: 30px;
     text-align: start;
     text-wrap: wrap;
     max-width: 200px;
