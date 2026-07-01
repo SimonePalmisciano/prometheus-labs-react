@@ -8,6 +8,17 @@ import useFavourites from "../hooks/useFavourites.js";
 import { useCart } from "../contexts/CartContext.jsx";
 import {utils, API_URL} from "../utils/utils.js";
 
+const CATEGORY_TEMPLATES = {
+    dailysuper: "/images/gallery-template-dailysuper.png",
+    powershot: "/images/gallery-template-powershot.png",
+    novamorph: "/images/gallery-template-novamorph.png",
+};
+const COMMON_TEMPLATE = "/images/gallery-template-common.png";
+
+function resolveImageSrc(image) {
+    return image.isStatic ? image.src : `${API_URL}${image.src}`;
+}
+
 function ProductDetail() {
     const { slug } = useParams();
     const { isFavourite, toggleFavourite } = useFavourites();
@@ -83,7 +94,12 @@ function ProductDetail() {
     if (loading) return <p className="text-center mt-5">Loading...</p>;
     if (error || !product) return <Navigate to="/404" replace />;
 
-    const galleryImages = [product.imgMain, (product.imgLifestyle) ? `${product.imgLifestyle}` : '', (product.imgKsp) ? `${product.imgKsp}` : ''].filter(Boolean);
+    const categoryTemplate = CATEGORY_TEMPLATES[product.categories?.[0]];
+    const galleryImages = [
+        { src: product.imgMain, isStatic: false },
+        categoryTemplate ? { src: categoryTemplate, isStatic: true } : null,
+        { src: COMMON_TEMPLATE, isStatic: true },
+    ].filter(Boolean);
 
     return (
         <div className="container my-4 product-detail-container">
@@ -96,18 +112,18 @@ function ProductDetail() {
 
                         {/* Thumbnails */}
                         <div className="col-2 d-flex flex-column gap-3">
-                            {galleryImages.map(image => {
+                            {galleryImages.map((image, index) => (
                                 <div
-                                    key={image.index}
-                                    className={`thumbnail-wrapper ${mainImage === `${API_URL}${image.imgUrl}` ? "selected" : ""}`}
-                                    onClick={() => setMainImage(`${API_URL}${image.imgUrl}`)}
+                                    key={index}
+                                    className={`thumbnail-wrapper ${mainImage === resolveImageSrc(image) ? "selected" : ""}`}
+                                    onClick={() => setMainImage(resolveImageSrc(image))}
                                 >
                                     <img
-                                        src={`${API_URL}${image.imgUrl}`}
-                                        alt={`${product.name} view ${image.index + 1}`}
+                                        src={resolveImageSrc(image)}
+                                        alt={`${product.name} view ${index + 1}`}
                                     />
                                 </div>
-                            })}
+                            ))}
                         </div>
 
                         {/* Main Image */}
