@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: space-around;
 
-  background: rgba(74, 47, 83, 0.566);
+  background: rgba(74, 47, 83, 0.708);
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -40,7 +40,7 @@
 }
 
 .nav-center a {
-  color: var(--purple);
+  color: #b0afb0;
   text-decoration: none;
   font-size: 20px;
   cursor: pointer;
@@ -178,7 +178,7 @@
 }
 
 .active-link {
-    color: #75029f !important;    
+    color: #f59f0bb3 !important;    
     font-weight: 500 !important;
 }
 
