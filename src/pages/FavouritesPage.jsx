@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import useFavourites from "../hooks/useFavourites.js";
 import ProductCard from "../components/Cards/ProductCard";
-
+import "../styles/FavoritesPage.css";
 
 function FavouritesPage() {
     const { favourites } = useFavourites();
@@ -12,9 +12,9 @@ function FavouritesPage() {
             <div className="title my-3">
                 <h1>Your Favourites ({favourites.length})</h1>
                 {favourites.length === 0 && <div className="container text-center">
-                    <div className="alert alert-warning w-100 text-center">You don't have any favorites saved yet!</div>
+                    <div className="alert text-center bg-purlpler">You don't have any favorites saved yet!</div>
                     <Link to="/">
-                        <button className='btn btn-warning'>go back to HomePage'</button>
+                        <button className={`btn btnHome`}>go back to HomePage'</button>
                     </Link>
                 </div>}
             </div>
