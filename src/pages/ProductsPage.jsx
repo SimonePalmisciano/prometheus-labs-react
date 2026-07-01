@@ -14,6 +14,7 @@ export default function ProductsPage() {
     const search = searchParams.get("search") ?? "";
     const categoryParam = searchParams.get("category") ?? "";
     const selectedCategories = categoryParam ? categoryParam.split(',') : [];
+    const isAllSelected = selectedCategories.length === 0;
     const sort = searchParams.get("sort") ?? "";
     const [searchInput, setSearchInput] = useState(searchParams.get("search") ?? "");
 
@@ -114,7 +115,20 @@ export default function ProductsPage() {
             price: product.price,
             image: product.imgMain,
         });
-    }
+    };
+
+    function toggleCategory(category) {
+        const isSelected = selectedCategories.includes(category);
+
+        let updatedList;
+        if (isSelected) {
+            updatedList = selectedCategories.filter(c => c !== category);
+        } else {
+            updatedList = [...selectedCategories, category];
+        }
+
+        setParam("category", updatedList.length ? updatedList.join(",") : "");
+    };
 
     return (
         <main className="container products-page">
@@ -134,26 +148,35 @@ export default function ProductsPage() {
                     />
                 </div>
 
-                <div className="mobile-row-2">
+                <div className="mobile-row-2 justify-content-between">
+                    <div className="d-flex flex-column align-items-center flex-grow-1">
+                        <label htmlFor="categoryFilter">Categories</label>
+                        <select
+                            id="categoryFilter"
+                            className="w-100"
+                            value={selectedCategories[0] || ""}
+                            onChange={(e) => setParam("category", e.target.value)}
+                        >
+                            <option value="">All</option>
+                            {categories.map(category => (
+                                <option key={category} value={category}>{category}</option>
+                            ))}
+                        </select>
+                    </div>
 
-                    <select
-                        value={selectedCategories[0] || ""}
-                        onChange={(e) => setParam("category", e.target.value)}
-                    >
-                        <option value="">Categories</option>
-                        {categories.map(category => (
-                            <option key={category} value={category}>{category}</option>
-                        ))}
-                    </select>
-
-                    <select
-                        value={sort}
-                        onChange={(e) => setParam("sort", e.target.value)}
-                    >
-                        <option value="">Sort</option>
-                        <option value="min">Price MIN</option>
-                        <option value="max">Price MAX</option>
-                    </select>
+                    <div className="d-flex flex-column align-items-center flex-grow-1">
+                        <label htmlFor="priceSort">Price</label>
+                        <select
+                            id="priceSort"
+                            className="w-100"
+                            value={sort}
+                            onChange={(e) => setParam("sort", e.target.value)}
+                        >
+                            <option value="">Sort</option>
+                            <option value="min">Price MIN</option>
+                            <option value="max">Price MAX</option>
+                        </select>
+                    </div>
 
                 </div>
 
@@ -199,6 +222,13 @@ export default function ProductsPage() {
                     <label className="form-label fw-bold fs-5 text-center">Categories</label>
 
                     <div className="category-columns">
+                        <div
+                            className={`category-chip ${isAllSelected ? "active" : ""}`}
+                            onClick={() => setParam("category", "")}
+                        >
+                            All
+                            {isAllSelected && <span className="checkmark">✓</span>}
+                        </div>
                         <div className="category-column">
                             {categories.slice(0, 2).map((category) => {
                                 const isSelected = selectedCategories.includes(category);
@@ -207,20 +237,7 @@ export default function ProductsPage() {
                                     <div
                                         key={category}
                                         className={`category-chip ${isSelected ? "active" : ""}`}
-                                        onClick={() => {
-                                            let updatedList;
-
-                                            if (!isSelected) {
-                                                updatedList = [...selectedCategories, category];
-                                            } else {
-                                                updatedList = selectedCategories.filter(c => c !== category);
-                                            }
-
-                                            setParam(
-                                                "category",
-                                                updatedList.length ? updatedList.join(",") : ""
-                                            );
-                                        }}
+                                        onClick={() => toggleCategory(category)}
                                     >
                                         {category}
                                         {isSelected && <span className="checkmark">✓</span>}
@@ -237,20 +254,7 @@ export default function ProductsPage() {
                                     <div
                                         key={category}
                                         className={`category-chip ${isSelected ? "active" : ""}`}
-                                        onClick={() => {
-                                            let updatedList;
-
-                                            if (!isSelected) {
-                                                updatedList = [...selectedCategories, category];
-                                            } else {
-                                                updatedList = selectedCategories.filter(c => c !== category);
-                                            }
-
-                                            setParam(
-                                                "category",
-                                                updatedList.length ? updatedList.join(",") : ""
-                                            );
-                                        }}
+                                        onClick={() => toggleCategory(category)}
                                     >
                                         {category}
                                         {isSelected && <span className="checkmark">✓</span>}
@@ -263,9 +267,6 @@ export default function ProductsPage() {
 
                 <div className="d-flex flex-column w-25 text-center gap-3">
                     <label className="form-label fw-bold fs-5 ">Sort</label>
-
-
-
                     <div className="ios-switch-container" onClick={() => {
                         const next = sort === "min" ? "max" : "min";
                         setParam("sort", next);
