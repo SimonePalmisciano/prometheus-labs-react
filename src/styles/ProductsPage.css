@@ -1,3 +1,8 @@
+body {
+    color: purple;
+}
+
+
 .products-page {
     padding-top: 40px;
     padding-bottom: 5rem;
@@ -70,8 +75,8 @@
     gap: 4px;
     padding: 5px 12px;        
     border-radius: 12px;    
-    background-color: #eeeefa;
-    border: 1px solid #4c3bb85d;
+    background-color: #eebc93;
+    border: 1px solid var(--orange-darker);
     cursor: pointer;
     transition: all 0.15s ease;
     font-size: 16px;      
@@ -81,17 +86,17 @@
 }
 
 .compact-input{
-    background-color: #eeeefa;
-    border: 1px solid #4c3bb85d;
+    background-color: #eebc93;
+    border: 1px solid var(--orange-darker) !important;
 }
 .category-chip:hover {
-    background: #f0f0ff;
-    border-color: #b9b9ff;
+    background: var(--orange);
+    border-color: var(--orange-darker);
 }
 
 .category-chip.active {
-    background: #6c63ff;
-    border-color: #6c63ff;
+    background: var(--orange) !important;
+    border-color: var(--orange-darker);
     color: white;
 }
 
@@ -130,7 +135,7 @@
 }
 
 .search-btn {
-    background: #301f6a;
+    background: var(--purple);
     color: white;
     border: none;
     border-radius: 6px; 
@@ -140,7 +145,7 @@
 }
 
 .search-btn:hover {
-    background: #5a23b8;
+    background: purple;
     color: white;
 }
 .filters-row .form-label {
@@ -149,7 +154,7 @@
 }
 .category-chip.active {
     background: #4b3bb8;
-    border-color: #4b3bb8;
+    border-color: var(--orange-darker) !important;
 }
 .line{
     border: none;
