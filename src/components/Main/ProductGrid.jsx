@@ -4,7 +4,7 @@ import styles from "../Cards/ProductCard.module.css";
 
 function ProductGrid({ title, products, lastProduct }) {
     return <>
-        <div className="my-5  row-gap-3">
+        <div className="mb-5  row-gap-3">
             <div className={`${styles.sectTitleBox}`}>
                 <h2 className={`${styles.sectionTitle}`}>{title}</h2>
             </div>
