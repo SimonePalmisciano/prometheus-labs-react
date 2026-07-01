@@ -11,10 +11,10 @@ export default function ChatWidget() {
     const [convHistory, setConvHistory] = useState([]);
     const messagesEndRef = useRef(null);
 
-    // gestione scroll auto verso ultimo msg
+    /* gestione scroll auto verso ultimo msg
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [convHistory]);
+    }, [convHistory]); */
 
     const submitHandler = async (event) => {
         event.preventDefault();
@@ -31,6 +31,10 @@ export default function ChatWidget() {
             ...prevHistory,
             { sender: 'You', text: currentPrompt }
         ]);
+
+        setTimeout(() => {
+            messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }, 0);
 
         setIsLoading(true);
 
