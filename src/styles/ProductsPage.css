@@ -214,3 +214,64 @@ body {
         width: 50px;
     }
 }
+
+
+
+.ios-switch-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    justify-content: center;
+}
+
+.switch-text {
+    font-size: 17px;
+    font-weight: 500;
+    color: #ac68b3; 
+    transition: color 0.25s ease;
+}
+
+.switch-text.active {
+    color: purple; 
+    font-weight: bold;
+}
+
+.ios-switch-track {
+    width: 52px;
+    height: 32px;
+    background: #e5e5ea;
+    border-radius: 16px;
+    position: relative;
+    transition: background 0.25s ease;
+}
+
+.ios-switch-track::after {
+    content: "";
+    width: 28px;
+    height: 28px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    transition: transform 0.25s ease;
+}
+
+.ios-switch-track.min {
+    background: #eebc93; 
+}
+
+.ios-switch-track.min::after {
+    transform: translateX(0);
+}
+
+.ios-switch-track.max {
+    background: #eebc93;
+}
+
+.ios-switch-track.max::after {
+    transform: translateX(20px);
+}

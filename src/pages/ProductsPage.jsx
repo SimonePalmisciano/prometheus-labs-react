@@ -262,16 +262,23 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="d-flex flex-column w-25 text-center gap-3">
-                    <label className="form-label fw-bold fs-5">Sort</label>
-                    <select
-                        value={sort}
-                        onChange={(e) => setParam("sort", e.target.value)}
-                        className="form-select rounded-4 compact-input"
-                    >
-                        <option value="">Sort by price</option>
-                        <option value="min">Price MIN</option>
-                        <option value="max">Price MAX</option>
-                    </select>
+                    <label className="form-label fw-bold fs-5 ">Sort</label>
+
+
+
+                    <div className="ios-switch-container" onClick={() => {
+                        const next = sort === "min" ? "max" : "min";
+                        setParam("sort", next);
+                    }}>
+                        <span className={`switch-text ${sort === "min" ? "active" : ""}`}>Price MIN</span>
+
+                        <div className={`ios-switch-track ${sort}`}></div>
+
+                        <span className={`switch-text ${sort === "max" ? "active" : ""}`}>Price MAX</span>
+                    </div>
+
+
+
                 </div>
 
 
