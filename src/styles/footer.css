@@ -3,7 +3,6 @@
     background-color: #0c0111;
     color: #fff;
     padding: 3rem 1.5rem;
-
 }
 
 .footer-content {
@@ -26,7 +25,8 @@
 }
 
 .footer-contacts h4,
-.footer-social h4 {
+.footer-social h4,
+.footer-nav h4 {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1rem;
@@ -38,24 +38,61 @@
     opacity: 0.85;
 }
 
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-nav a {
+    color: #fff;
+    opacity: 0.85;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer-nav a:hover {
+    opacity: 1;
+    color: #a855f7;
+}
+
 .footer-social ul {
     list-style: none;
     padding: 0;
-    }
+}
 
 .footer-social li {
     margin-bottom: 0.5rem;
 }
 
 .footer-social a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: #fff;
     opacity: 0.85;
+    text-decoration: none;
     transition: 0.3s ease;
+}
+
+.social-icon {
+    font-size: 22px;
+    color: #fff;
+    transition: 0.3s ease;
+    opacity: 0.85;
 }
 
 .footer-social a:hover {
     opacity: 1;
     color: #a855f7;
+}
+
+.footer-social a:hover .social-icon {
+    color: #a855f7;
+    opacity: 1;
 }
 
 .footer-bottom {
@@ -65,59 +102,14 @@
     font-size: 0.9rem;
 }
 
-.social-icon {
-    width: 20px;
-    height: 20px;
-    fill: #fff;
-    margin-right: 8px;
-    transition: 0.3s ease;
-    opacity: 0.85;
-}
-
-.footer-social a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #fff;
-    opacity: 0.85;
-    transition: 0.3s ease;
-}
-
-.footer-social a:hover {
-    opacity: 1;
-    color: #a855f7;
-}
-
-.footer-social a:hover .social-icon {
-    fill: #a855f7;
-    opacity: 1;
-}
-.footer-social a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #fff;
-    opacity: 0.85;
-    transition: 0.3s ease;
-    text-decoration: none;  
-}
-
-
 @media (min-width: 768px) {
     .footer-content {
-    grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
-}
-
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
 }
 
 @media (max-width: 380px) {
     .footer-content {
-        transform: scale(75%);
+        transform: scale(0.85);
     }
 }
