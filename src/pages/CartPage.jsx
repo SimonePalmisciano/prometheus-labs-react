@@ -16,7 +16,7 @@ function CartPage() {
             <h4 className="my-2">ITEMS IN THE CART ({cartCount})</h4>
 
             <div className="text-end my-2">
-                <button className="btn btn-danger" onClick={clearCart}>
+                <button className="btn clearCartBtn" onClick={clearCart}>
                     CLEAR CART
                 </button>
             </div>
@@ -59,7 +59,7 @@ function CartPage() {
                     <Link to="/checkout"
                         onClick={(e) => isCartEmpty && e.preventDefault()}
                         className={isCartEmpty ? "pointer-events-none" : ""}>
-                        <button className='btn btn-warning' disabled={isCartEmpty}>Checkout</button>
+                        <button className='clearCartBtn' disabled={isCartEmpty}>Checkout</button>
                     </Link>
                 </div>
             </div>

@@ -68,7 +68,6 @@
 .cardTitle {
     color: #2c127a;
     text-wrap: nowrap;
-   
     text-decoration: underline;
 }
 
@@ -352,12 +351,17 @@
     .productLast {
         min-height: 400px;
         width: 90%;
-        border: none;
-        border-radius: 0;
+        border: 4px outset #210d5ba5;
+        border-radius: 5px !important;
+    }
+
+    .productLast :global(.card) {
+        border-radius: 5px;
+        overflow: hidden;
     }
 
     .productLast img {
-        border: 4px outset #210d5ba5;
+
         border-radius: 5px;
     }
 
